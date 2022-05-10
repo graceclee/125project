@@ -1,0 +1,12 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# MS&E 125 Final Project
+## Grace, Chanse, Carlene, Katelin, Vlad
+
+```{r}
+library(tidyverse)
+```
+
