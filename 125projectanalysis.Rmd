@@ -9,4 +9,7 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 ```
+```{r}
+corporal_punishment <- read_csv("corporalpunishment.csv")
+```
 
