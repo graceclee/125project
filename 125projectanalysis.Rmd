@@ -10,3 +10,8 @@ output: html_notebook
 library(tidyverse)
 ```
 
+```{r}
+corporal_punishment <- read_csv("Corporal Punishment.csv")
+corporal_punishment <- corporal_punishment %>% filter(LEA_STATE == "CA")
+head(corporal_punishment,5)
+```
