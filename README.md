@@ -1,2 +1,1 @@
-# 125project
-"This here is a line from RStudio"
+# MS&E 125 Final Project
