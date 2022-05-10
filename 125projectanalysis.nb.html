@@ -224,28 +224,23 @@ pre code {
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
 <pre class="r"><code>library(tidyverse)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4wIOKUgOKUgFxu4pyTIGdncGxvdDIgMy4zLjMgICAgIOKckyBwdXJyciAgIDAuMy40XG7inJMgdGliYmxlICAzLjEuMCAgICAg4pyTIGRwbHlyICAgMS4wLjVcbuKckyB0aWR5ciAgIDEuMS4zICAgICDinJMgc3RyaW5nciAxLjQuMFxu4pyTIHJlYWRyICAgMS40LjAgICAgIOKckyBmb3JjYXRzIDAuNS4xXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG54IGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbnggZHBseXI6OmxhZygpICAgIG1hc2tzIHN0YXRzOjpsYWcoKVxuIn0= -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
-── Attaching packages ─────────────────────────────────────────── tidyverse 1.3.0 ──
-✓ ggplot2 3.3.3     ✓ purrr   0.3.4
-✓ tibble  3.1.0     ✓ dplyr   1.0.5
-✓ tidyr   1.1.3     ✓ stringr 1.4.0
-✓ readr   1.4.0     ✓ forcats 0.5.1
-── Conflicts ────────────────────────────────────────────── tidyverse_conflicts() ──
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ycG9yYWxfcHVuaXNobWVudCA8LSByZWFkX2NzdihcIkNvcnBvcmFsIFB1bmlzaG1lbnQuY3N2XCIpXG5jb3Jwb3JhbF9wdW5pc2htZW50IDwtIGNvcnBvcmFsX3B1bmlzaG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXCJDQVwiKVxuaGVhZChjb3Jwb3JhbF9wdW5pc2htZW50LDUpXG5gYGAifQ== -->
+<pre class="r"><code>corporal_punishment &lt;- read_csv(&quot;Corporal Punishment.csv&quot;)
+corporal_punishment &lt;- corporal_punishment %&gt;% filter(LEA_STATE == &quot;CA&quot;)
+head(corporal_punishment,5)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ycG9yYWxfcHVuaXNobWVudCA8LSByZWFkX2NzdihcIkNvcnBvcmFsIFB1bmlzaG1lbnQuY3N2XCIpXG5gYGAifQ== -->
 <pre class="r"><code>corporal_punishment &lt;- read_csv(&quot;Corporal Punishment.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgTEVBX1NUQVRFID0gY29sX2NoYXJhY3RlcigpLFxuICBMRUFfU1RBVEVfTkFNRSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgTEVBSUQgPSBjb2xfY2hhcmFjdGVyKCksXG4gIExFQV9OQU1FID0gY29sX2NoYXJhY3RlcigpLFxuICBTQ0hJRCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgU0NIX05BTUUgPSBjb2xfY2hhcmFjdGVyKCksXG4gIENPTUJPS0VZID0gY29sX2NoYXJhY3RlcigpLFxuICBKSiA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgU0NIX0NPUlBJTlNUQU5DRVNfSU5EID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgTEVBX1NUQVRFID0gY29sX2NoYXJhY3RlcigpLFxuICBMRUFfU1RBVEVfTkFNRSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgTEVBSUQgPSBjb2xfY2hhcmFjdGVyKCksXG4gIExFQV9OQU1FID0gY29sX2NoYXJhY3RlcigpLFxuICBTQ0hJRCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgU0NIX05BTUUgPSBjb2xfY2hhcmFjdGVyKCksXG4gIENPTUJPS0VZID0gY29sX2NoYXJhY3RlcigpLFxuICBKSiA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgU0NIX0NPUlBJTlNUQU5DRVNfSU5EID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
 <pre><code>
-── Column specification ──────────────────────────────
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
 cols(
   .default = col_double(),
   LEA_STATE = col_character(),
@@ -271,13 +266,34 @@ head(corporal_punishment,5)</code></pre>
   </script>
 </div>
 <!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JlZGl0X3JlY292ZXJ5IDwtIHJlYWRfY3N2KFwiQ3JlZGl0IFJlY292ZXJ5LmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>credit_recovery &lt;- read_csv(&quot;Credit Recovery.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICBMRUFfU1RBVEUgPSBjb2xfY2hhcmFjdGVyKCksXG4gIExFQV9TVEFURV9OQU1FID0gY29sX2NoYXJhY3RlcigpLFxuICBMRUFJRCA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgTEVBX05BTUUgPSBjb2xfY2hhcmFjdGVyKCksXG4gIFNDSElEID0gY29sX2NoYXJhY3RlcigpLFxuICBTQ0hfTkFNRSA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgQ09NQk9LRVkgPSBjb2xfY2hhcmFjdGVyKCksXG4gIEpKID0gY29sX2NoYXJhY3RlcigpLFxuICBTQ0hfQ1JFRElUUkVDT1ZFUllfSU5EID0gY29sX2NoYXJhY3RlcigpLFxuICBTQ0hfQ1JFRElUUkVDT1ZFUllFTlIgPSBjb2xfZG91YmxlKClcbilcbiJ9 -->
+<pre><code>
+── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
+cols(
+  LEA_STATE = col_character(),
+  LEA_STATE_NAME = col_character(),
+  LEAID = col_character(),
+  LEA_NAME = col_character(),
+  SCHID = col_character(),
+  SCH_NAME = col_character(),
+  COMBOKEY = col_character(),
+  JJ = col_character(),
+  SCH_CREDITRECOVERY_IND = col_character(),
+  SCH_CREDITRECOVERYENR = col_double()
+)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JlZGl0X3JlY292ZXJ5IDwtIGNyZWRpdF9yZWNvdmVyeSAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpXG5cblxuYGBgIn0= -->
+<pre class="r"><code>credit_recovery &lt;- credit_recovery %&gt;% filter(LEA_STATE == &quot;CA&quot;)
+</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBNUyZFIDEyNSBGaW5hbCBQcm9qZWN0CiMjIEdyYWNlLCBDaGFuc2UsIENhcmxlbmUsIEthdGVsaW4sIFZsYWQKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKYGBgCmBgYHtyfQpjb3Jwb3JhbF9wdW5pc2htZW50IDwtIHJlYWRfY3N2KCJDb3Jwb3JhbCBQdW5pc2htZW50LmNzdiIpCmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gY29ycG9yYWxfcHVuaXNobWVudCAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSAiQ0EiKQpoZWFkKGNvcnBvcmFsX3B1bmlzaG1lbnQsNSkKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBNUyZFIDEyNSBGaW5hbCBQcm9qZWN0CiMjIEdyYWNlLCBDaGFuc2UsIENhcmxlbmUsIEthdGVsaW4sIFZsYWQKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKYGBgCmBgYHtyfQpjb3Jwb3JhbF9wdW5pc2htZW50IDwtIHJlYWRfY3N2KCJDb3Jwb3JhbCBQdW5pc2htZW50LmNzdiIpCmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gY29ycG9yYWxfcHVuaXNobWVudCAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSAiQ0EiKQpoZWFkKGNvcnBvcmFsX3B1bmlzaG1lbnQsNSkKYGBgCgpgYGB7cn0KY29ycG9yYWxfcHVuaXNobWVudCA8LSByZWFkX2NzdigiQ29ycG9yYWwgUHVuaXNobWVudC5jc3YiKQpjb3Jwb3JhbF9wdW5pc2htZW50IDwtIGNvcnBvcmFsX3B1bmlzaG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikKaGVhZChjb3Jwb3JhbF9wdW5pc2htZW50LDUpCmNyZWRpdF9yZWNvdmVyeSA8LSByZWFkX2NzdigiQ3JlZGl0IFJlY292ZXJ5LmNzdiIpCmNyZWRpdF9yZWNvdmVyeSA8LSBjcmVkaXRfcmVjb3ZlcnkgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikKCgpgYGAK</div>
 
 
 

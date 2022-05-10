@@ -19,4 +19,8 @@ head(corporal_punishment,5)
 corporal_punishment <- read_csv("Corporal Punishment.csv")
 corporal_punishment <- corporal_punishment %>% filter(LEA_STATE == "CA")
 head(corporal_punishment,5)
+credit_recovery <- read_csv("Credit Recovery.csv")
+credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA")
+
+
 ```
