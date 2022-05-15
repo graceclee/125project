@@ -22,5 +22,8 @@ head(corporal_punishment,5)
 credit_recovery <- read_csv("Credit Recovery.csv")
 credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA")
 
+expenditures <- read_csv("School Expenditures.csv")
+expenditures <- expenditures %>% filter(LEA_STATE == "CA")
+head(expenditures)
 
 ```
