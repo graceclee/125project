@@ -29,9 +29,7 @@ d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% dr
 #head(d_enrollment,15)
 #summary(d_enrollment)
 
-#explusions <- read_csv("Explusions.csv")
-#explusions <- explusions %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
-#summary(explusions)
+
 
 expenditures <- read_csv("School Expenditures.csv")
 expenditures <- expenditures %>% filter(LEA_STATE == "CA") 
@@ -49,6 +47,14 @@ g_t <- read_csv("Gifted and Talented.csv")
 g_t <- g_t %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na() %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_GT_IND,SCH_GTENR_LEP_M,SCH_GTENR_LEP_F,SCH_GTENR_IDEA_M,SCH_GTENR_IDEA_F)
 summary(g_t)
 head(g_t,15)
+```
+
+
+```{r}
+getwd()
+explusions <- read_csv("Explusions.csv")
+explusions <- explusions %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+summary(explusions)
 ```
 
 ```{r}

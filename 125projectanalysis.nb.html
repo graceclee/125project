@@ -225,31 +225,15 @@ pre code {
 <h2>Grace, Chanse, Carlene, Katelin, Vlad</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxu4pSA4pSAIEF0dGFjaGluZyBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDEuMy4xIOKUgOKUgFxu4pyUIGdncGxvdDIgMy4zLjYgICAgIOKclCBwdXJyciAgIDAuMy40XG7inJQgdGliYmxlICAzLjEuNyAgICAg4pyUIGRwbHlyICAgMS4wLjlcbuKclCB0aWR5ciAgIDEuMi4wICAgICDinJQgc3RyaW5nciAxLjQuMFxu4pyUIHJlYWRyICAgMi4xLjIgICAgIOKclCBmb3JjYXRzIDAuNS4xXG7ilIDilIAgQ29uZmxpY3RzIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgCB0aWR5dmVyc2VfY29uZmxpY3RzKCkg4pSA4pSAXG7inJYgZHBseXI6OmZpbHRlcigpIG1hc2tzIHN0YXRzOjpmaWx0ZXIoKVxu4pyWIGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbiJ9 -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
-── Attaching packages ─────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
-✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.7     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
-✔ readr   2.1.2     ✔ forcats 0.5.1
-── Conflicts ────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmBgYCJ9 -->
-<pre class="r"><code>library(readr)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHJlYWRyKVxuYGBgIn0= -->
+<pre class="r"><code>library(tidyverse)
+library(readr)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ycG9yYWxfcHVuaXNobWVudCA8LSByZWFkX2NzdihcIkNvcnBvcmFsIFB1bmlzaG1lbnQuY3N2XCIpXG5jb3Jwb3JhbF9wdW5pc2htZW50IDwtIGNvcnBvcmFsX3B1bmlzaG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXCJDQVwiKSAlPiUgc2VsZWN0KExFQUlELExFQV9OQU1FLFNDSElELCBTQ0hfTkFNRSxDT01CT0tFWSxTQ0hfQ09SUElOU1RBTkNFU19JTkQsU0NIX0NPUlBJTlNUQU5DRVNfV0RJUyxTQ0hfQ09SUElOU1RBTkNFU19XT0RJUylcbmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gbmFfaWYoY29ycG9yYWxfcHVuaXNobWVudCwtOSlcbmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gY29ycG9yYWxfcHVuaXNobWVudCAlPiUgZHJvcF9uYSgpXG4jaGVhZChjb3Jwb3JhbF9wdW5pc2htZW50LDE1KVxuI3N1bW1hcnkoY29ycG9yYWxfcHVuaXNobWVudClcblxuY3JlZGl0X3JlY292ZXJ5IDwtIHJlYWRfY3N2KFwiQ3JlZGl0IFJlY292ZXJ5LmNzdlwiKVxuY3JlZGl0X3JlY292ZXJ5IDwtIGNyZWRpdF9yZWNvdmVyeSAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKClcbmhlYWQoY3JlZGl0X3JlY292ZXJ5LDE1KVxuc3VtbWFyeShjcmVkaXRfcmVjb3ZlcnkpXG5cbmRfZW5yb2xsbWVudCA8LSByZWFkX2NzdihcIkR1YWwgRW5yb2xsbWVudC5jc3ZcIilcbmRfZW5yb2xsbWVudCA8LSBkX2Vucm9sbG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXCJDQVwiKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpICU+JSBzZWxlY3QoTEVBSUQsTEVBX05BTUUsU0NISUQsIFNDSF9OQU1FLENPTUJPS0VZLFNDSF9EVUFMX0lORCxUT1RfRFVBTF9GLFRPVF9EVUFMX00sU0NIX0RVQUxFTlJfTEVQX0YsU0NIX0RVQUxFTlJfTEVQX00sU0NIX0RVQUxFTlJfSURFQV9GLFNDSF9EVUFMRU5SX0lERUFfTSlcbiNoZWFkKGRfZW5yb2xsbWVudCwxNSlcbiNzdW1tYXJ5KGRfZW5yb2xsbWVudClcblxuI2V4cGx1c2lvbnMgPC0gcmVhZF9jc3YoXCJFeHBsdXNpb25zLmNzdlwiKVxuI2V4cGx1c2lvbnMgPC0gZXhwbHVzaW9ucyAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKClcbiNzdW1tYXJ5KGV4cGx1c2lvbnMpXG5cbmV4cGVuZGl0dXJlcyA8LSByZWFkX2NzdihcIlNjaG9vbCBFeHBlbmRpdHVyZXMuY3N2XCIpXG5leHBlbmRpdHVyZXMgPC0gZXhwZW5kaXR1cmVzICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09IFwiQ0FcIikgXG4jaGVhZChleHBlbmRpdHVyZXMpXG5cblxub2ZmZW5zZXMgPC0gcmVhZF9jc3YoXCJPZmZlbnNlcy5jc3ZcIilcbm9mZmVuc2VzIDwtIG9mZmVuc2VzICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09IFwiQ0FcIikgXG4jb2ZmZW5zZXMgPC0gbmFfaWYob2ZmZW5zZXMsLTkpXG5oZWFkKG9mZmVuc2VzLDEwKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ycG9yYWxfcHVuaXNobWVudCA8LSByZWFkX2NzdihcIkNvcnBvcmFsIFB1bmlzaG1lbnQuY3N2XCIpXG5jb3Jwb3JhbF9wdW5pc2htZW50IDwtIGNvcnBvcmFsX3B1bmlzaG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXCJDQVwiKSAlPiUgc2VsZWN0KExFQUlELExFQV9OQU1FLFNDSElELCBTQ0hfTkFNRSxDT01CT0tFWSxTQ0hfQ09SUElOU1RBTkNFU19JTkQsU0NIX0NPUlBJTlNUQU5DRVNfV0RJUyxTQ0hfQ09SUElOU1RBTkNFU19XT0RJUylcbmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gbmFfaWYoY29ycG9yYWxfcHVuaXNobWVudCwtOSlcbmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gY29ycG9yYWxfcHVuaXNobWVudCAlPiUgZHJvcF9uYSgpXG4jaGVhZChjb3Jwb3JhbF9wdW5pc2htZW50LDE1KVxuI3N1bW1hcnkoY29ycG9yYWxfcHVuaXNobWVudClcblxuY3JlZGl0X3JlY292ZXJ5IDwtIHJlYWRfY3N2KFwiQ3JlZGl0IFJlY292ZXJ5LmNzdlwiKVxuY3JlZGl0X3JlY292ZXJ5IDwtIGNyZWRpdF9yZWNvdmVyeSAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKClcbmhlYWQoY3JlZGl0X3JlY292ZXJ5LDE1KVxuc3VtbWFyeShjcmVkaXRfcmVjb3ZlcnkpXG5cbmRfZW5yb2xsbWVudCA8LSByZWFkX2NzdihcIkR1YWwgRW5yb2xsbWVudC5jc3ZcIilcbmRfZW5yb2xsbWVudCA8LSBkX2Vucm9sbG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXCJDQVwiKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpICU+JSBzZWxlY3QoTEVBSUQsTEVBX05BTUUsU0NISUQsIFNDSF9OQU1FLENPTUJPS0VZLFNDSF9EVUFMX0lORCxUT1RfRFVBTF9GLFRPVF9EVUFMX00sU0NIX0RVQUxFTlJfTEVQX0YsU0NIX0RVQUxFTlJfTEVQX00sU0NIX0RVQUxFTlJfSURFQV9GLFNDSF9EVUFMRU5SX0lERUFfTSlcbiNoZWFkKGRfZW5yb2xsbWVudCwxNSlcbiNzdW1tYXJ5KGRfZW5yb2xsbWVudClcblxuXG5cbmV4cGVuZGl0dXJlcyA8LSByZWFkX2NzdihcIlNjaG9vbCBFeHBlbmRpdHVyZXMuY3N2XCIpXG5leHBlbmRpdHVyZXMgPC0gZXhwZW5kaXR1cmVzICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09IFwiQ0FcIikgXG4jaGVhZChleHBlbmRpdHVyZXMpXG5cblxub2ZmZW5zZXMgPC0gcmVhZF9jc3YoXCJPZmZlbnNlcy5jc3ZcIilcbm9mZmVuc2VzIDwtIG9mZmVuc2VzICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09IFwiQ0FcIikgXG4jb2ZmZW5zZXMgPC0gbmFfaWYob2ZmZW5zZXMsLTkpXG5oZWFkKG9mZmVuc2VzLDEwKVxuYGBgIn0= -->
 <pre class="r"><code>corporal_punishment &lt;- read_csv(&quot;Corporal Punishment.csv&quot;)
 corporal_punishment &lt;- corporal_punishment %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_CORPINSTANCES_IND,SCH_CORPINSTANCES_WDIS,SCH_CORPINSTANCES_WODIS)
 corporal_punishment &lt;- na_if(corporal_punishment,-9)
@@ -267,9 +251,7 @@ d_enrollment &lt;- d_enrollment %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;
 #head(d_enrollment,15)
 #summary(d_enrollment)
 
-#explusions &lt;- read_csv(&quot;Explusions.csv&quot;)
-#explusions &lt;- explusions %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na()
-#summary(explusions)
+
 
 expenditures &lt;- read_csv(&quot;School Expenditures.csv&quot;)
 expenditures &lt;- expenditures %&gt;% filter(LEA_STATE == &quot;CA&quot;) 
@@ -285,12 +267,77 @@ head(offenses,10)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ190IDwtIHJlYWRfY3N2KFwiR2lmdGVkIGFuZCBUYWxlbnRlZC5jc3ZcIilcbmdfdCA8LSBnX3QgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXCJDQVwiKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpICU+JSBzZWxlY3QoTEVBSUQsTEVBX05BTUUsU0NISUQsIFNDSF9OQU1FLENPTUJPS0VZLFNDSF9HVF9JTkQsU0NIX0dURU5SX0xFUF9NLFNDSF9HVEVOUl9MRVBfRixTQ0hfR1RFTlJfSURFQV9NLFNDSF9HVEVOUl9JREVBX0YpXG5zdW1tYXJ5KGdfdClcbmhlYWQoZ190LDE1KVxuYGBgIn0= -->
-<pre class="r"><code>g_t &lt;- read_csv(&quot;Gifted and Talented.csv&quot;)
-g_t &lt;- g_t %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na() %&gt;% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_GT_IND,SCH_GTENR_LEP_M,SCH_GTENR_LEP_F,SCH_GTENR_IDEA_M,SCH_GTENR_IDEA_F)
-summary(g_t)
-head(g_t,15)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ190IDwtIHJlYWRfY3N2KFwiR2lmdGVkIGFuZCBUYWxlbnRlZC5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>g_t &lt;- read_csv(&quot;Gifted and Talented.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogOTc2MzIgQ29sdW1uczogMjnilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5EZWxpbWl0ZXI6IFwiLFwiXG5jaHIgICg5KTogTEVBX1NUQVRFLCBMRUFfU1RBVEVfTkFNRSwgTEVBSUQsIExFQV9OQU1FLCBTQ0hJRCwgUy4uLlxuZGJsICgyMCk6IFNDSF9HVEVOUl9ISV9NLCBTQ0hfR1RFTlJfSElfRiwgU0NIX0dURU5SX0FNX00sIFNDSF8uLi5cbuKEuSBVc2UgYHNwZWMoKWAgdG8gcmV0cmlldmUgdGhlIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb24gZm9yIHRoaXMgZGF0YS5cbuKEuSBTcGVjaWZ5IHRoZSBjb2x1bW4gdHlwZXMgb3Igc2V0IGBzaG93X2NvbF90eXBlcyA9IEZBTFNFYCB0byBxdWlldCB0aGlzIG1lc3NhZ2UuXG4ifQ== -->
+<pre><code>Rows: 97632 Columns: 29── Column specification ──────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr  (9): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, S...
+dbl (20): SCH_GTENR_HI_M, SCH_GTENR_HI_F, SCH_GTENR_AM_M, SCH_...
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ190IDwtIGdfdCAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKCkgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0dUX0lORCxTQ0hfR1RFTlJfTEVQX00sU0NIX0dURU5SX0xFUF9GLFNDSF9HVEVOUl9JREVBX00sU0NIX0dURU5SX0lERUFfRilcbnN1bW1hcnkoZ190KVxuYGBgIn0= -->
+<pre class="r"><code>g_t &lt;- g_t %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na() %&gt;% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_GT_IND,SCH_GTENR_LEP_M,SCH_GTENR_LEP_F,SCH_GTENR_IDEA_M,SCH_GTENR_IDEA_F)
+summary(g_t)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIExFQUlEICAgICAgICAgICAgIExFQV9OQU1FICAgICAgICAgICAgU0NISUQgICAgICAgICAgXG4gTGVuZ3RoOjU0NzkgICAgICAgIExlbmd0aDo1NDc5ICAgICAgICBMZW5ndGg6NTQ3OSAgICAgICBcbiBDbGFzcyA6Y2hhcmFjdGVyICAgQ2xhc3MgOmNoYXJhY3RlciAgIENsYXNzIDpjaGFyYWN0ZXIgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICBNb2RlICA6Y2hhcmFjdGVyICAgTW9kZSAgOmNoYXJhY3RlciAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICBTQ0hfTkFNRSAgICAgICAgICAgQ09NQk9LRVkgICAgICAgICAgU0NIX0dUX0lORCAgICAgICBcbiBMZW5ndGg6NTQ3OSAgICAgICAgTGVuZ3RoOjU0NzkgICAgICAgIExlbmd0aDo1NDc5ICAgICAgIFxuIENsYXNzIDpjaGFyYWN0ZXIgICBDbGFzcyA6Y2hhcmFjdGVyICAgQ2xhc3MgOmNoYXJhY3RlciAgXG4gTW9kZSAgOmNoYXJhY3RlciAgIE1vZGUgIDpjaGFyYWN0ZXIgICBNb2RlICA6Y2hhcmFjdGVyICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiBTQ0hfR1RFTlJfTEVQX00gICBTQ0hfR1RFTlJfTEVQX0YgICBTQ0hfR1RFTlJfSURFQV9NXG4gTWluLiAgIDogMC4wMDAwICAgTWluLiAgIDogMC4wMDAwICAgTWluLiAgIDogMC4wMDAgIFxuIDFzdCBRdS46IDAuMDAwMCAgIDFzdCBRdS46IDAuMDAwMCAgIDFzdCBRdS46IDAuMDAwICBcbiBNZWRpYW4gOiAwLjAwMDAgICBNZWRpYW4gOiAwLjAwMDAgICBNZWRpYW4gOiAwLjAwMCAgXG4gTWVhbiAgIDogMC44OTA3ICAgTWVhbiAgIDogMC42NzY4ICAgTWVhbiAgIDogMS4wNDggIFxuIDNyZCBRdS46IDEuMDAwMCAgIDNyZCBRdS46IDAuMDAwMCAgIDNyZCBRdS46IDEuMDAwICBcbiBNYXguICAgOjUwLjAwMDAgICBNYXguICAgOjM3LjAwMDAgICBNYXguICAgOjcxLjAwMCAgXG4gU0NIX0dURU5SX0lERUFfRiBcbiBNaW4uICAgOiAwLjAwMDAgIFxuIDFzdCBRdS46IDAuMDAwMCAgXG4gTWVkaWFuIDogMC4wMDAwICBcbiBNZWFuICAgOiAwLjM2NTIgIFxuIDNyZCBRdS46IDAuMDAwMCAgXG4gTWF4LiAgIDozMC4wMDAwICBcbiJ9 -->
+<pre><code>    LEAID             LEA_NAME            SCHID          
+ Length:5479        Length:5479        Length:5479       
+ Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character  
+                                                         
+                                                         
+                                                         
+   SCH_NAME           COMBOKEY          SCH_GT_IND       
+ Length:5479        Length:5479        Length:5479       
+ Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character  
+                                                         
+                                                         
+                                                         
+ SCH_GTENR_LEP_M   SCH_GTENR_LEP_F   SCH_GTENR_IDEA_M
+ Min.   : 0.0000   Min.   : 0.0000   Min.   : 0.000  
+ 1st Qu.: 0.0000   1st Qu.: 0.0000   1st Qu.: 0.000  
+ Median : 0.0000   Median : 0.0000   Median : 0.000  
+ Mean   : 0.8907   Mean   : 0.6768   Mean   : 1.048  
+ 3rd Qu.: 1.0000   3rd Qu.: 0.0000   3rd Qu.: 1.000  
+ Max.   :50.0000   Max.   :37.0000   Max.   :71.000  
+ SCH_GTENR_IDEA_F 
+ Min.   : 0.0000  
+ 1st Qu.: 0.0000  
+ Median : 0.0000  
+ Mean   : 0.3652  
+ 3rd Qu.: 0.0000  
+ Max.   :30.0000  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChnX3QsMTUpXG5gYGAifQ== -->
+<pre class="r"><code>head(g_t,15)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTUsIm5jb2wiOjEwLCJzdW1tYXJ5Ijp7IkEgdGliYmxlIjpbIjE1IMOXIDEwIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQSsxV1cxUGFRQlJlMFZSTlZheGFSMmY2a0Q4QWs4Z2w4bFFROERJVmRmQlNmV0pXV0dHSGRlTXNZYXh2L2NudEg1QnVZRGZaSktUU3QwNm5tUW5zOTMzbjVKeVRmTGswYTdjNS9WWUhBTXlEaFJULzFmZ1NhTmRYaDVsOU1HYkFIRmdBeTk3L055NXY4b1VYdmM3M3RCQVd6YUxKTnlzRXJkeS9BTU9EN2xUYXJrTXpsZTRRR3JVaGFTUGptdUlIakRwQ1R6ZWRkcDlnK3AvK2N6cDhwald6bE0vbmZXRHVtd1VmN09VVmtDdllsZytLbGwzMHdmNWVJUVRzQUJRS3VRRFl4UkFJaXBiTVlra0J0aW1CWmU2cG9HRDc3VmlXYVpZaW83dy94dDJlVVVNRHhGeEI3VmFvaTRqemhJd3FRNmh2MUFsNlJOU0Y3RVVFck1pejQrVUtidjJBeDlJcHNUZVl1NUs5cUxGYlY4ODgrUnoyQi9INHpTTUdLWGJSUkc3Z1RvY2dJVzFjUGpGTXU4WU5SczloWmZzR0VvSmVKa3Jza0I4dU1XSU14b1hkQzhqNmlCbGZlOWlsUEQwV3NDRUhqU25iVmVmK25xQUJ2K0ZRWFAzbzVTV2R2WTNtc05lSEpOUlArSnFzaUNlVzZySVZjYytyWnZNNXhYTStwMWpQNXhRSCtweGlSSld6WTF4Z3k0QUwzS2x5c1o0VnJ5cWM3MUxKcWM0TnVNREFQamZGeC9OM2FQQVhMd0ZZODVyOS9BUE10Q1hGbFJOd2xKK3lqZXVYZDJhcm45VFBySDBsMVkvbGZmcDl2ZkxXYlAzSXVIS0NubGgvUFJZM3RjNWIyOXR4b1c4VmpjTEhzU204OHJva1QrdVZrNW9BU3h5MHppcU51aFF2cThlQnlJRXFMbFhQR3dmblgrcDNBdXVlZm5UVk9qbVRHZWtKVXo5cnRrN3JGNjNHZFBwUVBzc0QrcVRHKzJnazhJZVJzWmFaODV5Vm82M3lQZldkLzR4R281L1IrZHNFRHVUOGt0UTcwSVhaQjhiek9YcU5wQ3c2VHk1MktFOUtlUjk1V2lSNWprV0k5SkI2blhReTdkNlE5ak1XbUh3WXpvbkxzU3JXYVdXdFQwcW1SdUpRbWpqVU8wUzdtTXAzalViZ1BTSUNyUEdKeHdObnZWZVRmSUhxbkIxa1hjZUZNazV2TzBReTQ5bkE2eThjb0VUYjJ3b0FBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["LEAID"],"name":[1],"type":["chr"],"align":["left"]},{"label":["LEA_NAME"],"name":[2],"type":["chr"],"align":["left"]},{"label":["SCHID"],"name":[3],"type":["chr"],"align":["left"]},{"label":["SCH_NAME"],"name":[4],"type":["chr"],"align":["left"]},{"label":["COMBOKEY"],"name":[5],"type":["chr"],"align":["left"]},{"label":["SCH_GT_IND"],"name":[6],"type":["chr"],"align":["left"]},{"label":["SCH_GTENR_LEP_M"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["SCH_GTENR_LEP_F"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["SCH_GTENR_IDEA_M"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["SCH_GTENR_IDEA_F"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"0600001","2":"Acton-Agua Dulce Unified","3":"09444","4":"High Desert","5":"060000109444","6":"Yes","7":"1","8":"6","9":"0","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"00805","4":"Antelope Creek Elementary","5":"060001300805","6":"Yes","7":"0","8":"0","9":"0","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"02405","4":"Rocklin High","5":"060001302405","6":"Yes","7":"0","8":"0","9":"7","10":"4"},{"1":"0600013","2":"Rocklin Unified","3":"03571","4":"Breen Elementary","5":"060001303571","6":"Yes","7":"0","8":"0","9":"0","10":"1"},{"1":"0600013","2":"Rocklin Unified","3":"06176","4":"Victory High","5":"060001306176","6":"Yes","7":"0","8":"0","9":"0","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"08256","4":"Twin Oaks Elementary","5":"060001308256","6":"Yes","7":"1","8":"0","9":"1","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"08257","4":"Granite Oaks Middle","5":"060001308257","6":"Yes","7":"0","8":"0","9":"5","10":"1"},{"1":"0600013","2":"Rocklin Unified","3":"08553","4":"Spring View Middle","5":"060001308553","6":"Yes","7":"0","8":"1","9":"0","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"08763","4":"Valley View Elementary","5":"060001308763","6":"Yes","7":"2","8":"1","9":"0","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"08764","4":"Sierra Elementary","5":"060001308764","6":"Yes","7":"0","8":"0","9":"1","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"09069","4":"Parker Whitney Elementary","5":"060001309069","6":"Yes","7":"2","8":"0","9":"1","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"09070","4":"Rocklin Elementary","5":"060001309070","6":"Yes","7":"2","8":"2","9":"5","10":"1"},{"1":"0600013","2":"Rocklin Unified","3":"10270","4":"Cobblestone Elementary","5":"060001310270","6":"Yes","7":"0","8":"0","9":"2","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"10575","4":"Rock Creek Elementary","5":"060001310575","6":"Yes","7":"0","8":"0","9":"1","10":"0"},{"1":"0600013","2":"Rocklin Unified","3":"11009","4":"Ruhkala Elementary","5":"060001311009","6":"Yes","7":"0","8":"0","9":"1","10":"0"}],"options":{"columns":{"min":{},"max":[10],"total":[10]},"rows":{"min":[10],"max":[10],"total":[15]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2V0d2QoKVxuYGBgIn0= -->
+<pre class="r"><code>getwd()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiL1VzZXJzL2dyYWNlbGVlL0Rlc2t0b3AvMTI1cHJvamVjdFwiXG4ifQ== -->
+<pre><code>[1] &quot;/Users/gracelee/Desktop/125project&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwbHVzaW9ucyA8LSByZWFkX2NzdihcIkV4cGx1c2lvbnMuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>explusions &lt;- read_csv(&quot;Explusions.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6ICdFeHBsdXNpb25zLmNzdicgZG9lcyBub3QgZXhpc3QgaW4gY3VycmVudCB3b3JraW5nIGRpcmVjdG9yeSAoJy9Vc2Vycy9ncmFjZWxlZS9EZXNrdG9wLzEyNXByb2plY3QnKS5cbiJ9 -->
+<pre><code>Error: &#39;Explusions.csv&#39; does not exist in current working directory (&#39;/Users/gracelee/Desktop/125project&#39;).</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -317,7 +364,7 @@ head(IB,15)</code></pre>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBNUyZFIDEyNSBGaW5hbCBQcm9qZWN0CiMjIEdyYWNlLCBDaGFuc2UsIENhcmxlbmUsIEthdGVsaW4sIFZsYWQKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShyZWFkcikKYGBgCgpgYGB7cn0KY29ycG9yYWxfcHVuaXNobWVudCA8LSByZWFkX2NzdigiQ29ycG9yYWwgUHVuaXNobWVudC5jc3YiKQpjb3Jwb3JhbF9wdW5pc2htZW50IDwtIGNvcnBvcmFsX3B1bmlzaG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0NPUlBJTlNUQU5DRVNfSU5ELFNDSF9DT1JQSU5TVEFOQ0VTX1dESVMsU0NIX0NPUlBJTlNUQU5DRVNfV09ESVMpCmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gbmFfaWYoY29ycG9yYWxfcHVuaXNobWVudCwtOSkKY29ycG9yYWxfcHVuaXNobWVudCA8LSBjb3Jwb3JhbF9wdW5pc2htZW50ICU+JSBkcm9wX25hKCkKI2hlYWQoY29ycG9yYWxfcHVuaXNobWVudCwxNSkKI3N1bW1hcnkoY29ycG9yYWxfcHVuaXNobWVudCkKCmNyZWRpdF9yZWNvdmVyeSA8LSByZWFkX2NzdigiQ3JlZGl0IFJlY292ZXJ5LmNzdiIpCmNyZWRpdF9yZWNvdmVyeSA8LSBjcmVkaXRfcmVjb3ZlcnkgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKQpoZWFkKGNyZWRpdF9yZWNvdmVyeSwxNSkKc3VtbWFyeShjcmVkaXRfcmVjb3ZlcnkpCgpkX2Vucm9sbG1lbnQgPC0gcmVhZF9jc3YoIkR1YWwgRW5yb2xsbWVudC5jc3YiKQpkX2Vucm9sbG1lbnQgPC0gZF9lbnJvbGxtZW50ICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09ICJDQSIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKCkgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0RVQUxfSU5ELFRPVF9EVUFMX0YsVE9UX0RVQUxfTSxTQ0hfRFVBTEVOUl9MRVBfRixTQ0hfRFVBTEVOUl9MRVBfTSxTQ0hfRFVBTEVOUl9JREVBX0YsU0NIX0RVQUxFTlJfSURFQV9NKQojaGVhZChkX2Vucm9sbG1lbnQsMTUpCiNzdW1tYXJ5KGRfZW5yb2xsbWVudCkKCiNleHBsdXNpb25zIDwtIHJlYWRfY3N2KCJFeHBsdXNpb25zLmNzdiIpCiNleHBsdXNpb25zIDwtIGV4cGx1c2lvbnMgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKQojc3VtbWFyeShleHBsdXNpb25zKQoKZXhwZW5kaXR1cmVzIDwtIHJlYWRfY3N2KCJTY2hvb2wgRXhwZW5kaXR1cmVzLmNzdiIpCmV4cGVuZGl0dXJlcyA8LSBleHBlbmRpdHVyZXMgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgCiNoZWFkKGV4cGVuZGl0dXJlcykKCgpvZmZlbnNlcyA8LSByZWFkX2NzdigiT2ZmZW5zZXMuY3N2IikKb2ZmZW5zZXMgPC0gb2ZmZW5zZXMgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgCiNvZmZlbnNlcyA8LSBuYV9pZihvZmZlbnNlcywtOSkKaGVhZChvZmZlbnNlcywxMCkKYGBgCgpgYGB7cn0KZ190IDwtIHJlYWRfY3N2KCJHaWZ0ZWQgYW5kIFRhbGVudGVkLmNzdiIpCmdfdCA8LSBnX3QgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKSAlPiUgc2VsZWN0KExFQUlELExFQV9OQU1FLFNDSElELCBTQ0hfTkFNRSxDT01CT0tFWSxTQ0hfR1RfSU5ELFNDSF9HVEVOUl9MRVBfTSxTQ0hfR1RFTlJfTEVQX0YsU0NIX0dURU5SX0lERUFfTSxTQ0hfR1RFTlJfSURFQV9GKQpzdW1tYXJ5KGdfdCkKaGVhZChnX3QsMTUpCmBgYAoKYGBge3J9CklCIDwtIHJlYWRfY3N2KCJJbnRlcm5hdGlvbmFsIEJhY2NhbGF1cmVhdGUuY3N2IikKSUIgPC0gSUIgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKSAlPiUgc2VsZWN0KExFQUlELExFQV9OQU1FLFNDSElELCBTQ0hfTkFNRSxDT01CT0tFWSxTQ0hfSUJFTlJfSU5ELFNDSF9JQkVOUl9MRVBfTSxTQ0hfSUJFTlJfTEVQX0YsU0NIX0lCRU5SX0lERUFfTSxTQ0hfSUJFTlJfSURFQV9GKQpzdW1tYXJ5KElCKQpoZWFkKElCLDE1KQpgYGAKCmBgYHtyfQpjb2xsZWdlX2dvaW5nID0gcmVhZF90YWJsZShjb2xsZWdlZ29pbmcudHh0KQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBNUyZFIDEyNSBGaW5hbCBQcm9qZWN0CiMjIEdyYWNlLCBDaGFuc2UsIENhcmxlbmUsIEthdGVsaW4sIFZsYWQKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShyZWFkcikKYGBgCgpgYGB7cn0KY29ycG9yYWxfcHVuaXNobWVudCA8LSByZWFkX2NzdigiQ29ycG9yYWwgUHVuaXNobWVudC5jc3YiKQpjb3Jwb3JhbF9wdW5pc2htZW50IDwtIGNvcnBvcmFsX3B1bmlzaG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0NPUlBJTlNUQU5DRVNfSU5ELFNDSF9DT1JQSU5TVEFOQ0VTX1dESVMsU0NIX0NPUlBJTlNUQU5DRVNfV09ESVMpCmNvcnBvcmFsX3B1bmlzaG1lbnQgPC0gbmFfaWYoY29ycG9yYWxfcHVuaXNobWVudCwtOSkKY29ycG9yYWxfcHVuaXNobWVudCA8LSBjb3Jwb3JhbF9wdW5pc2htZW50ICU+JSBkcm9wX25hKCkKI2hlYWQoY29ycG9yYWxfcHVuaXNobWVudCwxNSkKI3N1bW1hcnkoY29ycG9yYWxfcHVuaXNobWVudCkKCmNyZWRpdF9yZWNvdmVyeSA8LSByZWFkX2NzdigiQ3JlZGl0IFJlY292ZXJ5LmNzdiIpCmNyZWRpdF9yZWNvdmVyeSA8LSBjcmVkaXRfcmVjb3ZlcnkgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKQpoZWFkKGNyZWRpdF9yZWNvdmVyeSwxNSkKc3VtbWFyeShjcmVkaXRfcmVjb3ZlcnkpCgpkX2Vucm9sbG1lbnQgPC0gcmVhZF9jc3YoIkR1YWwgRW5yb2xsbWVudC5jc3YiKQpkX2Vucm9sbG1lbnQgPC0gZF9lbnJvbGxtZW50ICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09ICJDQSIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKCkgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0RVQUxfSU5ELFRPVF9EVUFMX0YsVE9UX0RVQUxfTSxTQ0hfRFVBTEVOUl9MRVBfRixTQ0hfRFVBTEVOUl9MRVBfTSxTQ0hfRFVBTEVOUl9JREVBX0YsU0NIX0RVQUxFTlJfSURFQV9NKQojaGVhZChkX2Vucm9sbG1lbnQsMTUpCiNzdW1tYXJ5KGRfZW5yb2xsbWVudCkKCgoKZXhwZW5kaXR1cmVzIDwtIHJlYWRfY3N2KCJTY2hvb2wgRXhwZW5kaXR1cmVzLmNzdiIpCmV4cGVuZGl0dXJlcyA8LSBleHBlbmRpdHVyZXMgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgCiNoZWFkKGV4cGVuZGl0dXJlcykKCgpvZmZlbnNlcyA8LSByZWFkX2NzdigiT2ZmZW5zZXMuY3N2IikKb2ZmZW5zZXMgPC0gb2ZmZW5zZXMgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgCiNvZmZlbnNlcyA8LSBuYV9pZihvZmZlbnNlcywtOSkKaGVhZChvZmZlbnNlcywxMCkKYGBgCgpgYGB7cn0KZ190IDwtIHJlYWRfY3N2KCJHaWZ0ZWQgYW5kIFRhbGVudGVkLmNzdiIpCmdfdCA8LSBnX3QgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKSAlPiUgc2VsZWN0KExFQUlELExFQV9OQU1FLFNDSElELCBTQ0hfTkFNRSxDT01CT0tFWSxTQ0hfR1RfSU5ELFNDSF9HVEVOUl9MRVBfTSxTQ0hfR1RFTlJfTEVQX0YsU0NIX0dURU5SX0lERUFfTSxTQ0hfR1RFTlJfSURFQV9GKQpzdW1tYXJ5KGdfdCkKaGVhZChnX3QsMTUpCmBgYAoKCmBgYHtyfQpnZXR3ZCgpCmV4cGx1c2lvbnMgPC0gcmVhZF9jc3YoIkV4cGx1c2lvbnMuY3N2IikKZXhwbHVzaW9ucyA8LSBleHBsdXNpb25zICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09ICJDQSIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKCkKc3VtbWFyeShleHBsdXNpb25zKQpgYGAKCmBgYHtyfQpJQiA8LSByZWFkX2NzdigiSW50ZXJuYXRpb25hbCBCYWNjYWxhdXJlYXRlLmNzdiIpCklCIDwtIElCICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09ICJDQSIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKCkgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0lCRU5SX0lORCxTQ0hfSUJFTlJfTEVQX00sU0NIX0lCRU5SX0xFUF9GLFNDSF9JQkVOUl9JREVBX00sU0NIX0lCRU5SX0lERUFfRikKc3VtbWFyeShJQikKaGVhZChJQiwxNSkKYGBgCgpgYGB7cn0KY29sbGVnZV9nb2luZyA9IHJlYWRfdGFibGUoY29sbGVnZWdvaW5nLnR4dCkKYGBgCgo=</div>
 
 
 
