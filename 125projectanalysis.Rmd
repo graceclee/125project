@@ -65,6 +65,9 @@ head(IB,15)
 ```
 
 ```{r}
-college_going = read_table(collegegoing.txt)
+#college_going = read_table("collegegoing.txt")
+college_going = read.delim("collegegoing.txt")
+summary(college_going)
+head(college_going,20)
 ```
 
