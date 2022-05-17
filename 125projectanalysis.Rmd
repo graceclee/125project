@@ -8,22 +8,57 @@ output: html_notebook
 
 ```{r}
 library(tidyverse)
-```
-```{r}
-corporal_punishment <- read_csv("Corporal Punishment.csv")
-corporal_punishment <- corporal_punishment %>% filter(LEA_STATE == "CA")
-head(corporal_punishment,5)
+library(readr)
 ```
 
 ```{r}
 corporal_punishment <- read_csv("Corporal Punishment.csv")
-corporal_punishment <- corporal_punishment %>% filter(LEA_STATE == "CA")
-head(corporal_punishment,5)
+corporal_punishment <- corporal_punishment %>% filter(LEA_STATE == "CA") %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_CORPINSTANCES_IND,SCH_CORPINSTANCES_WDIS,SCH_CORPINSTANCES_WODIS)
+corporal_punishment <- na_if(corporal_punishment,-9)
+corporal_punishment <- corporal_punishment %>% drop_na()
+#head(corporal_punishment,15)
+#summary(corporal_punishment)
+
 credit_recovery <- read_csv("Credit Recovery.csv")
-credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA")
+credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+head(credit_recovery,15)
+summary(credit_recovery)
+
+d_enrollment <- read_csv("Dual Enrollment.csv")
+d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na() %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_DUAL_IND,TOT_DUAL_F,TOT_DUAL_M,SCH_DUALENR_LEP_F,SCH_DUALENR_LEP_M,SCH_DUALENR_IDEA_F,SCH_DUALENR_IDEA_M)
+#head(d_enrollment,15)
+#summary(d_enrollment)
+
+#explusions <- read_csv("Explusions.csv")
+#explusions <- explusions %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+#summary(explusions)
 
 expenditures <- read_csv("School Expenditures.csv")
-expenditures <- expenditures %>% filter(LEA_STATE == "CA")
-head(expenditures)
+expenditures <- expenditures %>% filter(LEA_STATE == "CA") 
+#head(expenditures)
 
+
+offenses <- read_csv("Offenses.csv")
+offenses <- offenses %>% filter(LEA_STATE == "CA") 
+#offenses <- na_if(offenses,-9)
+head(offenses,10)
 ```
+
+```{r}
+g_t <- read_csv("Gifted and Talented.csv")
+g_t <- g_t %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na() %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_GT_IND,SCH_GTENR_LEP_M,SCH_GTENR_LEP_F,SCH_GTENR_IDEA_M,SCH_GTENR_IDEA_F)
+summary(g_t)
+head(g_t,15)
+```
+
+```{r}
+IB <- read_csv("International Baccalaureate.csv")
+IB <- IB %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na() %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_IBENR_IND,SCH_IBENR_LEP_M,SCH_IBENR_LEP_F,SCH_IBENR_IDEA_M,SCH_IBENR_IDEA_F)
+summary(IB)
+head(IB,15)
+```
+
+```{r}
+college_going = read_table(collegegoing.txt)
+```
+
