@@ -52,7 +52,7 @@ head(g_t,15)
 
 ```{r}
 getwd()
-explusions <- read_csv("Explusions.csv")
+explusions <- read_csv("Expulsions.csv")
 explusions <- explusions %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
 summary(explusions)
 ```
@@ -67,7 +67,15 @@ head(IB,15)
 ```{r}
 #college_going = read_table("collegegoing.txt")
 college_going = read.delim("collegegoing.txt")
-summary(college_going)
-head(college_going,20)
+college_going <- college_going %>% 
+  mutate_at(c(13:20), as.numeric) %>%
+   filter(!is.na(College.Going.Rate...Total..12.Months.)) %>%
+   mutate(CharterSchool = (CharterSchool == "Yes"))
+
+charter_schools <- college_going %>% filter(CharterSchool == TRUE)
+noncharter_schools <- college_going %>% filter(CharterSchool == FALSE)
+mean(charter_schools$College.Going.Rate...Total..12.Months.)
+mean(noncharter_schools$College.Going.Rate...Total..12.Months.)
+#
 ```
 
