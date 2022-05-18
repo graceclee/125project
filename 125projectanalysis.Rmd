@@ -52,7 +52,7 @@ head(g_t,15)
 
 ```{r}
 getwd()
-explusions <- read_csv("Explusions.csv")
+explusions <- read_csv("~/Desktop/Expulsions.csv")
 explusions <- explusions %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
 summary(explusions)
 ```
