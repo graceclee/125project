@@ -12,10 +12,10 @@ library(readr)
 ```
 
 ```{r}
-corporal_punishment <- read_csv("Corporal Punishment.csv")
-corporal_punishment <- corporal_punishment %>% filter(LEA_STATE == "CA") %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_CORPINSTANCES_IND,SCH_CORPINSTANCES_WDIS,SCH_CORPINSTANCES_WODIS)
-corporal_punishment <- na_if(corporal_punishment,-9)
-corporal_punishment <- corporal_punishment %>% drop_na()
+#corporal_punishment <- read_csv("Corporal Punishment.csv")
+#corporal_punishment <- corporal_punishment %>% filter(LEA_STATE == "CA") %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_CORPINSTANCES_IND,SCH_CORPINSTANCES_WDIS,SCH_CORPINSTANCES_WODIS)
+#corporal_punishment <- na_if(corporal_punishment,-9)
+#corporal_punishment <- corporal_punishment %>% drop_na()
 #head(corporal_punishment,15)
 #summary(corporal_punishment)
 
@@ -30,16 +30,11 @@ d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% dr
 #summary(d_enrollment)
 
 
-
-expenditures <- read_csv("School Expenditures.csv")
-expenditures <- expenditures %>% filter(LEA_STATE == "CA") 
-#head(expenditures)
-
-
 offenses <- read_csv("Offenses.csv")
 offenses <- offenses %>% filter(LEA_STATE == "CA") 
-#offenses <- na_if(offenses,-9)
+offenses <- na_if(offenses,-9)
 head(offenses,10)
+
 ```
 
 ```{r}
@@ -54,6 +49,7 @@ head(g_t,15)
 getwd()
 explusions <- read_csv("~/Desktop/Expulsions.csv")
 explusions <- explusions %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+head(explusions)
 summary(explusions)
 ```
 
@@ -77,5 +73,14 @@ noncharter_schools <- college_going %>% filter(CharterSchool == FALSE)
 mean(charter_schools$College.Going.Rate...Total..12.Months.)
 mean(noncharter_schools$College.Going.Rate...Total..12.Months.)
 #
+```
+```{r}
+expenditures <- read_csv("School Expenditures.csv")
+expenditures <- expenditures %>% filter(LEA_STATE == "CA") 
+head(expenditures)
+expenditure_model <- lm(SCH_FTE_AID_WOFED ~ SCH_FTE_SUP_WOFED, 
+                  data = expenditures,
+                  family = binomial)
+summary(expenditure_model)
 ```
 
