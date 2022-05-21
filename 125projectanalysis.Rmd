@@ -9,6 +9,7 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 library(readr)
+library(dplyr)
 ```
 
 ```{r}
@@ -32,7 +33,6 @@ head(g_t,15)
 ```{r}
 # load in SAT participation here
 SAT_ACT <- read_csv("SAT and ACT.csv")
-
 ```
 
 
@@ -78,11 +78,13 @@ mean(noncharter_schools$College.Going.Rate...Total..12.Months.)
 ```{r}
 # Grace clean up college_going file
 college_going <- college_going %>% 
-select(CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, High.School.Completers, Enrolled.In.College...Total..12.Months., College.Going.Rate...Total..12.Months., Enrolled.In.State..12.Months.,Enrolled.Out.of.State..12.Months.) %>% 
+select(CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, CompleterType, High.School.Completers, Enrolled.In.College...Total..12.Months., College.Going.Rate...Total..12.Months., Enrolled.In.State..12.Months.,Enrolled.Out.of.State..12.Months.) %>% 
   rename(Total_Enrolled_College = Enrolled.In.College...Total..12.Months., Total_College_Going_Rate = College.Going.Rate...Total..12.Months., Total_Enrolled_In_State = Enrolled.In.State..12.Months., Total_Enrolled_Out_State = Enrolled.Out.of.State..12.Months.)
 
 college_going <- na.omit(college_going)
-college_going 
+college_going %>% distinct()
+college_going <- filter(college_going, CompleterType == 'TA')
+
 ```
 
 ```{r}
