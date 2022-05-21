@@ -78,14 +78,34 @@ mean(noncharter_schools$College.Going.Rate...Total..12.Months.)
 ```{r}
 # Grace clean up college_going file
 college_going <- college_going %>% 
-select(CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, CompleterType, High.School.Completers, Enrolled.In.College...Total..12.Months., College.Going.Rate...Total..12.Months., Enrolled.In.State..12.Months.,Enrolled.Out.of.State..12.Months.) %>% 
+select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, ReportingCategory, CompleterType, High.School.Completers, Enrolled.In.College...Total..12.Months., College.Going.Rate...Total..12.Months., Enrolled.In.State..12.Months.,Enrolled.Out.of.State..12.Months.) %>% 
   rename(Total_Enrolled_College = Enrolled.In.College...Total..12.Months., Total_College_Going_Rate = College.Going.Rate...Total..12.Months., Total_Enrolled_In_State = Enrolled.In.State..12.Months., Total_Enrolled_Out_State = Enrolled.Out.of.State..12.Months.)
 
 college_going <- na.omit(college_going)
 college_going %>% distinct()
 college_going <- filter(college_going, CompleterType == 'TA')
 
+#KATELIN CLEANING
+
+#filter only by school name
+schools_only = college_going[college_going$AggregateLevel == "S", ]
+#filter only by total student count (no breakdown by race/ethnicity)
+schools_only = schools_only[schools_only$ReportingCategory == "TA", ]
+#filter only by all schools, regardless of charter status
+schools_only = schools_only[schools_only$CharterSchool == "All", ]
+#delete all columns no longer necessary (all listed above)
+schools_only = subset(schools_only, select = -AggregateLevel)
+schools_only = subset(schools_only, select = -ReportingCategory)
+schools_only = subset(schools_only, select = -CharterSchool)
+schools_only = subset(schools_only, select = -CompleterType)
+
+
+
 ```
+#katelin changes 5/31 2:38 PM 
+- Added back aggregate level to sort by schools only (eliminating district/state/county designation)
+- Added back reporting category to display only totals across races (no breakdown)
+- Remove charter school designation to display all (regardless of charter status) - eliminates duplicates
 
 ```{r}
 # Grace load in graduation rate
