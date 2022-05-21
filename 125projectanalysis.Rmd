@@ -98,8 +98,8 @@ schools_only = subset(schools_only, select = -AggregateLevel)
 schools_only = subset(schools_only, select = -ReportingCategory)
 schools_only = subset(schools_only, select = -CharterSchool)
 schools_only = subset(schools_only, select = -CompleterType)
-
-
+#remove all duplicate lines
+schools_only = schools_only[!duplicated(schools_only), ]
 
 ```
 #katelin changes 5/31 2:38 PM 
