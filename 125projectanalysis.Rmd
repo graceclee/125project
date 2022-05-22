@@ -18,7 +18,7 @@ Both cleaned -K
 #Load in credit recovery data here
 credit_recovery <- read_csv("Credit Recovery.csv")
 #drop all other states, NA and -9 values
-credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% na_if(-3) %>% na_if(-11) %>%  na_if(-5) %>% na_if(-6) %>% na_if(-8) %>% drop_na()
 #rename columns
 credit_recovery = rename(credit_recovery, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Credit_Recovery_Indicator = SCH_CREDITRECOVERY_IND, Total_Recovery = SCH_CREDITRECOVERYENR)
 #drop irrelevant columns
@@ -32,7 +32,9 @@ summary(credit_recovery)
 #Load in dual enrollment data here
 d_enrollment <- read_csv("Dual Enrollment.csv")
 #drop all other states, -9 or NA values
-d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+#-9 | -3 | -11 | -5 | -6 | -8
+d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  
+na_if(-9) %>% na_if(-3) %>% na_if(-11) %>%  na_if(-5) %>% na_if(-6) %>% na_if(-8) %>% drop_na()
 #rename columns
 d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, DEMale_Total = TOT_DUAL_M, DEFemale_Total = TOT_DUAL_F)
 #drop irrelevant columns
@@ -89,7 +91,7 @@ Cleaned -K
 #Load in IB Data here
 IB <- read_csv("International Baccalaureate.csv")
 #drop all other states, -9 or NA values
-IB <- IB %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+IB <- IB %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% na_if(-3) %>% na_if(-11) %>%  na_if(-5) %>% na_if(-6) %>% na_if(-8) %>% drop_na()
 #rename columns
 IB = rename(IB, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, IB_Indicator = SCH_IBENR_IND, Male_Total = TOT_IBENR_M, Female_Total = TOT_IBENR_F)
 #drop irrelevant columns
