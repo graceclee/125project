@@ -111,9 +111,23 @@ schools_only = schools_only[!duplicated(schools_only), ]
 # Grace load in graduation rate
 grad_rate = read.delim("graduationrate.txt", na.strings=c("","*", "NA"))
 grad_rate <- grad_rate %>% 
-select(CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, CohortStudents, Regular.HS.Diploma.Graduates..Count.,Regular.HS.Diploma.Graduates..Rate.) %>% rename(Num_Students = CohortStudents, HS_Diploma_Count = Regular.HS.Diploma.Graduates..Count., HS_Diploma_Rate = Regular.HS.Diploma.Graduates..Rate.)
+select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, DASS, ReportingCategory, CohortStudents, Regular.HS.Diploma.Graduates..Count.,Regular.HS.Diploma.Graduates..Rate.) %>% rename(Num_Students = CohortStudents, HS_Diploma_Count = Regular.HS.Diploma.Graduates..Count., HS_Diploma_Rate = Regular.HS.Diploma.Graduates..Rate.)
 grad_rate <- na.omit(grad_rate)
 grad_rate
+
+#katelin edits
+
+#filter only by school name
+grad_rate_schools = grad_rate[grad_rate$AggregateLevel == "S", ]
+
+#filter by charter school, DASS, and reporting category
+grad_rate_schools = grad_rate_schools[grad_rate_schools$ReportingCategory == "TA", ]
+grad_rate_schools = grad_rate_schools[grad_rate_schools$DASS == "All", ]
+grad_rate_schools = grad_rate_schools[grad_rate_schools$CharterSchool == "All", ]
+
+#remove unnecessary columns
+grad_rate_schools = subset(grad_rate_schools, select = -c(ReportingCategory, AggregateLevel, DASS, CharterSchool))
+grad_rate_schools = grad_rate_schools[!duplicated(grad_rate_schools), ]
 ```
 
 ```{r}
