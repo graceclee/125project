@@ -67,9 +67,11 @@ summary(gift_talent)
 Cleaned -K
 ```{r}
 # load in SAT participation here
+SAT_PATH <- "https://raw.githubusercontent.com/graceclee/125project/main/SAT%20and%20ACT.csv"
+SATdata <- read.csv(SAT_PATH)
 
 #read in SAT/ACT data, only read in necessary columns
-SAT_ACT = fread("SAT and ACT.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","TOT_SATACT_M","TOT_SATACT_F"))
+#SAT_ACT = fread("SAT and ACT.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","TOT_SATACT_M","TOT_SATACT_F"))
 
 #filter out all states that aren't CA
 SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
@@ -78,9 +80,16 @@ SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
 SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, SA_Male = TOT_SATACT_M, SA_Female = TOT_SATACT_F)
 
 #drop anything that has NA or -9
+allnines = -9 * 20
+
+SAT_ACT <- SAT_ACT %>%
+  filter(rowSums(CA_DATA[,9:28])!= allnines)
+
+SATCLEANED[SATCLEANED < 0] <- NA
+
 SAT_ACT = drop_na(SAT_ACT)
-SAT_ACT = SAT_ACT[SAT_ACT$SA_Male != -9,]
-SAT_ACT = SAT_ACT[SAT_ACT$SA_Female != -9,]
+#SAT_ACT = SAT_ACT[SAT_ACT$SA_Male != -9,]
+#SAT_ACT = SAT_ACT[SAT_ACT$SA_Female != -9,]
 
 summary(SAT_ACT)
 ```
