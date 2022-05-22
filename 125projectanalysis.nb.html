@@ -225,227 +225,227 @@ pre code {
 <h2>Grace, Chanse, Carlene, Katelin, Vlad</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KHJlYWRyKVxubGlicmFyeShkcGx5cilcbmBgYCJ9 -->
-<pre class="r"><code>library(tidyverse)
-library(readr)
-library(dplyr)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShcImRhdGEudGFibGVcIikgXG5cbmBgYCJ9 -->
+<pre class="r"><code>library(&quot;data.table&quot;) 
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2Qgb3ZlcndyaXR0ZW4gYnkgJ2RhdGEudGFibGUnOlxuICBtZXRob2QgICAgICAgICAgIGZyb21cbiAgcHJpbnQuZGF0YS50YWJsZSAgICAgXG5kYXRhLnRhYmxlIDEuMTQuMCB1c2luZyAxIHRocmVhZHMgKHNlZSA/Z2V0RFR0aHJlYWRzKS4gIExhdGVzdCBuZXdzOiByLWRhdGF0YWJsZS5jb21cbioqKioqKioqKipcblRoaXMgaW5zdGFsbGF0aW9uIG9mIGRhdGEudGFibGUgaGFzIG5vdCBkZXRlY3RlZCBPcGVuTVAgc3VwcG9ydC4gSXQgc2hvdWxkIHN0aWxsIHdvcmsgYnV0IGluIHNpbmdsZS10aHJlYWRlZCBtb2RlLlxuVGhpcyBpcyBhIE1hYy4gUGxlYXNlIHJlYWQgaHR0cHM6Ly9tYWMuci1wcm9qZWN0Lm9yZy9vcGVubXAvLiBQbGVhc2UgZW5nYWdlIHdpdGggQXBwbGUgYW5kIGFzayB0aGVtIGZvciBzdXBwb3J0LiBDaGVjayByLWRhdGF0YWJsZS5jb20gZm9yIHVwZGF0ZXMsIGFuZCBvdXIgTWFjIGluc3RydWN0aW9ucyBoZXJlOiBodHRwczovL2dpdGh1Yi5jb20vUmRhdGF0YWJsZS9kYXRhLnRhYmxlL3dpa2kvSW5zdGFsbGF0aW9uLiBBZnRlciBzZXZlcmFsIHllYXJzIG9mIG1hbnkgcmVwb3J0cyBvZiBpbnN0YWxsYXRpb24gcHJvYmxlbXMgb24gTWFjLCBpdCdzIHRpbWUgdG8gZ2luZ2VybHkgcG9pbnQgb3V0IHRoYXQgdGhlcmUgaGF2ZSBiZWVuIG5vIHNpbWlsYXIgcHJvYmxlbXMgb24gV2luZG93cyBvciBMaW51eC5cbioqKioqKioqKipcblxuQXR0YWNoaW5nIHBhY2thZ2U6IOKAmGRhdGEudGFibGXigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmRwbHly4oCZOlxuXG4gICAgYmV0d2VlbiwgZmlyc3QsIGxhc3RcblxuVGhlIGZvbGxvd2luZyBvYmplY3QgaXMgbWFza2VkIGZyb20g4oCYcGFja2FnZTpwdXJycuKAmTpcblxuICAgIHRyYW5zcG9zZVxuIn0= -->
+<pre><code>Registered S3 method overwritten by &#39;data.table&#39;:
+  method           from
+  print.data.table     
+data.table 1.14.0 using 1 threads (see ?getDTthreads).  Latest news: r-datatable.com
+**********
+This installation of data.table has not detected OpenMP support. It should still work but in single-threaded mode.
+This is a Mac. Please read https://mac.r-project.org/openmp/. Please engage with Apple and ask them for support. Check r-datatable.com for updates, and our Mac instructions here: https://github.com/Rdatatable/data.table/wiki/Installation. After several years of many reports of installation problems on Mac, it&#39;s time to gingerly point out that there have been no similar problems on Windows or Linux.
+**********
+
+Attaching package: ‘data.table’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+The following object is masked from ‘package:purrr’:
+
+    transpose</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Both cleaned -K</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZF9lbnJvbGxtZW50IDwtIHJlYWRfY3N2KFwiRHVhbCBFbnJvbGxtZW50LmNzdlwiKVxuXG5gYGAifQ== -->
+<pre class="r"><code>d_enrollment &lt;- read_csv(&quot;Dual Enrollment.csv&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogOTc2MzIgQ29sdW1uczogMjlcbuKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgKDkpOiBMRUFfU1RBVEUsIExFQV9TVEFURV9OQU1FLCBMRUFJRCwgTEVBX05BTUUsIFNDSElELCBTQ0hfTkFNRSwgQ09NQk9LRVksIEpKLCBTQ0hfRFVBTF9JTkRcbmRibCAoMjApOiBTQ0hfRFVBTEVOUl9ISV9NLCBTQ0hfRFVBTEVOUl9ISV9GLCBTQ0hfRFVBTEVOUl9BTV9NLCBTQ0hfRFVBTEVOUl9BTV9GLCBTQ0hfRFVBTEVOUl9BU19NLCBTQ0hfRFVBTEUuLi5cblxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
+<pre><code>Rows: 97632 Columns: 29
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr  (9): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOKEY, JJ, SCH_DUAL_IND
+dbl (20): SCH_DUALENR_HI_M, SCH_DUALENR_HI_F, SCH_DUALENR_AM_M, SCH_DUALENR_AM_F, SCH_DUALENR_AS_M, SCH_DUALE...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2Ryb3AgYWxsIG90aGVyIHN0YXRlcywgLTkgb3IgTkEgdmFsdWVzXG5kX2Vucm9sbG1lbnQgPC0gZF9lbnJvbGxtZW50ICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09IFwiQ0FcIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKVxuI3JlbmFtZSBjb2x1bW5zXG5kX2Vucm9sbG1lbnQgPSByZW5hbWUoZF9lbnJvbGxtZW50LCBTdGF0ZV9BYmJyZXZpYXRpb24gPSBMRUFfU1RBVEUsIFN0YXRlID0gTEVBX1NUQVRFX05BTUUsIERpc3RyaWN0ID0gTEVBX05BTUUsIFNjaG9vbCA9IFNDSF9OQU1FLCBEdWFsX0luZGljYXRvciA9IFNDSF9EVUFMX0lORCwgTWFsZV9Ub3RhbCA9IFRPVF9EVUFMX00sIEZlbWFsZV9Ub3RhbCA9IFRPVF9EVUFMX0YpXG4jZHJvcCBpcnJlbGV2YW50IGNvbHVtbnNcbmRfZW5yb2xsbWVudCA9IHN1YnNldChkX2Vucm9sbG1lbnQsIHNlbGVjdCA9IGMoU3RhdGVfQWJicmV2aWF0aW9uLCBTdGF0ZSwgRGlzdHJpY3QsIFNjaG9vbCwgRHVhbF9JbmRpY2F0b3IsIE1hbGVfVG90YWwsIEZlbWFsZV9Ub3RhbCkpXG5gYGAifQ== -->
+<pre class="r"><code>#drop all other states, -9 or NA values
+d_enrollment &lt;- d_enrollment %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na()
+#rename columns
+d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, Male_Total = TOT_DUAL_M, Female_Total = TOT_DUAL_F)
+#drop irrelevant columns
+d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, State, District, School, Dual_Indicator, Male_Total, Female_Total))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xvYWQgaW4gZHVhbCBlbnJvbGxtZW50IGRhdGEgaGVyZVxuZF9lbnJvbGxtZW50IDwtIHJlYWRfY3N2KFwiRHVhbCBFbnJvbGxtZW50LmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>#Load in dual enrollment data here
+d_enrollment &lt;- read_csv(&quot;Dual Enrollment.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogOTc2MzIgQ29sdW1uczogMjlcbuKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgKDkpOiBMRUFfU1RBVEUsIExFQV9TVEFURV9OQU1FLCBMRUFJRCwgTEVBX05BTUUsIFNDSElELCBTQ0hfTkFNRSwgQ09NQk9LRVksIEpKLCBTQ0hfRFVBTF9JTkRcbmRibCAoMjApOiBTQ0hfRFVBTEVOUl9ISV9NLCBTQ0hfRFVBTEVOUl9ISV9GLCBTQ0hfRFVBTEVOUl9BTV9NLCBTQ0hfRFVBTEVOUl9BTV9GLCBTQ0hfRFVBTEVOUl9BU19NLCBTQ0hfRFVBTEUuLi5cblxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
+<pre><code>Rows: 97632 Columns: 29
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr  (9): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOKEY, JJ, SCH_DUAL_IND
+dbl (20): SCH_DUALENR_HI_M, SCH_DUALENR_HI_F, SCH_DUALENR_AM_M, SCH_DUALENR_AM_F, SCH_DUALENR_AS_M, SCH_DUALE...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2Ryb3AgYWxsIG90aGVyIHN0YXRlcywgLTkgb3IgTkEgdmFsdWVzXG5kX2Vucm9sbG1lbnQgPC0gZF9lbnJvbGxtZW50ICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09IFwiQ0FcIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKVxuI3JlbmFtZSBjb2x1bW5zXG5kX2Vucm9sbG1lbnQgPSByZW5hbWUoZF9lbnJvbGxtZW50LCBTdGF0ZV9BYmJyZXZpYXRpb24gPSBMRUFfU1RBVEUsIFN0YXRlID0gTEVBX1NUQVRFX05BTUUsIERpc3RyaWN0ID0gTEVBX05BTUUsIFNjaG9vbCA9IFNDSF9OQU1FLCBEdWFsX0luZGljYXRvciA9IFNDSF9EVUFMX0lORCwgTWFsZV9Ub3RhbCA9IFRPVF9EVUFMX00sIEZlbWFsZV9Ub3RhbCA9IFRPVF9EVUFMX0YpXG4jZHJvcCBpcnJlbGV2YW50IGNvbHVtbnNcbmRfZW5yb2xsbWVudCA9IHN1YnNldChkX2Vucm9sbG1lbnQsIHNlbGVjdCA9IGMoU3RhdGVfQWJicmV2aWF0aW9uLCBTdGF0ZSwgRGlzdHJpY3QsIFNjaG9vbCwgRHVhbF9JbmRpY2F0b3IsIE1hbGVfVG90YWwsIEZlbWFsZV9Ub3RhbCkpXG5gYGAifQ== -->
+<pre class="r"><code>#drop all other states, -9 or NA values
+d_enrollment &lt;- d_enrollment %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na()
+#rename columns
+d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, Male_Total = TOT_DUAL_M, Female_Total = TOT_DUAL_F)
+#drop irrelevant columns
+d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, State, District, School, Dual_Indicator, Male_Total, Female_Total))</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Cleaned -K</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JlZGl0X3JlY292ZXJ5IDwtIHJlYWRfY3N2KFwiQ3JlZGl0IFJlY292ZXJ5LmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code>credit_recovery &lt;- read_csv(&quot;Credit Recovery.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogOTc2MzIgQ29sdW1uczogMTBcbuKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAoOSk6IExFQV9TVEFURSwgTEVBX1NUQVRFX05BTUUsIExFQUlELCBMRUFfTkFNRSwgU0NISUQsIFNDSF9OQU1FLCBDT01CT0suLi5cbmRibCAoMSk6IFNDSF9DUkVESVRSRUNPVkVSWUVOUlxuXG7ihLkgVXNlIGBzcGVjKClgIHRvIHJldHJpZXZlIHRoZSBmdWxsIGNvbHVtbiBzcGVjaWZpY2F0aW9uIGZvciB0aGlzIGRhdGEuXG7ihLkgU3BlY2lmeSB0aGUgY29sdW1uIHR5cGVzIG9yIHNldCBgc2hvd19jb2xfdHlwZXMgPSBGQUxTRWAgdG8gcXVpZXQgdGhpcyBtZXNzYWdlLlxuIn0= -->
-<pre><code>Rows: 97632 Columns: 10
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr (9): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOK...
-dbl (1): SCH_CREDITRECOVERYENR
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xvYWQgaW4gZ2lmdGVkIGFuZCB0YWxlbnRlZCBwYXJ0aWNpcGF0aW9uIGhlcmVcblxuI3JlYWQgaW4gb25seSByZWxldmFudCBjb2x1bW5zXG5naWZ0X3RhbGVudCA9IGZyZWFkKFwiR2lmdGVkIGFuZCBUYWxlbnRlZC5jc3ZcIiwgc2VsZWN0ID0gYyhcIkxFQV9TVEFURVwiLCBcIkxFQV9OQU1FXCIsIFwiU0NIX05BTUVcIiwgXCJTQ0hfR1RfSU5EXCIsIFwiVE9UX0dURU5SX01cIiwgXCJUT1RfR1RFTlJfRlwiKSlcblxuI3JlbmFtZSBjb2x1bW5zXG5naWZ0X3RhbGVudCA9IHJlbmFtZShnaWZ0X3RhbGVudCwgU3RhdGVfQWJicmV2aWF0aW9uID0gTEVBX1NUQVRFLCBEaXN0cmljdCA9IExFQV9OQU1FLCBTY2hvb2wgPSBTQ0hfTkFNRSwgR19UX0luZGljYXRvciA9IFNDSF9HVF9JTkQsIE1hbGVfVG90YWwgPSBUT1RfR1RFTlJfTSwgRmVtYWxlX1RvdGFsID0gVE9UX0dURU5SX0YpXG5cbiNmaWx0ZXIgb3V0IGFsbCBzdGF0ZXMgdGhhdCBhcmVuJ3QgQ0FcbmdpZnRfdGFsZW50ID0gZ2lmdF90YWxlbnRbZ2lmdF90YWxlbnQkU3RhdGVfQWJicmV2aWF0aW9uID09IFwiQ0FcIiwgXVxuXG4jcmVtb3ZlIC05IG9yIE5BXG5naWZ0X3RhbGVudCA9IGRyb3BfbmEoZ2lmdF90YWxlbnQpXG5naWZ0X3RhbGVudCA9IGdpZnRfdGFsZW50W2dpZnRfdGFsZW50JE1hbGVfVG90YWwgIT0gLTksXVxuZ2lmdF90YWxlbnQgPSBnaWZ0X3RhbGVudFtnaWZ0X3RhbGVudCRGZW1hbGVfVG90YWwgIT0gLTksXVxuXG5gYGAifQ== -->
+<pre class="r"><code>#load in gifted and talented participation here
 
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBtZXNzYWdlczpcbjE6IEluIGlmIChjaGFyVG9SYXcoeCkgPCAyMCkgcGFzdGUoXCJcXFxcdVwiLCB0b3VwcGVyKGZvcm1hdChhcy5oZXhtb2RlKGFzLmludGVnZXIoY2hhclRvUmF3KHgpKSksICA6XG4gIHRoZSBjb25kaXRpb24gaGFzIGxlbmd0aCA+IDEgYW5kIG9ubHkgdGhlIGZpcnN0IGVsZW1lbnQgd2lsbCBiZSB1c2VkXG4yOiBJbiBpZiAoY2hhclRvUmF3KHgpIDwgMjApIHBhc3RlKFwiXFxcXHVcIiwgdG91cHBlcihmb3JtYXQoYXMuaGV4bW9kZShhcy5pbnRlZ2VyKGNoYXJUb1Jhdyh4KSkpLCAgOlxuICB0aGUgY29uZGl0aW9uIGhhcyBsZW5ndGggPiAxIGFuZCBvbmx5IHRoZSBmaXJzdCBlbGVtZW50IHdpbGwgYmUgdXNlZFxuMzogSW4gaWYgKGNoYXJUb1Jhdyh4KSA8IDIwKSBwYXN0ZShcIlxcXFx1XCIsIHRvdXBwZXIoZm9ybWF0KGFzLmhleG1vZGUoYXMuaW50ZWdlcihjaGFyVG9SYXcoeCkpKSwgIDpcbiAgdGhlIGNvbmRpdGlvbiBoYXMgbGVuZ3RoID4gMSBhbmQgb25seSB0aGUgZmlyc3QgZWxlbWVudCB3aWxsIGJlIHVzZWRcbjQ6IEluIGlmIChjaGFyVG9SYXcoeCkgPCAyMCkgcGFzdGUoXCJcXFxcdVwiLCB0b3VwcGVyKGZvcm1hdChhcy5oZXhtb2RlKGFzLmludGVnZXIoY2hhclRvUmF3KHgpKSksICA6XG4gIHRoZSBjb25kaXRpb24gaGFzIGxlbmd0aCA+IDEgYW5kIG9ubHkgdGhlIGZpcnN0IGVsZW1lbnQgd2lsbCBiZSB1c2VkXG41OiBJbiBpZiAoY2hhclRvUmF3KHgpIDwgMjApIHBhc3RlKFwiXFxcXHVcIiwgdG91cHBlcihmb3JtYXQoYXMuaGV4bW9kZShhcy5pbnRlZ2VyKGNoYXJUb1Jhdyh4KSkpLCAgOlxuICB0aGUgY29uZGl0aW9uIGhhcyBsZW5ndGggPiAxIGFuZCBvbmx5IHRoZSBmaXJzdCBlbGVtZW50IHdpbGwgYmUgdXNlZFxuNjogSW4gaWYgKGNoYXJUb1Jhdyh4KSA8IDIwKSBwYXN0ZShcIlxcXFx1XCIsIHRvdXBwZXIoZm9ybWF0KGFzLmhleG1vZGUoYXMuaW50ZWdlcihjaGFyVG9SYXcoeCkpKSwgIDpcbiAgdGhlIGNvbmRpdGlvbiBoYXMgbGVuZ3RoID4gMSBhbmQgb25seSB0aGUgZmlyc3QgZWxlbWVudCB3aWxsIGJlIHVzZWRcbjc6IEluIGlmIChjaGFyVG9SYXcoeCkgPCAyMCkgcGFzdGUoXCJcXFxcdVwiLCB0b3VwcGVyKGZvcm1hdChhcy5oZXhtb2RlKGFzLmludGVnZXIoY2hhclRvUmF3KHgpKSksICA6XG4gIHRoZSBjb25kaXRpb24gaGFzIGxlbmd0aCA+IDEgYW5kIG9ubHkgdGhlIGZpcnN0IGVsZW1lbnQgd2lsbCBiZSB1c2VkXG4ifQ== -->
-<pre><code>Warning messages:
-1: In if (charToRaw(x) &lt; 20) paste(&quot;\\u&quot;, toupper(format(as.hexmode(as.integer(charToRaw(x))),  :
-  the condition has length &gt; 1 and only the first element will be used
-2: In if (charToRaw(x) &lt; 20) paste(&quot;\\u&quot;, toupper(format(as.hexmode(as.integer(charToRaw(x))),  :
-  the condition has length &gt; 1 and only the first element will be used
-3: In if (charToRaw(x) &lt; 20) paste(&quot;\\u&quot;, toupper(format(as.hexmode(as.integer(charToRaw(x))),  :
-  the condition has length &gt; 1 and only the first element will be used
-4: In if (charToRaw(x) &lt; 20) paste(&quot;\\u&quot;, toupper(format(as.hexmode(as.integer(charToRaw(x))),  :
-  the condition has length &gt; 1 and only the first element will be used
-5: In if (charToRaw(x) &lt; 20) paste(&quot;\\u&quot;, toupper(format(as.hexmode(as.integer(charToRaw(x))),  :
-  the condition has length &gt; 1 and only the first element will be used
-6: In if (charToRaw(x) &lt; 20) paste(&quot;\\u&quot;, toupper(format(as.hexmode(as.integer(charToRaw(x))),  :
-  the condition has length &gt; 1 and only the first element will be used
-7: In if (charToRaw(x) &lt; 20) paste(&quot;\\u&quot;, toupper(format(as.hexmode(as.integer(charToRaw(x))),  :
-  the condition has length &gt; 1 and only the first element will be used</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3JlZGl0X3JlY292ZXJ5IDwtIGNyZWRpdF9yZWNvdmVyeSAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKClcbmhlYWQoY3JlZGl0X3JlY292ZXJ5LDE1KVxuYGBgIn0= -->
-<pre class="r"><code>credit_recovery &lt;- credit_recovery %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na()
-head(credit_recovery,15)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTUsIm5jb2wiOjEwLCJzdW1tYXJ5Ijp7IkEgdGliYmxlIjpbIjE1IMOXIDEwIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQStWV1hXL1RNQlJOdTRWdFphTmpESVRFU3lSNGdJZFZTYi9TU2lBdHBCM3Q2QWRLdTdMeFVwbkVhNjJsVGtrVGJlV0pOLzdXL2hKL1lNVnA3ZFRKMkFSQ1NKT290TnJubk91YmUrMVRMMGJsT0pjNlRnbUNzQ0tzSnNpM1NLYUNlTlE5MkNzSndtcVNnSVN3S213RTR3V1JINUZKRUwxTi90SlVTT3JhblpwRnEwdnBXcU4rMERaYWRlMi9acUs3c2lZWFpmSlJvckI4RzFTVVcySHVMMkErQ2d0UldMd1ZxbkVZYmZTcFpub08zdE1HUHBBcXZtMUM2UWlqVXdRdHF1L3EvaFNNZ0hUb0lPejlnZmJ3d0hFOXFRTUc4WVEzQ21uRE1jOXNoUDhGdlYyRGt6RjBFWWp4VHhxK0NWME1wUjZ3YlRpTnFRK094amJBMW0reHU5cDRiTitRNTlkYTlCeEVPWmRWU3lGUThod29xV281QkdXNXlNNWZWTEpxTVJjcTJid2NLbkpSVVl0aG1DSXJjZ2h5YWphN1RLREk4cktDc3F4eXp5a1ZlRkJjbHBNdEw4TktoVklwMXNwbUQweSsrUENyVkVPREllV2tEb0t1QzZRbXNGdzRGNlNYdW9NOWhIM2dJUWUvb25FNzFGSjByN2dNbXpYbzJnNGU4TnhPMDh0SURUQ1pRQ3pwUStCNjBHWFJ6QWQ4aGg0aVhuZWpXVDhPa1llalQzck8xdGF4QmNlUWZCRjMwL1NTWmdJTGpxYk16RHJBVXdkTEJySUdNRnFaNDJNUGtDUTlCTTk1WmF1R2JIdUNyRWo0ZmVvcFBzTTdGMkRrQldFa25sZWV6YmV2QWllUS9KQSt1SENFdUxwaVIwR3ZNZDVjbEN2ekhnczV6bXFiOUJyakhjYzQzbmlVeS9IK0N6bk9ob3pqM1JoeW5Da3BsK2U5U2JrQ2IxSEtGWG1uOGx6c3VTcnYyeVYzM2I3SmxuT25adEhxVms3ZzVBNVB5ZlVZRkx2L1dwaC85dGZwS05DUjhXL29PUHEyR0Y5UWpDOFhZNGJpSWNVdktlN1QrTzhYaS9IVFpTUi83SlZNeEdBMEx5cll3UlFsTnhwVnJkL3BhdDBxdTlCRG90L1Ntb3dWQ1Z1dlVMQWVoUEJpUjY4dFJRSjRjVjF2TjkrMjMxZFAyQ0VlSHJKL04wR2tibFFyOWE1UjFkdTlxbkhTcjdkWW5zZlgxV3JMaUxXMDRUcm5HZGJXVnBBOTJKSFpiUFlqM3J0cGs0dVI5czdJbEFVOGtEbDF5WHFDcm1KTDFweHhjQmVUUmNuZ1BWYU1MVTY0TVNMdDQ2QVNhODhjK3Zoc1R4RVc3NzRKZWhSYmRKN201cW5GSTVNem1rcWtxZTVCUEVBWXN0cHQ4Qm5hN0hoSXgvT0dNMk9Ydkdld1RnZzd5WGlPQjFoY3luUnN4c3g3RTY1K0FySVIzNEMrQ3dBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["LEA_STATE"],"name":[1],"type":["chr"],"align":["left"]},{"label":["LEA_STATE_NAME"],"name":[2],"type":["chr"],"align":["left"]},{"label":["LEAID"],"name":[3],"type":["chr"],"align":["left"]},{"label":["LEA_NAME"],"name":[4],"type":["chr"],"align":["left"]},{"label":["SCHID"],"name":[5],"type":["chr"],"align":["left"]},{"label":["SCH_NAME"],"name":[6],"type":["chr"],"align":["left"]},{"label":["COMBOKEY"],"name":[7],"type":["chr"],"align":["left"]},{"label":["JJ"],"name":[8],"type":["chr"],"align":["left"]},{"label":["SCH_CREDITRECOVERY_IND"],"name":[9],"type":["chr"],"align":["left"]},{"label":["SCH_CREDITRECOVERYENR"],"name":[10],"type":["dbl"],"align":["right"]}],"data":[{"1":"CA","2":"CALIFORNIA","3":"0600001","4":"Acton-Agua Dulce Unified","5":"03278","6":"Vasquez High","7":"060000103278","8":"No","9":"Yes","10":"28"},{"1":"CA","2":"CALIFORNIA","3":"0600009","4":"Cuyama Joint Unified","5":"01478","6":"Sierra Madre High (Continuation)","7":"060000901478","8":"No","9":"Yes","10":"3"},{"1":"CA","2":"CALIFORNIA","3":"0600009","4":"Cuyama Joint Unified","5":"08779","6":"Cuyama Valley High","7":"060000908779","8":"No","9":"Yes","10":"2"},{"1":"CA","2":"CALIFORNIA","3":"0600011","4":"Fort Sage Unified","5":"09065","6":"Herlong High","7":"060001109065","8":"No","9":"Yes","10":"28"},{"1":"CA","2":"CALIFORNIA","3":"0600011","4":"Fort Sage Unified","5":"12763","6":"Mt. Lassen Charter","7":"060001112763","8":"No","9":"Yes","10":"29"},{"1":"CA","2":"CALIFORNIA","3":"0600013","4":"Rocklin Unified","5":"02405","6":"Rocklin High","7":"060001302405","8":"No","9":"Yes","10":"236"},{"1":"CA","2":"CALIFORNIA","3":"0600013","4":"Rocklin Unified","5":"06176","6":"Victory High","7":"060001306176","8":"No","9":"Yes","10":"10"},{"1":"CA","2":"CALIFORNIA","3":"0600013","4":"Rocklin Unified","5":"11010","6":"Whitney High","7":"060001311010","8":"No","9":"Yes","10":"246"},{"1":"CA","2":"CALIFORNIA","3":"0600013","4":"Rocklin Unified","5":"13722","6":"Rocklin Independent Charter Academy","7":"060001313722","8":"No","9":"Yes","10":"15"},{"1":"CA","2":"CALIFORNIA","3":"0600014","4":"Hesperia Unified","5":"12100","6":"Canyon Ridge High","7":"060001412100","8":"No","9":"Yes","10":"198"},{"1":"CA","2":"CALIFORNIA","3":"0600015","4":"Lucerne Valley Unified","5":"03907","6":"Mountain View High","7":"060001503907","8":"No","9":"Yes","10":"12"},{"1":"CA","2":"CALIFORNIA","3":"0600016","4":"Upland Unified","5":"09085","6":"Hillside High","7":"060001609085","8":"No","9":"Yes","10":"126"},{"1":"CA","2":"CALIFORNIA","3":"0600016","4":"Upland Unified","5":"09086","6":"Upland High","7":"060001609086","8":"No","9":"Yes","10":"751"},{"1":"CA","2":"CALIFORNIA","3":"0600017","4":"Apple Valley Unified","5":"08297","6":"Granite Hills High","7":"060001708297","8":"No","9":"Yes","10":"107"},{"1":"CA","2":"CALIFORNIA","3":"0600017","4":"Apple Valley Unified","5":"08588","6":"High Desert Premier Academy","7":"060001708588","8":"No","9":"Yes","10":"2"}],"options":{"columns":{"min":{},"max":[10],"total":[10]},"rows":{"min":[10],"max":[10],"total":[15]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShjcmVkaXRfcmVjb3ZlcnkpXG5gYGAifQ== -->
-<pre class="r"><code>summary(credit_recovery)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICBMRUFfU1RBVEUgICAgICAgICBMRUFfU1RBVEVfTkFNRSAgICAgICAgTEVBSUQgICAgICAgICAgICAgTEVBX05BTUUgICAgICAgIFxuIExlbmd0aDoxNzYzICAgICAgICBMZW5ndGg6MTc2MyAgICAgICAgTGVuZ3RoOjE3NjMgICAgICAgIExlbmd0aDoxNzYzICAgICAgIFxuIENsYXNzIDpjaGFyYWN0ZXIgICBDbGFzcyA6Y2hhcmFjdGVyICAgQ2xhc3MgOmNoYXJhY3RlciAgIENsYXNzIDpjaGFyYWN0ZXIgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICBNb2RlICA6Y2hhcmFjdGVyICAgTW9kZSAgOmNoYXJhY3RlciAgIE1vZGUgIDpjaGFyYWN0ZXIgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgIFNDSElEICAgICAgICAgICAgIFNDSF9OQU1FICAgICAgICAgICBDT01CT0tFWSAgICAgICAgICAgICAgSkogICAgICAgICAgIFxuIExlbmd0aDoxNzYzICAgICAgICBMZW5ndGg6MTc2MyAgICAgICAgTGVuZ3RoOjE3NjMgICAgICAgIExlbmd0aDoxNzYzICAgICAgIFxuIENsYXNzIDpjaGFyYWN0ZXIgICBDbGFzcyA6Y2hhcmFjdGVyICAgQ2xhc3MgOmNoYXJhY3RlciAgIENsYXNzIDpjaGFyYWN0ZXIgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICBNb2RlICA6Y2hhcmFjdGVyICAgTW9kZSAgOmNoYXJhY3RlciAgIE1vZGUgIDpjaGFyYWN0ZXIgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuIFNDSF9DUkVESVRSRUNPVkVSWV9JTkQgU0NIX0NSRURJVFJFQ09WRVJZRU5SXG4gTGVuZ3RoOjE3NjMgICAgICAgICAgICBNaW4uICAgOiAgICAwICAgICAgICBcbiBDbGFzcyA6Y2hhcmFjdGVyICAgICAgIDFzdCBRdS46ICAgMjAgICAgICAgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICAgICAgTWVkaWFuIDogICA3NCAgICAgICAgXG4gICAgICAgICAgICAgICAgICAgICAgICBNZWFuICAgOiAgMTk4ICAgICAgICBcbiAgICAgICAgICAgICAgICAgICAgICAgIDNyZCBRdS46ICAyMTkgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgTWF4LiAgIDoxMjA3NCAgICAgICAgXG4ifQ== -->
-<pre><code>  LEA_STATE         LEA_STATE_NAME        LEAID             LEA_NAME        
- Length:1763        Length:1763        Length:1763        Length:1763       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-    SCHID             SCH_NAME           COMBOKEY              JJ           
- Length:1763        Length:1763        Length:1763        Length:1763       
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
- SCH_CREDITRECOVERY_IND SCH_CREDITRECOVERYENR
- Length:1763            Min.   :    0        
- Class :character       1st Qu.:   20        
- Mode  :character       Median :   74        
-                        Mean   :  198        
-                        3rd Qu.:  219        
-                        Max.   :12074        </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZF9lbnJvbGxtZW50IDwtIHJlYWRfY3N2KFwiRHVhbCBFbnJvbGxtZW50LmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code>d_enrollment &lt;- read_csv(&quot;Dual Enrollment.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUm93czogOTc2MzIgQ29sdW1uczogMjlcbuKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgKDkpOiBMRUFfU1RBVEUsIExFQV9TVEFURV9OQU1FLCBMRUFJRCwgTEVBX05BTUUsIFNDSElELCBTQ0hfTkFNRSwgQ09NQk8uLi5cbmRibCAoMjApOiBTQ0hfRFVBTEVOUl9ISV9NLCBTQ0hfRFVBTEVOUl9ISV9GLCBTQ0hfRFVBTEVOUl9BTV9NLCBTQ0hfRFVBTEVOUl8uLi5cblxu4oS5IFVzZSBgc3BlYygpYCB0byByZXRyaWV2ZSB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbiBmb3IgdGhpcyBkYXRhLlxu4oS5IFNwZWNpZnkgdGhlIGNvbHVtbiB0eXBlcyBvciBzZXQgYHNob3dfY29sX3R5cGVzID0gRkFMU0VgIHRvIHF1aWV0IHRoaXMgbWVzc2FnZS5cbiJ9 -->
-<pre><code>Rows: 97632 Columns: 29
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: &quot;,&quot;
-chr  (9): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBO...
-dbl (20): SCH_DUALENR_HI_M, SCH_DUALENR_HI_F, SCH_DUALENR_AM_M, SCH_DUALENR_...
+#read in only relevant columns
+gift_talent = fread(&quot;Gifted and Talented.csv&quot;, select = c(&quot;LEA_STATE&quot;, &quot;LEA_NAME&quot;, &quot;SCH_NAME&quot;, &quot;SCH_GT_IND&quot;, &quot;TOT_GTENR_M&quot;, &quot;TOT_GTENR_F&quot;))
 
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZF9lbnJvbGxtZW50IDwtIGRfZW5yb2xsbWVudCAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKCkgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0RVQUxfSU5ELFRPVF9EVUFMX0YsVE9UX0RVQUxfTSxTQ0hfRFVBTEVOUl9MRVBfRixTQ0hfRFVBTEVOUl9MRVBfTSxTQ0hfRFVBTEVOUl9JREVBX0YsU0NIX0RVQUxFTlJfSURFQV9NKVxuXG5gYGAifQ== -->
-<pre class="r"><code>d_enrollment &lt;- d_enrollment %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na() %&gt;% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_DUAL_IND,TOT_DUAL_F,TOT_DUAL_M,SCH_DUALENR_LEP_F,SCH_DUALENR_LEP_M,SCH_DUALENR_IDEA_F,SCH_DUALENR_IDEA_M)
+#rename columns
+gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND, Male_Total = TOT_GTENR_M, Female_Total = TOT_GTENR_F)
+
+#filter out all states that aren&#39;t CA
+gift_talent = gift_talent[gift_talent$State_Abbreviation == &quot;CA&quot;, ]
+
+#remove -9 or NA
+gift_talent = drop_na(gift_talent)
+gift_talent = gift_talent[gift_talent$Male_Total != -9,]
+gift_talent = gift_talent[gift_talent$Female_Total != -9,]
 </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Cleaned -K</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZ190IDwtIHJlYWRfY3N2KFxcR2lmdGVkIGFuZCBUYWxlbnRlZC5jc3ZcXClcbmdfdCA8LSBnX3QgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXFxDQVxcKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpICU+JSBzZWxlY3QoTEVBSUQsTEVBX05BTUUsU0NISUQsIFNDSF9OQU1FLENPTUJPS0VZLFNDSF9HVF9JTkQsU0NIX0dURU5SX0xFUF9NLFNDSF9HVEVOUl9MRVBfRixTQ0hfR1RFTlJfSURFQV9NLFNDSF9HVEVOUl9JREVBX0YpXG5zdW1tYXJ5KGdfdClcbmhlYWQoZ190LDE1KVxuYGBgXG5gYGAifQ== -->
-<pre class="r"><code>```r
-g_t &lt;- read_csv(\Gifted and Talented.csv\)
-g_t &lt;- g_t %&gt;% filter(LEA_STATE == \CA\) %&gt;%  na_if(-9) %&gt;% drop_na() %&gt;% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_GT_IND,SCH_GTENR_LEP_M,SCH_GTENR_LEP_F,SCH_GTENR_IDEA_M,SCH_GTENR_IDEA_F)
-summary(g_t)
-head(g_t,15)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBsb2FkIGluIFNBVCBwYXJ0aWNpcGF0aW9uIGhlcmVcblxuI3JlYWQgaW4gU0FUL0FDVCBkYXRhLCBvbmx5IHJlYWQgaW4gbmVjZXNzYXJ5IGNvbHVtbnNcblNBVF9BQ1QgPSBmcmVhZChcIlNBVCBhbmQgQUNULmNzdlwiLCBzZWxlY3QgPSBjKFwiTEVBX1NUQVRFXCIsXCJMRUFfU1RBVEVfTkFNRVwiLFwiTEVBX05BTUVcIixcIlNDSF9OQU1FXCIsXCJUT1RfU0FUQUNUX01cIixcIlRPVF9TQVRBQ1RfRlwiKSlcblxuI2ZpbHRlciBvdXQgYWxsIHN0YXRlcyB0aGF0IGFyZW4ndCBDQVxuU0FUX0FDVCA9IFNBVF9BQ1RbU0FUX0FDVCRMRUFfU1RBVEUgPT0gXCJDQVwiLCBdXG5cbiNyZW5hbWUgY29sdW1uc1xuU0FUX0FDVCA9IHJlbmFtZShTQVRfQUNULCBTdGF0ZV9BYmJyZXZpYXRpb24gPSBMRUFfU1RBVEUsIFN0YXRlID0gTEVBX1NUQVRFX05BTUUsIERpc3RyaWN0ID0gTEVBX05BTUUsIFNjaG9vbCA9IFNDSF9OQU1FLCBNYWxlX1RvdGFsID0gVE9UX1NBVEFDVF9NLCBGZW1hbGVfVG90YWwgPSBUT1RfU0FUQUNUX0YpXG5cbiNkcm9wIGFueXRoaW5nIHRoYXQgaGFzIE5BIG9yIC05XG5TQVRfQUNUID0gZHJvcF9uYShTQVRfQUNUKVxuU0FUX0FDVCA9IFNBVF9BQ1RbU0FUX0FDVCRNYWxlX1RvdGFsICE9IC05LF1cblNBVF9BQ1QgPSBTQVRfQUNUW1NBVF9BQ1QkRmVtYWxlX1RvdGFsICE9IC05LF1cbmBgYCJ9 -->
+<pre class="r"><code># load in SAT participation here
 
-&lt;!-- rnb-chunk-end --&gt;
+#read in SAT/ACT data, only read in necessary columns
+SAT_ACT = fread(&quot;SAT and ACT.csv&quot;, select = c(&quot;LEA_STATE&quot;,&quot;LEA_STATE_NAME&quot;,&quot;LEA_NAME&quot;,&quot;SCH_NAME&quot;,&quot;TOT_SATACT_M&quot;,&quot;TOT_SATACT_F&quot;))
 
+#filter out all states that aren&#39;t CA
+SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == &quot;CA&quot;, ]
 
-&lt;!-- rnb-text-begin --&gt;
+#rename columns
+SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Male_Total = TOT_SATACT_M, Female_Total = TOT_SATACT_F)
 
+#drop anything that has NA or -9
+SAT_ACT = drop_na(SAT_ACT)
+SAT_ACT = SAT_ACT[SAT_ACT$Male_Total != -9,]
+SAT_ACT = SAT_ACT[SAT_ACT$Female_Total != -9,]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Cleaned -K #Comment: Uh there is very few data points here (97). There may be,,, none,,, when we do the joins..</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xvYWQgaW4gSUIgRGF0YSBoZXJlXG5JQiA8LSByZWFkX2NzdihcIkludGVybmF0aW9uYWwgQmFjY2FsYXVyZWF0ZS5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>#Load in IB Data here
+IB &lt;- read_csv(&quot;International Baccalaureate.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogOTc2MzIgQ29sdW1uczogMjlcbuKUgOKUgCBDb2x1bW4gc3BlY2lmaWNhdGlvbiDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIBcbkRlbGltaXRlcjogXCIsXCJcbmNociAgKDkpOiBMRUFfU1RBVEUsIExFQV9TVEFURV9OQU1FLCBMRUFJRCwgTEVBX05BTUUsIFNDSElELCBTQ0hfTkFNRSwgQ09NQk9LRVksIEpKLCBTQ0hfSUJFTlJfSU5EXG5kYmwgKDIwKTogU0NIX0lCRU5SX0hJX00sIFNDSF9JQkVOUl9ISV9GLCBTQ0hfSUJFTlJfQU1fTSwgU0NIX0lCRU5SX0FNX0YsIFNDSF9JQkVOUl9BU19NLCBTQ0hfSUJFTlJfQVNfRiwgU0NILi4uXG5cbuKEuSBVc2UgYHNwZWMoKWAgdG8gcmV0cmlldmUgdGhlIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb24gZm9yIHRoaXMgZGF0YS5cbuKEuSBTcGVjaWZ5IHRoZSBjb2x1bW4gdHlwZXMgb3Igc2V0IGBzaG93X2NvbF90eXBlcyA9IEZBTFNFYCB0byBxdWlldCB0aGlzIG1lc3NhZ2UuXG4ifQ== -->
+<pre><code>Rows: 97632 Columns: 29
+── Column specification ─────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: &quot;,&quot;
+chr  (9): LEA_STATE, LEA_STATE_NAME, LEAID, LEA_NAME, SCHID, SCH_NAME, COMBOKEY, JJ, SCH_IBENR_IND
+dbl (20): SCH_IBENR_HI_M, SCH_IBENR_HI_F, SCH_IBENR_AM_M, SCH_IBENR_AM_F, SCH_IBENR_AS_M, SCH_IBENR_AS_F, SCH...
 
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2Ryb3AgYWxsIG90aGVyIHN0YXRlcywgLTkgb3IgTkEgdmFsdWVzXG5JQiA8LSBJQiAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcIkNBXCIpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKClcbiNyZW5hbWUgY29sdW1uc1xuSUIgPSByZW5hbWUoSUIsIFN0YXRlX0FiYnJldmlhdGlvbiA9IExFQV9TVEFURSwgU3RhdGUgPSBMRUFfU1RBVEVfTkFNRSwgRGlzdHJpY3QgPSBMRUFfTkFNRSwgU2Nob29sID0gU0NIX05BTUUsIElCX0luZGljYXRvciA9IFNDSF9JQkVOUl9JTkQsIE1hbGVfVG90YWwgPSBUT1RfSUJFTlJfTSwgRmVtYWxlX1RvdGFsID0gVE9UX0lCRU5SX0YpXG4jZHJvcCBpcnJlbGV2YW50IGNvbHVtbnNcbklCID0gc3Vic2V0KElCLCBzZWxlY3QgPSBjKFN0YXRlX0FiYnJldmlhdGlvbiwgU3RhdGUsIERpc3RyaWN0LCBTY2hvb2wsIElCX0luZGljYXRvciwgTWFsZV9Ub3RhbCwgRmVtYWxlX1RvdGFsKSlcbiNzdW1tYXJ5L2hlYWRcbnN1bW1hcnkoSUIpXG5gYGAifQ== -->
+<pre class="r"><code>#drop all other states, -9 or NA values
+IB &lt;- IB %&gt;% filter(LEA_STATE == &quot;CA&quot;) %&gt;%  na_if(-9) %&gt;% drop_na()
+#rename columns
+IB = rename(IB, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, IB_Indicator = SCH_IBENR_IND, Male_Total = TOT_IBENR_M, Female_Total = TOT_IBENR_F)
+#drop irrelevant columns
+IB = subset(IB, select = c(State_Abbreviation, State, District, School, IB_Indicator, Male_Total, Female_Total))
+#summary/head
+summary(IB)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFN0YXRlX0FiYnJldmlhdGlvbiAgICBTdGF0ZSAgICAgICAgICAgICBEaXN0cmljdCAgICAgICAgICAgIFNjaG9vbCAgICAgICAgICBJQl9JbmRpY2F0b3IgICAgICAgICBNYWxlX1RvdGFsIFxuIExlbmd0aDo5NyAgICAgICAgICBMZW5ndGg6OTcgICAgICAgICAgTGVuZ3RoOjk3ICAgICAgICAgIExlbmd0aDo5NyAgICAgICAgICBMZW5ndGg6OTcgICAgICAgICAgTWluLiAgIDogIDAgIFxuIENsYXNzIDpjaGFyYWN0ZXIgICBDbGFzcyA6Y2hhcmFjdGVyICAgQ2xhc3MgOmNoYXJhY3RlciAgIENsYXNzIDpjaGFyYWN0ZXIgICBDbGFzcyA6Y2hhcmFjdGVyICAgMXN0IFF1LjogMzggIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICBNb2RlICA6Y2hhcmFjdGVyICAgTW9kZSAgOmNoYXJhY3RlciAgIE1vZGUgIDpjaGFyYWN0ZXIgICBNb2RlICA6Y2hhcmFjdGVyICAgTWVkaWFuIDogNzQgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTWVhbiAgIDoxMDUgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgM3JkIFF1LjoxNDggIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTWF4LiAgIDo0MTkgIFxuICBGZW1hbGVfVG90YWxcbiBNaW4uICAgOiAgMCAgXG4gMXN0IFF1LjogNTUgIFxuIE1lZGlhbiA6MTE3ICBcbiBNZWFuICAgOjE0MyAgXG4gM3JkIFF1LjoyMTEgIFxuIE1heC4gICA6NDc4ICBcbiJ9 -->
+<pre><code> State_Abbreviation    State             District            School          IB_Indicator         Male_Total 
+ Length:97          Length:97          Length:97          Length:97          Length:97          Min.   :  0  
+ Class :character   Class :character   Class :character   Class :character   Class :character   1st Qu.: 38  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character   Mode  :character   Median : 74  
+                                                                                                Mean   :105  
+                                                                                                3rd Qu.:148  
+                                                                                                Max.   :419  
+  Female_Total
+ Min.   :  0  
+ 1st Qu.: 55  
+ Median :117  
+ Mean   :143  
+ 3rd Qu.:211  
+ Max.   :478  </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChJQiwxNSlcbmBgYCJ9 -->
+<pre class="r"><code>head(IB,15)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MTUsIm5jb2wiOjcsInN1bW1hcnkiOnsiQSB0aWJibGUiOlsiMTUgw5cgNyJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUErVlZ6VkxiTUJBV2daVGlLU1REVDduMDRCY2dGeTQ5RWhMU0JraWdKUHpOdEUzWDlrSTBrYVdNTEtlbHB6NUtINkdQMEVmcEsvUUZTT1ZZVGkxRDc4dzBNOHBxdjkzVmZydVNwYlBtMWE1ejVSQkNGc25TZ3Y0djZ5a3BuL2RiTzY4SldTcHBaWUVza1pWRWZ0SG1EVDFaMXFPcVI4VVlTbzM2azVyWjdKeEcvYmpkT2pucnR1di9OV0ozWmVzWVJ1Z2VzSWh5SWRFOTUvU0dZbUNNMjMwTTBZOFp1QmZBR040VnpaMVlTb3JxSCtaS0Y1UUlJU3JBV3oxZktCVTlIclBSbCtEZnVZZUNjbFV3VmE5RmhDRlZSWkpiUGVDYXdqNUlEeVFVakd0MU5oRXlLS0RyZFE1RHBHRUNDKzYrcGJkRFkzblZGVklOVVdvd0RqM0JBdlhRWjdYK05ZNktpYXI3S0VmNFNFRU5DTWNlTXZad25mVUdqR21rSkhBeEQ3STNaelBwZitRRGN4dkE3K3pvdFRjU1Fia25NTXFqbThVdHlmTnU4MENUakVPTGhMMGJPWXVUYmtWK2dma081TUR0cG9qYzB4ZzlwbVVQZFpFeWI2NG1EVVgzUWhjS0Z0RkRNZVJ1cStZZUllY1lXSG5XTy80UjVack9oR3BTRnFlMDlYbE84Nzdud0JkTlpHNEhMQ0l2YzkzT0YydDNmUEVhb3ljODFkdWVrTjA3L1puY3ptVFAvNVRLSzVMS2R3Wi9iNlRucHJMekxaVmcvUEZYS3MvM1VubGk0bmVOcENadVlQUnVHai9QZjJsdy90M080eG44bzhrM012b0hrK2ZXK0U5K0dEL0RzMi84R2tZS3d5OHcrbVdXMzNxSXloekNXVk9xSkhtTXNnT3RRT0dnN25rU0p4U1UvdWd5OTVuRktNK2J5V0dndmpMNnM1NC9GSUpsQjZpOVA5QmZDL1gxRFNhenM5Y0Job08rVUREM2FtSDRGN081clVqeHVaYnhXOVdqbEpRd25VNS9GNHZ3R1VSWkVSbm9CS0NnZGlOMXZOYnVDeUhMWXB5VXBZTkt5VE5jTGdRdnlBSlFpWG5DSk5qeGh6RWZKZTg1Y1dibTlMZHE1cFhjZkRsTldacWFwY3BabTVEZlVwNDFzY3hBWDIzWmhhUXJuaFZjRzB0OWUyZVZhRFNxcVZ6WEhGK3dESm5WUnU3L0FFVm5LUGw5Q0FBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["State_Abbreviation"],"name":[1],"type":["chr"],"align":["left"]},{"label":["State"],"name":[2],"type":["chr"],"align":["left"]},{"label":["District"],"name":[3],"type":["chr"],"align":["left"]},{"label":["School"],"name":[4],"type":["chr"],"align":["left"]},{"label":["IB_Indicator"],"name":[5],"type":["chr"],"align":["left"]},{"label":["Male_Total"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Female_Total"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"CA","2":"CALIFORNIA","3":"Lake Elsinore Unified","4":"Temescal Canyon High","5":"Yes","6":"67","7":"92"},{"1":"CA","2":"CALIFORNIA","3":"Temecula Valley Unified","4":"Great Oak High","5":"Yes","6":"155","7":"245"},{"1":"CA","2":"CALIFORNIA","3":"Murrieta Valley Unified","4":"Murrieta Valley High","5":"Yes","6":"96","7":"145"},{"1":"CA","2":"CALIFORNIA","3":"Natomas Unified","4":"Inderkum High","5":"Yes","6":"71","7":"144"},{"1":"CA","2":"CALIFORNIA","3":"Scotts Valley Unified","4":"Scotts Valley High","5":"Yes","6":"115","7":"122"},{"1":"CA","2":"CALIFORNIA","3":"Tracy Joint Unified","4":"Tracy High","5":"Yes","6":"145","7":"216"},{"1":"CA","2":"CALIFORNIA","3":"Yosemite Unified","4":"Yosemite High","5":"Yes","6":"59","7":"117"},{"1":"CA","2":"CALIFORNIA","3":"Santa Barbara Unified","4":"Dos Pueblos Senior High","5":"Yes","6":"139","7":"189"},{"1":"CA","2":"CALIFORNIA","3":"Alvord Unified","4":"Norte Vista High","5":"Yes","6":"175","7":"363"},{"1":"CA","2":"CALIFORNIA","3":"Anaheim Union High","4":"John F. Kennedy High","5":"Yes","6":"85","7":"123"},{"1":"CA","2":"CALIFORNIA","3":"Northern Humboldt Union High","4":"McKinleyville High","5":"Yes","6":"62","7":"80"},{"1":"CA","2":"CALIFORNIA","3":"Azusa Unified","4":"Azusa High","5":"Yes","6":"19","7":"38"},{"1":"CA","2":"CALIFORNIA","3":"Berkeley Unified","4":"Berkeley High","5":"Yes","6":"201","7":"255"},{"1":"CA","2":"CALIFORNIA","3":"Campbell Union High","4":"Del Mar High","5":"Yes","6":"124","7":"160"},{"1":"CA","2":"CALIFORNIA","3":"Capistrano Unified","4":"Capistrano Valley High","5":"Yes","6":"61","7":"94"}],"options":{"columns":{"min":{},"max":[10],"total":[7]},"rows":{"min":[10],"max":[10],"total":[15]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Cleaned -K</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xvYWQgaW4gc2Nob29sIGNoYXJhY3RlcmlzdGljc1xuXG4jcmVhZCBpbiBzY2hvb2wgY2hhcmFjdGVyaXN0aWNzLCBvbmx5IHJlYWQgaW4gbmVjZXNzYXJ5IGNvbHVtbnNcbmNoYXJhY3RlcmlzdGljcyA9IGZyZWFkKFwiU2Nob29sIENoYXJhY3RlcmlzdGljcy5jc3ZcIiwgc2VsZWN0ID0gYyhcIkxFQV9TVEFURVwiLFwiTEVBX1NUQVRFX05BTUVcIixcIkxFQV9OQU1FXCIsXCJTQ0hfTkFNRVwiLFwiU0NIX0dSQURFX0cwOVwiLCBcIlNDSF9HUkFERV9HMTBcIiwgXCJTQ0hfR1JBREVfRzExXCIsIFwiU0NIX0dSQURFX0cxMlwiKSlcblxuYGBgIn0= -->
+<pre class="r"><code>#load in school characteristics
 
-&lt;!-- rnb-text-end --&gt;
+#read in school characteristics, only read in necessary columns
+characteristics = fread(&quot;School Characteristics.csv&quot;, select = c(&quot;LEA_STATE&quot;,&quot;LEA_STATE_NAME&quot;,&quot;LEA_NAME&quot;,&quot;SCH_NAME&quot;,&quot;SCH_GRADE_G09&quot;, &quot;SCH_GRADE_G10&quot;, &quot;SCH_GRADE_G11&quot;, &quot;SCH_GRADE_G12&quot;))
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoifC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfFxufD09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09fFxuIn0= -->
+<pre><code>|--------------------------------------------------|
+|==================================================|</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2ZpbHRlciBvdXQgYWxsIHN0YXRlcyB0aGF0IGFyZW4ndCBDQVxuY2hhcmFjdGVyaXN0aWNzID0gY2hhcmFjdGVyaXN0aWNzW2NoYXJhY3RlcmlzdGljcyRMRUFfU1RBVEUgPT0gXCJDQVwiLCBdXG5cbiNyZW5hbWUgY29sdW1uc1xuY2hhcmFjdGVyaXN0aWNzPSByZW5hbWUoY2hhcmFjdGVyaXN0aWNzLCBTdGF0ZV9BYmJyZXZpYXRpb24gPSBMRUFfU1RBVEUsIFN0YXRlID0gTEVBX1NUQVRFX05BTUUsIERpc3RyaWN0ID0gTEVBX05BTUUsIFNjaG9vbCA9IFNDSF9OQU1FLCBHcmFkZXNfU3R1X0Vucm9sbGVkXzkgPSBTQ0hfR1JBREVfRzA5LCBHcmFkZXNfU3R1X0Vucm9sbGVkXzEwID0gU0NIX0dSQURFX0cxMCwgR3JhZGVzX1N0dV9FbnJvbGxlZF8xMSA9IFNDSF9HUkFERV9HMTEsIEdyYWRlc19TdHVfRW5yb2xsZWRfMTIgPSBTQ0hfR1JBREVfRzEyKVxuXG4jZHJvcCBhbnl0aGluZyB0aGF0IGhhcyBOQSBvciAtOVxuY2hhcmFjdGVyaXN0aWNzID0gbmFfaWYoY2hhcmFjdGVyaXN0aWNzLCAtOSlcbmNoYXJhY3RlcmlzdGljcyA9IGRyb3BfbmEoY2hhcmFjdGVyaXN0aWNzKVxuYGBgIn0= -->
+<pre class="r"><code>#filter out all states that aren&#39;t CA
+characteristics = characteristics[characteristics$LEA_STATE == &quot;CA&quot;, ]
 
+#rename columns
+characteristics= rename(characteristics, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Grades_Stu_Enrolled_9 = SCH_GRADE_G09, Grades_Stu_Enrolled_10 = SCH_GRADE_G10, Grades_Stu_Enrolled_11 = SCH_GRADE_G11, Grades_Stu_Enrolled_12 = SCH_GRADE_G12)
 
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuIyBsb2FkIGluIFNBVCBwYXJ0aWNpcGF0aW9uIGhlcmVcblNBVF9BQ1QgPC0gcmVhZF9jc3YoXFxTQVQgYW5kIEFDVC5jc3ZcXClcbmBgYFxuYGBgIn0= --&gt;
-
-```r
-```r
-# load in SAT participation here
-SAT_ACT &lt;- read_csv(\SAT and ACT.csv\)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuSUIgPC0gcmVhZF9jc3YoXFxJbnRlcm5hdGlvbmFsIEJhY2NhbGF1cmVhdGUuY3N2XFwpXG5JQiA8LSBJQiAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSBcXENBXFwpICU+JSAgbmFfaWYoLTkpICU+JSBkcm9wX25hKCkgJT4lIHNlbGVjdChMRUFJRCxMRUFfTkFNRSxTQ0hJRCwgU0NIX05BTUUsQ09NQk9LRVksU0NIX0lCRU5SX0lORCxTQ0hfSUJFTlJfTEVQX00sU0NIX0lCRU5SX0xFUF9GLFNDSF9JQkVOUl9JREVBX00sU0NIX0lCRU5SX0lERUFfRilcbnN1bW1hcnkoSUIpXG5oZWFkKElCLDE1KVxuYGBgXG5gYGAifQ== --&gt;
-
-```r
-```r
-IB &lt;- read_csv(\International Baccalaureate.csv\)
-IB &lt;- IB %&gt;% filter(LEA_STATE == \CA\) %&gt;%  na_if(-9) %&gt;% drop_na() %&gt;% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_IBENR_IND,SCH_IBENR_LEP_M,SCH_IBENR_LEP_F,SCH_IBENR_IDEA_M,SCH_IBENR_IDEA_F)
-summary(IB)
-head(IB,15)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI2xvYWQgaW4gc2Nob29sIGNoYXJhY3RlcmlzdGljc1xuY2hhcmFjdGVyaXN0aWNzIDwtIHJlYWRfY3N2KFxcU2Nob29sIENoYXJhY3RlcmlzdGljcy5jc3ZcXClcbmBgYFxuYGBgIn0= --&gt;
-
-```r
-```r
-#load in school characteristics
-characteristics &lt;- read_csv(\School Characteristics.csv\)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuZXhwZW5kaXR1cmVzIDwtIHJlYWRfY3N2KFxcU2Nob29sIEV4cGVuZGl0dXJlcy5jc3ZcXClcbmV4cGVuZGl0dXJlcyA8LSBleHBlbmRpdHVyZXMgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gXFxDQVxcKSBcbmhlYWQoZXhwZW5kaXR1cmVzKVxuZXhwZW5kaXR1cmVfbW9kZWwgPC0gbG0oU0NIX0ZURV9BSURfV09GRUQgfiBTQ0hfRlRFX1NVUF9XT0ZFRCwgXG4gICAgICAgICAgICAgICAgICBkYXRhID0gZXhwZW5kaXR1cmVzLFxuICAgICAgICAgICAgICAgICAgZmFtaWx5ID0gYmlub21pYWwpXG5zdW1tYXJ5KGV4cGVuZGl0dXJlX21vZGVsKVxuYGBgXG5gYGAifQ== --&gt;
-
-```r
-```r
-expenditures &lt;- read_csv(\School Expenditures.csv\)
-expenditures &lt;- expenditures %&gt;% filter(LEA_STATE == \CA\) 
-head(expenditures)
-expenditure_model &lt;- lm(SCH_FTE_AID_WOFED ~ SCH_FTE_SUP_WOFED, 
-                  data = expenditures,
-                  family = binomial)
-summary(expenditure_model)</code></pre>
-<pre><code>
-&lt;!-- rnb-source-end --&gt;
-
-&lt;!-- rnb-chunk-end --&gt;
-
-
-&lt;!-- rnb-text-begin --&gt;
-
-
-
-&lt;!-- rnb-text-end --&gt;
-
-
-&lt;!-- rnb-chunk-begin --&gt;
-
-
-&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZV9nb2luZyA9IHJlYWQuZGVsaW0oXCJjb2xsZWdlZ29pbmcudHh0XCIsIG5hLnN0cmluZ3M9YyhcIlwiLFwiKlwiLCBcIk5BXCIpKVxuXG4jIENoYW5zZSdzIGV4cGxvcmF0aW9uXG5jb2xsZWdlX2dvaW5nXzEgPC0gY29sbGVnZV9nb2luZyAlPiUgXG4gIG11dGF0ZV9hdChjKDEzOjIwKSwgYXMubnVtZXJpYykgJT4lXG4gICBmaWx0ZXIoIWlzLm5hKENvbGxlZ2UuR29pbmcuUmF0ZS4uLlRvdGFsLi4xMi5Nb250aHMuKSkgJT4lXG4gICBtdXRhdGUoQ2hhcnRlclNjaG9vbCA9IChDaGFydGVyU2Nob29sID09IFwiWWVzXCIpKVxuXG5jaGFydGVyX3NjaG9vbHMgPC0gY29sbGVnZV9nb2luZ18xICU+JSBmaWx0ZXIoQ2hhcnRlclNjaG9vbCA9PSBUUlVFKVxubm9uY2hhcnRlcl9zY2hvb2xzIDwtIGNvbGxlZ2VfZ29pbmdfMSAlPiUgZmlsdGVyKENoYXJ0ZXJTY2hvb2wgPT0gRkFMU0UpXG5tZWFuKGNoYXJ0ZXJfc2Nob29scyRDb2xsZWdlLkdvaW5nLlJhdGUuLi5Ub3RhbC4uMTIuTW9udGhzLilcbmBgYCJ9 --&gt;
-
-```r
-college_going = read.delim(&quot;collegegoing.txt&quot;, na.strings=c(&quot;&quot;,&quot;*&quot;, &quot;NA&quot;))
+#drop anything that has NA or -9
+characteristics = na_if(characteristics, -9)
+characteristics = drop_na(characteristics)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Cleaned -K</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwZW5kaXR1cmVzID0gbmFfaWYoLTkpXG5cbmBgYCJ9 -->
+<pre class="r"><code>expenditures = na_if(-9)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gY2hlY2tfbGVuZ3RoKHksIHgsIFwiYHlgXCIsIGdsdWUoXCJzYW1lIGFzIGB4YFwiKSkgOiBcbiAgYXJndW1lbnQgXCJ5XCIgaXMgbWlzc2luZywgd2l0aCBubyBkZWZhdWx0XG4ifQ== -->
+<pre><code>Error in check_length(y, x, &quot;`y`&quot;, glue(&quot;same as `x`&quot;)) : 
+  argument &quot;y&quot; is missing, with no default</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbGVnZV9nb2luZyA9IHJlYWQuZGVsaW0oXCJjb2xsZWdlZ29pbmcudHh0XCIsIG5hLnN0cmluZ3M9YyhcIlwiLFwiKlwiLCBcIk5BXCIpKVxuXG4jIENoYW5zZSdzIGV4cGxvcmF0aW9uXG5jb2xsZWdlX2dvaW5nXzEgPC0gY29sbGVnZV9nb2luZyAlPiUgXG4gIG11dGF0ZV9hdChjKDEzOjIwKSwgYXMubnVtZXJpYykgJT4lXG4gICBmaWx0ZXIoIWlzLm5hKENvbGxlZ2UuR29pbmcuUmF0ZS4uLlRvdGFsLi4xMi5Nb250aHMuKSkgJT4lXG4gICBtdXRhdGUoQ2hhcnRlclNjaG9vbCA9IChDaGFydGVyU2Nob29sID09IFwiWWVzXCIpKVxuXG5jaGFydGVyX3NjaG9vbHMgPC0gY29sbGVnZV9nb2luZ18xICU+JSBmaWx0ZXIoQ2hhcnRlclNjaG9vbCA9PSBUUlVFKVxubm9uY2hhcnRlcl9zY2hvb2xzIDwtIGNvbGxlZ2VfZ29pbmdfMSAlPiUgZmlsdGVyKENoYXJ0ZXJTY2hvb2wgPT0gRkFMU0UpXG5tZWFuKGNoYXJ0ZXJfc2Nob29scyRDb2xsZWdlLkdvaW5nLlJhdGUuLi5Ub3RhbC4uMTIuTW9udGhzLilcbmBgYCJ9 -->
+<pre class="r"><code>college_going = read.delim(&quot;collegegoing.txt&quot;, na.strings=c(&quot;&quot;,&quot;*&quot;, &quot;NA&quot;))
 
 # Chanse&#39;s exploration
 college_going_1 &lt;- college_going %&gt;% 
@@ -535,7 +535,7 @@ schools_only = schools_only[!duplicated(schools_only), ]
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBNUyZFIDEyNSBGaW5hbCBQcm9qZWN0CiMjIEdyYWNlLCBDaGFuc2UsIENhcmxlbmUsIEthdGVsaW4sIFZsYWQKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShyZWFkcikKbGlicmFyeShkcGx5cikKYGBgCgpgYGB7cn0KY3JlZGl0X3JlY292ZXJ5IDwtIHJlYWRfY3N2KCJDcmVkaXQgUmVjb3ZlcnkuY3N2IikKY3JlZGl0X3JlY292ZXJ5IDwtIGNyZWRpdF9yZWNvdmVyeSAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSAiQ0EiKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpCmhlYWQoY3JlZGl0X3JlY292ZXJ5LDE1KQpzdW1tYXJ5KGNyZWRpdF9yZWNvdmVyeSkKCmRfZW5yb2xsbWVudCA8LSByZWFkX2NzdigiRHVhbCBFbnJvbGxtZW50LmNzdiIpCmRfZW5yb2xsbWVudCA8LSBkX2Vucm9sbG1lbnQgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKSAlPiUgc2VsZWN0KExFQUlELExFQV9OQU1FLFNDSElELCBTQ0hfTkFNRSxDT01CT0tFWSxTQ0hfRFVBTF9JTkQsVE9UX0RVQUxfRixUT1RfRFVBTF9NLFNDSF9EVUFMRU5SX0xFUF9GLFNDSF9EVUFMRU5SX0xFUF9NLFNDSF9EVUFMRU5SX0lERUFfRixTQ0hfRFVBTEVOUl9JREVBX00pCgpgYGAKCmBgYHtyfQpnX3QgPC0gcmVhZF9jc3YoIkdpZnRlZCBhbmQgVGFsZW50ZWQuY3N2IikKZ190IDwtIGdfdCAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSAiQ0EiKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpICU+JSBzZWxlY3QoTEVBSUQsTEVBX05BTUUsU0NISUQsIFNDSF9OQU1FLENPTUJPS0VZLFNDSF9HVF9JTkQsU0NIX0dURU5SX0xFUF9NLFNDSF9HVEVOUl9MRVBfRixTQ0hfR1RFTlJfSURFQV9NLFNDSF9HVEVOUl9JREVBX0YpCnN1bW1hcnkoZ190KQpoZWFkKGdfdCwxNSkKYGBgCgpgYGB7cn0KIyBsb2FkIGluIFNBVCBwYXJ0aWNpcGF0aW9uIGhlcmUKU0FUX0FDVCA8LSByZWFkX2NzdigiU0FUIGFuZCBBQ1QuY3N2IikKYGBgCgoKYGBge3J9CklCIDwtIHJlYWRfY3N2KCJJbnRlcm5hdGlvbmFsIEJhY2NhbGF1cmVhdGUuY3N2IikKSUIgPC0gSUIgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKSAlPiUgc2VsZWN0KExFQUlELExFQV9OQU1FLFNDSElELCBTQ0hfTkFNRSxDT01CT0tFWSxTQ0hfSUJFTlJfSU5ELFNDSF9JQkVOUl9MRVBfTSxTQ0hfSUJFTlJfTEVQX0YsU0NIX0lCRU5SX0lERUFfTSxTQ0hfSUJFTlJfSURFQV9GKQpzdW1tYXJ5KElCKQpoZWFkKElCLDE1KQpgYGAKCmBgYHtyfQojbG9hZCBpbiBzY2hvb2wgY2hhcmFjdGVyaXN0aWNzCmNoYXJhY3RlcmlzdGljcyA8LSByZWFkX2NzdigiU2Nob29sIENoYXJhY3RlcmlzdGljcy5jc3YiKQpgYGAKCgoKYGBge3J9CmV4cGVuZGl0dXJlcyA8LSByZWFkX2NzdigiU2Nob29sIEV4cGVuZGl0dXJlcy5jc3YiKQpleHBlbmRpdHVyZXMgPC0gZXhwZW5kaXR1cmVzICU+JSBmaWx0ZXIoTEVBX1NUQVRFID09ICJDQSIpIApoZWFkKGV4cGVuZGl0dXJlcykKZXhwZW5kaXR1cmVfbW9kZWwgPC0gbG0oU0NIX0ZURV9BSURfV09GRUQgfiBTQ0hfRlRFX1NVUF9XT0ZFRCwgCiAgICAgICAgICAgICAgICAgIGRhdGEgPSBleHBlbmRpdHVyZXMsCiAgICAgICAgICAgICAgICAgIGZhbWlseSA9IGJpbm9taWFsKQpzdW1tYXJ5KGV4cGVuZGl0dXJlX21vZGVsKQpgYGAKCmBgYHtyfQpjb2xsZWdlX2dvaW5nID0gcmVhZC5kZWxpbSgiY29sbGVnZWdvaW5nLnR4dCIsIG5hLnN0cmluZ3M9YygiIiwiKiIsICJOQSIpKQoKIyBDaGFuc2UncyBleHBsb3JhdGlvbgpjb2xsZWdlX2dvaW5nXzEgPC0gY29sbGVnZV9nb2luZyAlPiUgCiAgbXV0YXRlX2F0KGMoMTM6MjApLCBhcy5udW1lcmljKSAlPiUKICAgZmlsdGVyKCFpcy5uYShDb2xsZWdlLkdvaW5nLlJhdGUuLi5Ub3RhbC4uMTIuTW9udGhzLikpICU+JQogICBtdXRhdGUoQ2hhcnRlclNjaG9vbCA9IChDaGFydGVyU2Nob29sID09ICJZZXMiKSkKCmNoYXJ0ZXJfc2Nob29scyA8LSBjb2xsZWdlX2dvaW5nXzEgJT4lIGZpbHRlcihDaGFydGVyU2Nob29sID09IFRSVUUpCm5vbmNoYXJ0ZXJfc2Nob29scyA8LSBjb2xsZWdlX2dvaW5nXzEgJT4lIGZpbHRlcihDaGFydGVyU2Nob29sID09IEZBTFNFKQptZWFuKGNoYXJ0ZXJfc2Nob29scyRDb2xsZWdlLkdvaW5nLlJhdGUuLi5Ub3RhbC4uMTIuTW9udGhzLikKbWVhbihub25jaGFydGVyX3NjaG9vbHMkQ29sbGVnZS5Hb2luZy5SYXRlLi4uVG90YWwuLjEyLk1vbnRocy4pCmBgYAoKYGBge3J9CiMgR3JhY2UgY2xlYW4gdXAgY29sbGVnZV9nb2luZyBmaWxlCmNvbGxlZ2VfZ29pbmcgPC0gY29sbGVnZV9nb2luZyAlPiUgCnNlbGVjdChBZ2dyZWdhdGVMZXZlbCwgQ291bnR5Q29kZSwgRGlzdHJpY3RDb2RlLCBTY2hvb2xDb2RlLCBEaXN0cmljdE5hbWUsIFNjaG9vbE5hbWUsIENoYXJ0ZXJTY2hvb2wsIFJlcG9ydGluZ0NhdGVnb3J5LCBDb21wbGV0ZXJUeXBlLCBIaWdoLlNjaG9vbC5Db21wbGV0ZXJzLCBFbnJvbGxlZC5Jbi5Db2xsZWdlLi4uVG90YWwuLjEyLk1vbnRocy4sIENvbGxlZ2UuR29pbmcuUmF0ZS4uLlRvdGFsLi4xMi5Nb250aHMuLCBFbnJvbGxlZC5Jbi5TdGF0ZS4uMTIuTW9udGhzLixFbnJvbGxlZC5PdXQub2YuU3RhdGUuLjEyLk1vbnRocy4pICU+JSAKICByZW5hbWUoVG90YWxfRW5yb2xsZWRfQ29sbGVnZSA9IEVucm9sbGVkLkluLkNvbGxlZ2UuLi5Ub3RhbC4uMTIuTW9udGhzLiwgVG90YWxfQ29sbGVnZV9Hb2luZ19SYXRlID0gQ29sbGVnZS5Hb2luZy5SYXRlLi4uVG90YWwuLjEyLk1vbnRocy4sIFRvdGFsX0Vucm9sbGVkX0luX1N0YXRlID0gRW5yb2xsZWQuSW4uU3RhdGUuLjEyLk1vbnRocy4sIFRvdGFsX0Vucm9sbGVkX091dF9TdGF0ZSA9IEVucm9sbGVkLk91dC5vZi5TdGF0ZS4uMTIuTW9udGhzLikKCmNvbGxlZ2VfZ29pbmcgPC0gbmEub21pdChjb2xsZWdlX2dvaW5nKQpjb2xsZWdlX2dvaW5nICU+JSBkaXN0aW5jdCgpCmNvbGxlZ2VfZ29pbmcgPC0gZmlsdGVyKGNvbGxlZ2VfZ29pbmcsIENvbXBsZXRlclR5cGUgPT0gJ1RBJykKCiNLQVRFTElOIENMRUFOSU5HCgojZmlsdGVyIG9ubHkgYnkgc2Nob29sIG5hbWUKc2Nob29sc19vbmx5ID0gY29sbGVnZV9nb2luZ1tjb2xsZWdlX2dvaW5nJEFnZ3JlZ2F0ZUxldmVsID09ICJTIiwgXQojZmlsdGVyIG9ubHkgYnkgdG90YWwgc3R1ZGVudCBjb3VudCAobm8gYnJlYWtkb3duIGJ5IHJhY2UvZXRobmljaXR5KQpzY2hvb2xzX29ubHkgPSBzY2hvb2xzX29ubHlbc2Nob29sc19vbmx5JFJlcG9ydGluZ0NhdGVnb3J5ID09ICJUQSIsIF0KI2ZpbHRlciBvbmx5IGJ5IGFsbCBzY2hvb2xzLCByZWdhcmRsZXNzIG9mIGNoYXJ0ZXIgc3RhdHVzCnNjaG9vbHNfb25seSA9IHNjaG9vbHNfb25seVtzY2hvb2xzX29ubHkkQ2hhcnRlclNjaG9vbCA9PSAiQWxsIiwgXQojZGVsZXRlIGFsbCBjb2x1bW5zIG5vIGxvbmdlciBuZWNlc3NhcnkgKGFsbCBsaXN0ZWQgYWJvdmUpCnNjaG9vbHNfb25seSA9IHN1YnNldChzY2hvb2xzX29ubHksIHNlbGVjdCA9IC1BZ2dyZWdhdGVMZXZlbCkKc2Nob29sc19vbmx5ID0gc3Vic2V0KHNjaG9vbHNfb25seSwgc2VsZWN0ID0gLVJlcG9ydGluZ0NhdGVnb3J5KQpzY2hvb2xzX29ubHkgPSBzdWJzZXQoc2Nob29sc19vbmx5LCBzZWxlY3QgPSAtQ2hhcnRlclNjaG9vbCkKc2Nob29sc19vbmx5ID0gc3Vic2V0KHNjaG9vbHNfb25seSwgc2VsZWN0ID0gLUNvbXBsZXRlclR5cGUpCiNyZW1vdmUgYWxsIGR1cGxpY2F0ZSBsaW5lcwpzY2hvb2xzX29ubHkgPSBzY2hvb2xzX29ubHlbIWR1cGxpY2F0ZWQoc2Nob29sc19vbmx5KSwgXQoKYGBgCiNrYXRlbGluIGNoYW5nZXMgNS8zMSAyOjM4IFBNIAotIEFkZGVkIGJhY2sgYWdncmVnYXRlIGxldmVsIHRvIHNvcnQgYnkgc2Nob29scyBvbmx5IChlbGltaW5hdGluZyBkaXN0cmljdC9zdGF0ZS9jb3VudHkgZGVzaWduYXRpb24pCi0gQWRkZWQgYmFjayByZXBvcnRpbmcgY2F0ZWdvcnkgdG8gZGlzcGxheSBvbmx5IHRvdGFscyBhY3Jvc3MgcmFjZXMgKG5vIGJyZWFrZG93bikKLSBSZW1vdmUgY2hhcnRlciBzY2hvb2wgZGVzaWduYXRpb24gdG8gZGlzcGxheSBhbGwgKHJlZ2FyZGxlc3Mgb2YgY2hhcnRlciBzdGF0dXMpIC0gZWxpbWluYXRlcyBkdXBsaWNhdGVzCgpgYGB7cn0KIyBHcmFjZSBsb2FkIGluIGdyYWR1YXRpb24gcmF0ZQpncmFkX3JhdGUgPSByZWFkLmRlbGltKCJncmFkdWF0aW9ucmF0ZS50eHQiLCBuYS5zdHJpbmdzPWMoIiIsIioiLCAiTkEiKSkKZ3JhZF9yYXRlIDwtIGdyYWRfcmF0ZSAlPiUgCnNlbGVjdChBZ2dyZWdhdGVMZXZlbCwgQ291bnR5Q29kZSwgRGlzdHJpY3RDb2RlLCBTY2hvb2xDb2RlLCBEaXN0cmljdE5hbWUsIFNjaG9vbE5hbWUsIENoYXJ0ZXJTY2hvb2wsIERBU1MsIFJlcG9ydGluZ0NhdGVnb3J5LCBDb2hvcnRTdHVkZW50cywgUmVndWxhci5IUy5EaXBsb21hLkdyYWR1YXRlcy4uQ291bnQuLFJlZ3VsYXIuSFMuRGlwbG9tYS5HcmFkdWF0ZXMuLlJhdGUuKSAlPiUgcmVuYW1lKE51bV9TdHVkZW50cyA9IENvaG9ydFN0dWRlbnRzLCBIU19EaXBsb21hX0NvdW50ID0gUmVndWxhci5IUy5EaXBsb21hLkdyYWR1YXRlcy4uQ291bnQuLCBIU19EaXBsb21hX1JhdGUgPSBSZWd1bGFyLkhTLkRpcGxvbWEuR3JhZHVhdGVzLi5SYXRlLikKZ3JhZF9yYXRlIDwtIG5hLm9taXQoZ3JhZF9yYXRlKQpncmFkX3JhdGUKCiNrYXRlbGluIGVkaXRzCgojZmlsdGVyIG9ubHkgYnkgc2Nob29sIG5hbWUKZ3JhZF9yYXRlX3NjaG9vbHMgPSBncmFkX3JhdGVbZ3JhZF9yYXRlJEFnZ3JlZ2F0ZUxldmVsID09ICJTIiwgXQoKI2ZpbHRlciBieSBjaGFydGVyIHNjaG9vbCwgREFTUywgYW5kIHJlcG9ydGluZyBjYXRlZ29yeQpncmFkX3JhdGVfc2Nob29scyA9IGdyYWRfcmF0ZV9zY2hvb2xzW2dyYWRfcmF0ZV9zY2hvb2xzJFJlcG9ydGluZ0NhdGVnb3J5ID09ICJUQSIsIF0KZ3JhZF9yYXRlX3NjaG9vbHMgPSBncmFkX3JhdGVfc2Nob29sc1tncmFkX3JhdGVfc2Nob29scyREQVNTID09ICJBbGwiLCBdCmdyYWRfcmF0ZV9zY2hvb2xzID0gZ3JhZF9yYXRlX3NjaG9vbHNbZ3JhZF9yYXRlX3NjaG9vbHMkQ2hhcnRlclNjaG9vbCA9PSAiQWxsIiwgXQoKI3JlbW92ZSB1bm5lY2Vzc2FyeSBjb2x1bW5zCmdyYWRfcmF0ZV9zY2hvb2xzID0gc3Vic2V0KGdyYWRfcmF0ZV9zY2hvb2xzLCBzZWxlY3QgPSAtYyhSZXBvcnRpbmdDYXRlZ29yeSwgQWdncmVnYXRlTGV2ZWwsIERBU1MsIENoYXJ0ZXJTY2hvb2wpKQpncmFkX3JhdGVfc2Nob29scyA9IGdyYWRfcmF0ZV9zY2hvb2xzWyFkdXBsaWNhdGVkKGdyYWRfcmF0ZV9zY2hvb2xzKSwgXQpgYGAKCmBgYHtyfQojIHVzZSBpbm5lciBqb2luIHRvIG1lcmdlIGFsbCB0aGUgY2xlYW5lZCB1cCBkYXRhIGZpbGVzIAojIHJ1biByZWdyZXNzaW9uIHVzaW5nIGFsbCB0aGUgY292YXJpYXRlcwpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBNUyZFIDEyNSBGaW5hbCBQcm9qZWN0CiMjIEdyYWNlLCBDaGFuc2UsIENhcmxlbmUsIEthdGVsaW4sIFZsYWQKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShyZWFkcikKbGlicmFyeShkcGx5cikKbGlicmFyeSgiZGF0YS50YWJsZSIpIApgYGAKCkJvdGggY2xlYW5lZCAtSwpgYGB7cn0KI0xvYWQgaW4gY3JlZGl0IHJlY292ZXJ5IGRhdGEgaGVyZQpjcmVkaXRfcmVjb3ZlcnkgPC0gcmVhZF9jc3YoIkNyZWRpdCBSZWNvdmVyeS5jc3YiKQojZHJvcCBhbGwgb3RoZXIgc3RhdGVzLCBOQSBhbmQgLTkgdmFsdWVzCmNyZWRpdF9yZWNvdmVyeSA8LSBjcmVkaXRfcmVjb3ZlcnkgJT4lIGZpbHRlcihMRUFfU1RBVEUgPT0gIkNBIikgJT4lICBuYV9pZigtOSkgJT4lIGRyb3BfbmEoKQojcmVuYW1lIGNvbHVtbnMKY3JlZGl0X3JlY292ZXJ5ID0gcmVuYW1lKGNyZWRpdF9yZWNvdmVyeSwgU3RhdGVfQWJicmV2aWF0aW9uID0gTEVBX1NUQVRFLCBTdGF0ZSA9IExFQV9TVEFURV9OQU1FLCBEaXN0cmljdCA9IExFQV9OQU1FLCBTY2hvb2wgPSBTQ0hfTkFNRSwgQ3JlZGl0X1JlY292ZXJ5X0luZGljYXRvciA9IFNDSF9DUkVESVRSRUNPVkVSWV9JTkQsIFRvdGFsX1JlY292ZXJ5ID0gU0NIX0NSRURJVFJFQ09WRVJZRU5SKQojZHJvcCBpcnJlbGV2YW50IGNvbHVtbnMKY3JlZGl0X3JlY292ZXJ5ID0gc3Vic2V0KGNyZWRpdF9yZWNvdmVyeSwgc2VsZWN0ID0gLWMoTEVBSUQsIFNDSElELCBDT01CT0tFWSwgSkopKQojaGVhZC9zdW1tYXJ5CmhlYWQoY3JlZGl0X3JlY292ZXJ5LDE1KQpzdW1tYXJ5KGNyZWRpdF9yZWNvdmVyeSkKCmBgYApgYGB7cn0KI0xvYWQgaW4gZHVhbCBlbnJvbGxtZW50IGRhdGEgaGVyZQpkX2Vucm9sbG1lbnQgPC0gcmVhZF9jc3YoIkR1YWwgRW5yb2xsbWVudC5jc3YiKQojZHJvcCBhbGwgb3RoZXIgc3RhdGVzLCAtOSBvciBOQSB2YWx1ZXMKZF9lbnJvbGxtZW50IDwtIGRfZW5yb2xsbWVudCAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSAiQ0EiKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpCiNyZW5hbWUgY29sdW1ucwpkX2Vucm9sbG1lbnQgPSByZW5hbWUoZF9lbnJvbGxtZW50LCBTdGF0ZV9BYmJyZXZpYXRpb24gPSBMRUFfU1RBVEUsIFN0YXRlID0gTEVBX1NUQVRFX05BTUUsIERpc3RyaWN0ID0gTEVBX05BTUUsIFNjaG9vbCA9IFNDSF9OQU1FLCBEdWFsX0luZGljYXRvciA9IFNDSF9EVUFMX0lORCwgTWFsZV9Ub3RhbCA9IFRPVF9EVUFMX00sIEZlbWFsZV9Ub3RhbCA9IFRPVF9EVUFMX0YpCiNkcm9wIGlycmVsZXZhbnQgY29sdW1ucwpkX2Vucm9sbG1lbnQgPSBzdWJzZXQoZF9lbnJvbGxtZW50LCBzZWxlY3QgPSBjKFN0YXRlX0FiYnJldmlhdGlvbiwgU3RhdGUsIERpc3RyaWN0LCBTY2hvb2wsIER1YWxfSW5kaWNhdG9yLCBNYWxlX1RvdGFsLCBGZW1hbGVfVG90YWwpKQpgYGAKCkNsZWFuZWQgLUsKYGBge3J9CiNsb2FkIGluIGdpZnRlZCBhbmQgdGFsZW50ZWQgcGFydGljaXBhdGlvbiBoZXJlCgojcmVhZCBpbiBvbmx5IHJlbGV2YW50IGNvbHVtbnMKZ2lmdF90YWxlbnQgPSBmcmVhZCgiR2lmdGVkIGFuZCBUYWxlbnRlZC5jc3YiLCBzZWxlY3QgPSBjKCJMRUFfU1RBVEUiLCAiTEVBX05BTUUiLCAiU0NIX05BTUUiLCAiU0NIX0dUX0lORCIsICJUT1RfR1RFTlJfTSIsICJUT1RfR1RFTlJfRiIpKQoKI3JlbmFtZSBjb2x1bW5zCmdpZnRfdGFsZW50ID0gcmVuYW1lKGdpZnRfdGFsZW50LCBTdGF0ZV9BYmJyZXZpYXRpb24gPSBMRUFfU1RBVEUsIERpc3RyaWN0ID0gTEVBX05BTUUsIFNjaG9vbCA9IFNDSF9OQU1FLCBHX1RfSW5kaWNhdG9yID0gU0NIX0dUX0lORCwgTWFsZV9Ub3RhbCA9IFRPVF9HVEVOUl9NLCBGZW1hbGVfVG90YWwgPSBUT1RfR1RFTlJfRikKCiNmaWx0ZXIgb3V0IGFsbCBzdGF0ZXMgdGhhdCBhcmVuJ3QgQ0EKZ2lmdF90YWxlbnQgPSBnaWZ0X3RhbGVudFtnaWZ0X3RhbGVudCRTdGF0ZV9BYmJyZXZpYXRpb24gPT0gIkNBIiwgXQoKI3JlbW92ZSAtOSBvciBOQQpnaWZ0X3RhbGVudCA9IGRyb3BfbmEoZ2lmdF90YWxlbnQpCmdpZnRfdGFsZW50ID0gZ2lmdF90YWxlbnRbZ2lmdF90YWxlbnQkTWFsZV9Ub3RhbCAhPSAtOSxdCmdpZnRfdGFsZW50ID0gZ2lmdF90YWxlbnRbZ2lmdF90YWxlbnQkRmVtYWxlX1RvdGFsICE9IC05LF0KCmBgYAoKQ2xlYW5lZCAtSwpgYGB7cn0KIyBsb2FkIGluIFNBVCBwYXJ0aWNpcGF0aW9uIGhlcmUKCiNyZWFkIGluIFNBVC9BQ1QgZGF0YSwgb25seSByZWFkIGluIG5lY2Vzc2FyeSBjb2x1bW5zClNBVF9BQ1QgPSBmcmVhZCgiU0FUIGFuZCBBQ1QuY3N2Iiwgc2VsZWN0ID0gYygiTEVBX1NUQVRFIiwiTEVBX1NUQVRFX05BTUUiLCJMRUFfTkFNRSIsIlNDSF9OQU1FIiwiVE9UX1NBVEFDVF9NIiwiVE9UX1NBVEFDVF9GIikpCgojZmlsdGVyIG91dCBhbGwgc3RhdGVzIHRoYXQgYXJlbid0IENBClNBVF9BQ1QgPSBTQVRfQUNUW1NBVF9BQ1QkTEVBX1NUQVRFID09ICJDQSIsIF0KCiNyZW5hbWUgY29sdW1ucwpTQVRfQUNUID0gcmVuYW1lKFNBVF9BQ1QsIFN0YXRlX0FiYnJldmlhdGlvbiA9IExFQV9TVEFURSwgU3RhdGUgPSBMRUFfU1RBVEVfTkFNRSwgRGlzdHJpY3QgPSBMRUFfTkFNRSwgU2Nob29sID0gU0NIX05BTUUsIE1hbGVfVG90YWwgPSBUT1RfU0FUQUNUX00sIEZlbWFsZV9Ub3RhbCA9IFRPVF9TQVRBQ1RfRikKCiNkcm9wIGFueXRoaW5nIHRoYXQgaGFzIE5BIG9yIC05ClNBVF9BQ1QgPSBkcm9wX25hKFNBVF9BQ1QpClNBVF9BQ1QgPSBTQVRfQUNUW1NBVF9BQ1QkTWFsZV9Ub3RhbCAhPSAtOSxdClNBVF9BQ1QgPSBTQVRfQUNUW1NBVF9BQ1QkRmVtYWxlX1RvdGFsICE9IC05LF0KYGBgCgpDbGVhbmVkIC1LCiNDb21tZW50OiBVaCB0aGVyZSBpcyB2ZXJ5IGZldyBkYXRhIHBvaW50cyBoZXJlICg5NykuIFRoZXJlIG1heSBiZSwsLCBub25lLCwsIHdoZW4gd2UgZG8gdGhlIGpvaW5zLi4KYGBge3J9CiNMb2FkIGluIElCIERhdGEgaGVyZQpJQiA8LSByZWFkX2NzdigiSW50ZXJuYXRpb25hbCBCYWNjYWxhdXJlYXRlLmNzdiIpCiNkcm9wIGFsbCBvdGhlciBzdGF0ZXMsIC05IG9yIE5BIHZhbHVlcwpJQiA8LSBJQiAlPiUgZmlsdGVyKExFQV9TVEFURSA9PSAiQ0EiKSAlPiUgIG5hX2lmKC05KSAlPiUgZHJvcF9uYSgpCiNyZW5hbWUgY29sdW1ucwpJQiA9IHJlbmFtZShJQiwgU3RhdGVfQWJicmV2aWF0aW9uID0gTEVBX1NUQVRFLCBTdGF0ZSA9IExFQV9TVEFURV9OQU1FLCBEaXN0cmljdCA9IExFQV9OQU1FLCBTY2hvb2wgPSBTQ0hfTkFNRSwgSUJfSW5kaWNhdG9yID0gU0NIX0lCRU5SX0lORCwgTWFsZV9Ub3RhbCA9IFRPVF9JQkVOUl9NLCBGZW1hbGVfVG90YWwgPSBUT1RfSUJFTlJfRikKI2Ryb3AgaXJyZWxldmFudCBjb2x1bW5zCklCID0gc3Vic2V0KElCLCBzZWxlY3QgPSBjKFN0YXRlX0FiYnJldmlhdGlvbiwgU3RhdGUsIERpc3RyaWN0LCBTY2hvb2wsIElCX0luZGljYXRvciwgTWFsZV9Ub3RhbCwgRmVtYWxlX1RvdGFsKSkKI3N1bW1hcnkvaGVhZApzdW1tYXJ5KElCKQpoZWFkKElCLDE1KQpgYGAKQ2xlYW5lZCAtSwpgYGB7cn0KI2xvYWQgaW4gc2Nob29sIGNoYXJhY3RlcmlzdGljcwoKI3JlYWQgaW4gc2Nob29sIGNoYXJhY3RlcmlzdGljcywgb25seSByZWFkIGluIG5lY2Vzc2FyeSBjb2x1bW5zCmNoYXJhY3RlcmlzdGljcyA9IGZyZWFkKCJTY2hvb2wgQ2hhcmFjdGVyaXN0aWNzLmNzdiIsIHNlbGVjdCA9IGMoIkxFQV9TVEFURSIsIkxFQV9TVEFURV9OQU1FIiwiTEVBX05BTUUiLCJTQ0hfTkFNRSIsIlNDSF9HUkFERV9HMDkiLCAiU0NIX0dSQURFX0cxMCIsICJTQ0hfR1JBREVfRzExIiwgIlNDSF9HUkFERV9HMTIiKSkKCiNmaWx0ZXIgb3V0IGFsbCBzdGF0ZXMgdGhhdCBhcmVuJ3QgQ0EKY2hhcmFjdGVyaXN0aWNzID0gY2hhcmFjdGVyaXN0aWNzW2NoYXJhY3RlcmlzdGljcyRMRUFfU1RBVEUgPT0gIkNBIiwgXQoKI3JlbmFtZSBjb2x1bW5zCmNoYXJhY3RlcmlzdGljcz0gcmVuYW1lKGNoYXJhY3RlcmlzdGljcywgU3RhdGVfQWJicmV2aWF0aW9uID0gTEVBX1NUQVRFLCBTdGF0ZSA9IExFQV9TVEFURV9OQU1FLCBEaXN0cmljdCA9IExFQV9OQU1FLCBTY2hvb2wgPSBTQ0hfTkFNRSwgR3JhZGVzX1N0dV9FbnJvbGxlZF85ID0gU0NIX0dSQURFX0cwOSwgR3JhZGVzX1N0dV9FbnJvbGxlZF8xMCA9IFNDSF9HUkFERV9HMTAsIEdyYWRlc19TdHVfRW5yb2xsZWRfMTEgPSBTQ0hfR1JBREVfRzExLCBHcmFkZXNfU3R1X0Vucm9sbGVkXzEyID0gU0NIX0dSQURFX0cxMikKCiNkcm9wIGFueXRoaW5nIHRoYXQgaGFzIE5BCmNoYXJhY3RlcmlzdGljcyA9IGRyb3BfbmEoY2hhcmFjdGVyaXN0aWNzKQpgYGAKCkNsZWFuZWQgLUsKYGBge3J9CiNMb2FkIGluIGV4cGVuZGl0dXJlcyBkYXRhIChpbmNsdWRpbmcgZmVkZXJhbCwgc3RhdGUsIGxvY2FsIGZ1bmRpbmcpCmV4cGVuZGl0dXJlcyA9IGZyZWFkKCJTY2hvb2wgRXhwZW5kaXR1cmVzLmNzdiIsIHNlbGVjdCA9IGMoIkxFQV9TVEFURSIsIkxFQV9TVEFURV9OQU1FIiwiTEVBX05BTUUiLCJTQ0hfTkFNRSIsIlNDSF9TQUxfVEVBQ0hfV0ZFRCIsICJTQ0hfU0FMX0FETV9XRkVEIiwgIlNDSF9TQUxfVE9UUEVSU19XRkVEIiwgIlNDSF9OUEVfV0ZFRCIpKQoKI2ZpbHRlciBvdXQgYWxsIHN0YXRlcyB0aGF0IGFyZW4ndCBDQQpleHBlbmRpdHVyZXMgPSBleHBlbmRpdHVyZXNbZXhwZW5kaXR1cmVzJExFQV9TVEFURSA9PSAiQ0EiLCBdCgojcmVuYW1lIGNvbHVtbnMgCmV4cGVuZGl0dXJlcyA9IHJlbmFtZShleHBlbmRpdHVyZXMsIFN0YXRlX0FiYnJldmlhdGlvbiA9IExFQV9TVEFURSwgU3RhdGUgPSBMRUFfU1RBVEVfTkFNRSwgRGlzdHJpY3QgPSBMRUFfTkFNRSwgU2Nob29sID0gU0NIX05BTUUsIFRlYWNoZXJfRXhwZW5kaXR1cmVzID0gU0NIX1NBTF9URUFDSF9XRkVELCBBZG1pbl9FeHBlbmRpdHVyZXMgPSBTQ0hfU0FMX0FETV9XRkVELCBBbGxfU3RhZmZfRXhwZW5kaXR1cmVzID0gU0NIX1NBTF9UT1RQRVJTX1dGRUQsIEFjdGl2aXR5X0V4cGVuZGl0dXJlcyA9IFNDSF9OUEVfV0ZFRCkKCiNkcm9wIGFueXRoaW5nIHRoYXQgaGFzIE5BIG9yIC05CmV4cGVuZGl0dXJlcyA9IG5hX2lmKGV4cGVuZGl0dXJlcywgLTkpCmV4cGVuZGl0dXJlcyA9IGRyb3BfbmEoZXhwZW5kaXR1cmVzKQoKaGVhZChleHBlbmRpdHVyZXMpCmV4cGVuZGl0dXJlX21vZGVsIDwtIGxtKFNDSF9GVEVfQUlEX1dPRkVEIH4gU0NIX0ZURV9TVVBfV09GRUQsIAogICAgICAgICAgICAgICAgICBkYXRhID0gZXhwZW5kaXR1cmVzLAogICAgICAgICAgICAgICAgICBmYW1pbHkgPSBiaW5vbWlhbCkKc3VtbWFyeShleHBlbmRpdHVyZV9tb2RlbCkKYGBgCgpgYGB7cn0KY29sbGVnZV9nb2luZyA9IHJlYWQuZGVsaW0oImNvbGxlZ2Vnb2luZy50eHQiLCBuYS5zdHJpbmdzPWMoIiIsIioiLCAiTkEiKSkKCiMgQ2hhbnNlJ3MgZXhwbG9yYXRpb24KY29sbGVnZV9nb2luZ18xIDwtIGNvbGxlZ2VfZ29pbmcgJT4lIAogIG11dGF0ZV9hdChjKDEzOjIwKSwgYXMubnVtZXJpYykgJT4lCiAgIGZpbHRlcighaXMubmEoQ29sbGVnZS5Hb2luZy5SYXRlLi4uVG90YWwuLjEyLk1vbnRocy4pKSAlPiUKICAgbXV0YXRlKENoYXJ0ZXJTY2hvb2wgPSAoQ2hhcnRlclNjaG9vbCA9PSAiWWVzIikpCgpjaGFydGVyX3NjaG9vbHMgPC0gY29sbGVnZV9nb2luZ18xICU+JSBmaWx0ZXIoQ2hhcnRlclNjaG9vbCA9PSBUUlVFKQpub25jaGFydGVyX3NjaG9vbHMgPC0gY29sbGVnZV9nb2luZ18xICU+JSBmaWx0ZXIoQ2hhcnRlclNjaG9vbCA9PSBGQUxTRSkKbWVhbihjaGFydGVyX3NjaG9vbHMkQ29sbGVnZS5Hb2luZy5SYXRlLi4uVG90YWwuLjEyLk1vbnRocy4pCm1lYW4obm9uY2hhcnRlcl9zY2hvb2xzJENvbGxlZ2UuR29pbmcuUmF0ZS4uLlRvdGFsLi4xMi5Nb250aHMuKQpgYGAKCmBgYHtyfQojIEdyYWNlIGNsZWFuIHVwIGNvbGxlZ2VfZ29pbmcgZmlsZQpjb2xsZWdlX2dvaW5nIDwtIGNvbGxlZ2VfZ29pbmcgJT4lIApzZWxlY3QoQWdncmVnYXRlTGV2ZWwsIENvdW50eUNvZGUsIERpc3RyaWN0Q29kZSwgU2Nob29sQ29kZSwgRGlzdHJpY3ROYW1lLCBTY2hvb2xOYW1lLCBDaGFydGVyU2Nob29sLCBSZXBvcnRpbmdDYXRlZ29yeSwgQ29tcGxldGVyVHlwZSwgSGlnaC5TY2hvb2wuQ29tcGxldGVycywgRW5yb2xsZWQuSW4uQ29sbGVnZS4uLlRvdGFsLi4xMi5Nb250aHMuLCBDb2xsZWdlLkdvaW5nLlJhdGUuLi5Ub3RhbC4uMTIuTW9udGhzLiwgRW5yb2xsZWQuSW4uU3RhdGUuLjEyLk1vbnRocy4sRW5yb2xsZWQuT3V0Lm9mLlN0YXRlLi4xMi5Nb250aHMuKSAlPiUgCiAgcmVuYW1lKFRvdGFsX0Vucm9sbGVkX0NvbGxlZ2UgPSBFbnJvbGxlZC5Jbi5Db2xsZWdlLi4uVG90YWwuLjEyLk1vbnRocy4sIFRvdGFsX0NvbGxlZ2VfR29pbmdfUmF0ZSA9IENvbGxlZ2UuR29pbmcuUmF0ZS4uLlRvdGFsLi4xMi5Nb250aHMuLCBUb3RhbF9FbnJvbGxlZF9Jbl9TdGF0ZSA9IEVucm9sbGVkLkluLlN0YXRlLi4xMi5Nb250aHMuLCBUb3RhbF9FbnJvbGxlZF9PdXRfU3RhdGUgPSBFbnJvbGxlZC5PdXQub2YuU3RhdGUuLjEyLk1vbnRocy4pCgpjb2xsZWdlX2dvaW5nIDwtIG5hLm9taXQoY29sbGVnZV9nb2luZykKY29sbGVnZV9nb2luZyAlPiUgZGlzdGluY3QoKQpjb2xsZWdlX2dvaW5nIDwtIGZpbHRlcihjb2xsZWdlX2dvaW5nLCBDb21wbGV0ZXJUeXBlID09ICdUQScpCgojS0FURUxJTiBDTEVBTklORwoKI2ZpbHRlciBvbmx5IGJ5IHNjaG9vbCBuYW1lCnNjaG9vbHNfb25seSA9IGNvbGxlZ2VfZ29pbmdbY29sbGVnZV9nb2luZyRBZ2dyZWdhdGVMZXZlbCA9PSAiUyIsIF0KI2ZpbHRlciBvbmx5IGJ5IHRvdGFsIHN0dWRlbnQgY291bnQgKG5vIGJyZWFrZG93biBieSByYWNlL2V0aG5pY2l0eSkKc2Nob29sc19vbmx5ID0gc2Nob29sc19vbmx5W3NjaG9vbHNfb25seSRSZXBvcnRpbmdDYXRlZ29yeSA9PSAiVEEiLCBdCiNmaWx0ZXIgb25seSBieSBhbGwgc2Nob29scywgcmVnYXJkbGVzcyBvZiBjaGFydGVyIHN0YXR1cwpzY2hvb2xzX29ubHkgPSBzY2hvb2xzX29ubHlbc2Nob29sc19vbmx5JENoYXJ0ZXJTY2hvb2wgPT0gIkFsbCIsIF0KI2RlbGV0ZSBhbGwgY29sdW1ucyBubyBsb25nZXIgbmVjZXNzYXJ5IChhbGwgbGlzdGVkIGFib3ZlKQpzY2hvb2xzX29ubHkgPSBzdWJzZXQoc2Nob29sc19vbmx5LCBzZWxlY3QgPSAtQWdncmVnYXRlTGV2ZWwpCnNjaG9vbHNfb25seSA9IHN1YnNldChzY2hvb2xzX29ubHksIHNlbGVjdCA9IC1SZXBvcnRpbmdDYXRlZ29yeSkKc2Nob29sc19vbmx5ID0gc3Vic2V0KHNjaG9vbHNfb25seSwgc2VsZWN0ID0gLUNoYXJ0ZXJTY2hvb2wpCnNjaG9vbHNfb25seSA9IHN1YnNldChzY2hvb2xzX29ubHksIHNlbGVjdCA9IC1Db21wbGV0ZXJUeXBlKQojcmVtb3ZlIGFsbCBkdXBsaWNhdGUgbGluZXMKc2Nob29sc19vbmx5ID0gc2Nob29sc19vbmx5WyFkdXBsaWNhdGVkKHNjaG9vbHNfb25seSksIF0KCmBgYAoja2F0ZWxpbiBjaGFuZ2VzIDUvMzEgMjozOCBQTSAKLSBBZGRlZCBiYWNrIGFnZ3JlZ2F0ZSBsZXZlbCB0byBzb3J0IGJ5IHNjaG9vbHMgb25seSAoZWxpbWluYXRpbmcgZGlzdHJpY3Qvc3RhdGUvY291bnR5IGRlc2lnbmF0aW9uKQotIEFkZGVkIGJhY2sgcmVwb3J0aW5nIGNhdGVnb3J5IHRvIGRpc3BsYXkgb25seSB0b3RhbHMgYWNyb3NzIHJhY2VzIChubyBicmVha2Rvd24pCi0gUmVtb3ZlIGNoYXJ0ZXIgc2Nob29sIGRlc2lnbmF0aW9uIHRvIGRpc3BsYXkgYWxsIChyZWdhcmRsZXNzIG9mIGNoYXJ0ZXIgc3RhdHVzKSAtIGVsaW1pbmF0ZXMgZHVwbGljYXRlcwoKYGBge3J9CiMgR3JhY2UgbG9hZCBpbiBncmFkdWF0aW9uIHJhdGUKZ3JhZF9yYXRlID0gcmVhZC5kZWxpbSgiZ3JhZHVhdGlvbnJhdGUudHh0IiwgbmEuc3RyaW5ncz1jKCIiLCIqIiwgIk5BIikpCmdyYWRfcmF0ZSA8LSBncmFkX3JhdGUgJT4lIApzZWxlY3QoQWdncmVnYXRlTGV2ZWwsIENvdW50eUNvZGUsIERpc3RyaWN0Q29kZSwgU2Nob29sQ29kZSwgRGlzdHJpY3ROYW1lLCBTY2hvb2xOYW1lLCBDaGFydGVyU2Nob29sLCBEQVNTLCBSZXBvcnRpbmdDYXRlZ29yeSwgQ29ob3J0U3R1ZGVudHMsIFJlZ3VsYXIuSFMuRGlwbG9tYS5HcmFkdWF0ZXMuLkNvdW50LixSZWd1bGFyLkhTLkRpcGxvbWEuR3JhZHVhdGVzLi5SYXRlLikgJT4lIHJlbmFtZShOdW1fU3R1ZGVudHMgPSBDb2hvcnRTdHVkZW50cywgSFNfRGlwbG9tYV9Db3VudCA9IFJlZ3VsYXIuSFMuRGlwbG9tYS5HcmFkdWF0ZXMuLkNvdW50LiwgSFNfRGlwbG9tYV9SYXRlID0gUmVndWxhci5IUy5EaXBsb21hLkdyYWR1YXRlcy4uUmF0ZS4pCmdyYWRfcmF0ZSA8LSBuYS5vbWl0KGdyYWRfcmF0ZSkKZ3JhZF9yYXRlCgoja2F0ZWxpbiBlZGl0cwoKI2ZpbHRlciBvbmx5IGJ5IHNjaG9vbCBuYW1lCmdyYWRfcmF0ZV9zY2hvb2xzID0gZ3JhZF9yYXRlW2dyYWRfcmF0ZSRBZ2dyZWdhdGVMZXZlbCA9PSAiUyIsIF0KCiNmaWx0ZXIgYnkgY2hhcnRlciBzY2hvb2wsIERBU1MsIGFuZCByZXBvcnRpbmcgY2F0ZWdvcnkKZ3JhZF9yYXRlX3NjaG9vbHMgPSBncmFkX3JhdGVfc2Nob29sc1tncmFkX3JhdGVfc2Nob29scyRSZXBvcnRpbmdDYXRlZ29yeSA9PSAiVEEiLCBdCmdyYWRfcmF0ZV9zY2hvb2xzID0gZ3JhZF9yYXRlX3NjaG9vbHNbZ3JhZF9yYXRlX3NjaG9vbHMkREFTUyA9PSAiQWxsIiwgXQpncmFkX3JhdGVfc2Nob29scyA9IGdyYWRfcmF0ZV9zY2hvb2xzW2dyYWRfcmF0ZV9zY2hvb2xzJENoYXJ0ZXJTY2hvb2wgPT0gIkFsbCIsIF0KCiNyZW1vdmUgdW5uZWNlc3NhcnkgY29sdW1ucwpncmFkX3JhdGVfc2Nob29scyA9IHN1YnNldChncmFkX3JhdGVfc2Nob29scywgc2VsZWN0ID0gLWMoUmVwb3J0aW5nQ2F0ZWdvcnksIEFnZ3JlZ2F0ZUxldmVsLCBEQVNTLCBDaGFydGVyU2Nob29sKSkKZ3JhZF9yYXRlX3NjaG9vbHMgPSBncmFkX3JhdGVfc2Nob29sc1shZHVwbGljYXRlZChncmFkX3JhdGVfc2Nob29scyksIF0KYGBgCgpgYGB7cn0KIyB1c2UgaW5uZXIgam9pbiB0byBtZXJnZSBhbGwgdGhlIGNsZWFuZWQgdXAgZGF0YSBmaWxlcyAKIyBydW4gcmVncmVzc2lvbiB1c2luZyBhbGwgdGhlIGNvdmFyaWF0ZXMKYGBgCgo=</div>
 
 
 

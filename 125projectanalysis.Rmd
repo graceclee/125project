@@ -10,49 +10,121 @@ output: html_notebook
 library(tidyverse)
 library(readr)
 library(dplyr)
+library("data.table") 
 ```
 
+Both cleaned -K
 ```{r}
+#Load in credit recovery data here
 credit_recovery <- read_csv("Credit Recovery.csv")
+#drop all other states, NA and -9 values
 credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+#rename columns
+credit_recovery = rename(credit_recovery, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Credit_Recovery_Indicator = SCH_CREDITRECOVERY_IND, Total_Recovery = SCH_CREDITRECOVERYENR)
+#drop irrelevant columns
+credit_recovery = subset(credit_recovery, select = -c(LEAID, SCHID, COMBOKEY, JJ))
+#head/summary
 head(credit_recovery,15)
 summary(credit_recovery)
 
-d_enrollment <- read_csv("Dual Enrollment.csv")
-d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na() %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_DUAL_IND,TOT_DUAL_F,TOT_DUAL_M,SCH_DUALENR_LEP_F,SCH_DUALENR_LEP_M,SCH_DUALENR_IDEA_F,SCH_DUALENR_IDEA_M)
-
 ```
-
 ```{r}
-g_t <- read_csv("Gifted and Talented.csv")
-g_t <- g_t %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na() %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_GT_IND,SCH_GTENR_LEP_M,SCH_GTENR_LEP_F,SCH_GTENR_IDEA_M,SCH_GTENR_IDEA_F)
-summary(g_t)
-head(g_t,15)
+#Load in dual enrollment data here
+d_enrollment <- read_csv("Dual Enrollment.csv")
+#drop all other states, -9 or NA values
+d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+#rename columns
+d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, Male_Total = TOT_DUAL_M, Female_Total = TOT_DUAL_F)
+#drop irrelevant columns
+d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, State, District, School, Dual_Indicator, Male_Total, Female_Total))
 ```
 
+Cleaned -K
+```{r}
+#load in gifted and talented participation here
+
+#read in only relevant columns
+gift_talent = fread("Gifted and Talented.csv", select = c("LEA_STATE", "LEA_NAME", "SCH_NAME", "SCH_GT_IND", "TOT_GTENR_M", "TOT_GTENR_F"))
+
+#rename columns
+gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND, Male_Total = TOT_GTENR_M, Female_Total = TOT_GTENR_F)
+
+#filter out all states that aren't CA
+gift_talent = gift_talent[gift_talent$State_Abbreviation == "CA", ]
+
+#remove -9 or NA
+gift_talent = drop_na(gift_talent)
+gift_talent = gift_talent[gift_talent$Male_Total != -9,]
+gift_talent = gift_talent[gift_talent$Female_Total != -9,]
+
+```
+
+Cleaned -K
 ```{r}
 # load in SAT participation here
-SAT_ACT <- read_csv("SAT and ACT.csv")
+
+#read in SAT/ACT data, only read in necessary columns
+SAT_ACT = fread("SAT and ACT.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","TOT_SATACT_M","TOT_SATACT_F"))
+
+#filter out all states that aren't CA
+SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
+
+#rename columns
+SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Male_Total = TOT_SATACT_M, Female_Total = TOT_SATACT_F)
+
+#drop anything that has NA or -9
+SAT_ACT = drop_na(SAT_ACT)
+SAT_ACT = SAT_ACT[SAT_ACT$Male_Total != -9,]
+SAT_ACT = SAT_ACT[SAT_ACT$Female_Total != -9,]
 ```
 
-
+Cleaned -K
+#Comment: Uh there is very few data points here (97). There may be,,, none,,, when we do the joins..
 ```{r}
+#Load in IB Data here
 IB <- read_csv("International Baccalaureate.csv")
-IB <- IB %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na() %>% select(LEAID,LEA_NAME,SCHID, SCH_NAME,COMBOKEY,SCH_IBENR_IND,SCH_IBENR_LEP_M,SCH_IBENR_LEP_F,SCH_IBENR_IDEA_M,SCH_IBENR_IDEA_F)
+#drop all other states, -9 or NA values
+IB <- IB %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
+#rename columns
+IB = rename(IB, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, IB_Indicator = SCH_IBENR_IND, Male_Total = TOT_IBENR_M, Female_Total = TOT_IBENR_F)
+#drop irrelevant columns
+IB = subset(IB, select = c(State_Abbreviation, State, District, School, IB_Indicator, Male_Total, Female_Total))
+#summary/head
 summary(IB)
 head(IB,15)
 ```
-
+Cleaned -K
 ```{r}
 #load in school characteristics
-characteristics <- read_csv("School Characteristics.csv")
+
+#read in school characteristics, only read in necessary columns
+characteristics = fread("School Characteristics.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","SCH_GRADE_G09", "SCH_GRADE_G10", "SCH_GRADE_G11", "SCH_GRADE_G12"))
+
+#filter out all states that aren't CA
+characteristics = characteristics[characteristics$LEA_STATE == "CA", ]
+
+#rename columns
+characteristics= rename(characteristics, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Grades_Stu_Enrolled_9 = SCH_GRADE_G09, Grades_Stu_Enrolled_10 = SCH_GRADE_G10, Grades_Stu_Enrolled_11 = SCH_GRADE_G11, Grades_Stu_Enrolled_12 = SCH_GRADE_G12)
+
+#drop anything that has NA
+characteristics = drop_na(characteristics)
 ```
 
-
-
+Cleaned -K
 ```{r}
-expenditures <- read_csv("School Expenditures.csv")
-expenditures <- expenditures %>% filter(LEA_STATE == "CA") 
+#Load in expenditures data (including federal, state, local funding)
+expenditures = fread("School Expenditures.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","SCH_SAL_TEACH_WFED", "SCH_SAL_ADM_WFED", "SCH_SAL_TOTPERS_WFED", "SCH_NPE_WFED"))
+
+#filter out all states that aren't CA
+expenditures = expenditures[expenditures$LEA_STATE == "CA", ]
+
+#rename columns 
+expenditures = rename(expenditures, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Teacher_Expenditures = SCH_SAL_TEACH_WFED, Admin_Expenditures = SCH_SAL_ADM_WFED, All_Staff_Expenditures = SCH_SAL_TOTPERS_WFED, Activity_Expenditures = SCH_NPE_WFED)
+
+#drop anything that has NA or -9
+expenditures = na_if(expenditures, -9)
+expenditures = drop_na(expenditures)
+
 head(expenditures)
 expenditure_model <- lm(SCH_FTE_AID_WOFED ~ SCH_FTE_SUP_WOFED, 
                   data = expenditures,
