@@ -22,7 +22,7 @@ credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA") %>%  na_if(-9) 
 #rename columns
 credit_recovery = rename(credit_recovery, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Credit_Recovery_Indicator = SCH_CREDITRECOVERY_IND, Total_Recovery = SCH_CREDITRECOVERYENR)
 #drop irrelevant columns
-credit_recovery = subset(credit_recovery, select = -c(LEAID, SCHID, COMBOKEY, JJ))
+credit_recovery = subset(credit_recovery, select = -c(LEAID, SCHID, COMBOKEY, JJ, State))
 #head/summary
 head(credit_recovery,15)
 summary(credit_recovery)
@@ -34,9 +34,10 @@ d_enrollment <- read_csv("Dual Enrollment.csv")
 #drop all other states, -9 or NA values
 d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  na_if(-9) %>% drop_na()
 #rename columns
-d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, Male_Total = TOT_DUAL_M, Female_Total = TOT_DUAL_F)
+d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, DEMale_Total = TOT_DUAL_M, DEFemale_Total = TOT_DUAL_F)
 #drop irrelevant columns
-d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, State, District, School, Dual_Indicator, Male_Total, Female_Total))
+d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, District, School, Dual_Indicator, DEMale_Total, DEFemale_Total))
+summary(d_enrollment)
 ```
 
 Cleaned -K
@@ -47,15 +48,17 @@ Cleaned -K
 gift_talent = fread("Gifted and Talented.csv", select = c("LEA_STATE", "LEA_NAME", "SCH_NAME", "SCH_GT_IND", "TOT_GTENR_M", "TOT_GTENR_F"))
 
 #rename columns
-gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND, Male_Total = TOT_GTENR_M, Female_Total = TOT_GTENR_F)
+gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND, GTMale_Total = TOT_GTENR_M, GTFemale_Total = TOT_GTENR_F)
 
 #filter out all states that aren't CA
 gift_talent = gift_talent[gift_talent$State_Abbreviation == "CA", ]
 
 #remove -9 or NA
 gift_talent = drop_na(gift_talent)
-gift_talent = gift_talent[gift_talent$Male_Total != -9,]
-gift_talent = gift_talent[gift_talent$Female_Total != -9,]
+gift_talent = gift_talent[gift_talent$GTMale_Total != -9,]
+gift_talent = gift_talent[gift_talent$GTFemale_Total != -9,]
+
+summary(gift_talent)
 
 ```
 
@@ -70,12 +73,14 @@ SAT_ACT = fread("SAT and ACT.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_
 SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
 
 #rename columns
-SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Male_Total = TOT_SATACT_M, Female_Total = TOT_SATACT_F)
+SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, SA_Male = TOT_SATACT_M, SA_Female = TOT_SATACT_F)
 
 #drop anything that has NA or -9
 SAT_ACT = drop_na(SAT_ACT)
-SAT_ACT = SAT_ACT[SAT_ACT$Male_Total != -9,]
-SAT_ACT = SAT_ACT[SAT_ACT$Female_Total != -9,]
+SAT_ACT = SAT_ACT[SAT_ACT$SA_Male != -9,]
+SAT_ACT = SAT_ACT[SAT_ACT$SA_Female != -9,]
+
+summary(SAT_ACT)
 ```
 
 Cleaned -K
@@ -108,6 +113,9 @@ characteristics= rename(characteristics, State_Abbreviation = LEA_STATE, State =
 
 #drop anything that has NA
 characteristics = drop_na(characteristics)
+summary(characteristics)
+
+characteristics 
 ```
 
 Cleaned -K
@@ -123,7 +131,10 @@ expenditures = rename(expenditures, State_Abbreviation = LEA_STATE, State = LEA_
 
 #drop anything that has NA or -9
 expenditures = na_if(expenditures, -9)
+
+
 expenditures = drop_na(expenditures)
+summary(expenditures)
 
 head(expenditures)
 expenditure_model <- lm(SCH_FTE_AID_WOFED ~ SCH_FTE_SUP_WOFED, 
@@ -133,28 +144,29 @@ summary(expenditure_model)
 ```
 
 ```{r}
-college_going = read.delim("collegegoing.txt", na.strings=c("","*", "NA"))
-
 # Chanse's exploration
-college_going_1 <- college_going %>% 
-  mutate_at(c(13:20), as.numeric) %>%
-   filter(!is.na(College.Going.Rate...Total..12.Months.)) %>%
-   mutate(CharterSchool = (CharterSchool == "Yes"))
-
-charter_schools <- college_going_1 %>% filter(CharterSchool == TRUE)
-noncharter_schools <- college_going_1 %>% filter(CharterSchool == FALSE)
-mean(charter_schools$College.Going.Rate...Total..12.Months.)
-mean(noncharter_schools$College.Going.Rate...Total..12.Months.)
+# college_going_1 <- college_going %>% 
+#   mutate_at(c(13:20), as.numeric) %>%
+#    filter(!is.na(College.Going.Rate...Total..12.Months.)) %>%
+#    mutate(CharterSchool = (CharterSchool == "Yes"))
+# 
+# charter_schools <- college_going_1 %>% filter(CharterSchool == TRUE)
+# noncharter_schools <- college_going_1 %>% filter(CharterSchool == FALSE)
+# mean(charter_schools$College.Going.Rate...Total..12.Months.)
+# mean(noncharter_schools$College.Going.Rate...Total..12.Months.)
 ```
 
 ```{r}
-# Grace clean up college_going file
-college_going <- college_going %>% 
-select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, ReportingCategory, CompleterType, High.School.Completers, Enrolled.In.College...Total..12.Months., College.Going.Rate...Total..12.Months., Enrolled.In.State..12.Months.,Enrolled.Out.of.State..12.Months.) %>% 
-  rename(Total_Enrolled_College = Enrolled.In.College...Total..12.Months., Total_College_Going_Rate = College.Going.Rate...Total..12.Months., Total_Enrolled_In_State = Enrolled.In.State..12.Months., Total_Enrolled_Out_State = Enrolled.Out.of.State..12.Months.)
+# Grace clean up college_going 
+
+college_going = read.delim("collegegoing.txt", na.strings=c("","*", "NA"))
+
+college_going <- college_going %>% select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, ReportingCategory, CompleterType, High.School.Completers, Enrolled.In.College...Total..12.Months., College.Going.Rate...Total..12.Months., Enrolled.In.State..12.Months.,Enrolled.Out.of.State..12.Months.) 
+
+college_going <- college_going %>% rename(School = SchoolName, District = DistrictName, Total_Enrolled_College = Enrolled.In.College...Total..12.Months., Total_College_Going_Rate = College.Going.Rate...Total..12.Months., Total_Enrolled_In_State = Enrolled.In.State..12.Months., Total_Enrolled_Out_State = Enrolled.Out.of.State..12.Months.)
 
 college_going <- na.omit(college_going)
-college_going %>% distinct()
+college_going <- college_going %>% distinct()
 college_going <- filter(college_going, CompleterType == 'TA')
 
 #KATELIN CLEANING
@@ -173,6 +185,8 @@ schools_only = subset(schools_only, select = -CompleterType)
 #remove all duplicate lines
 schools_only = schools_only[!duplicated(schools_only), ]
 
+summary(schools_only)
+head(schools_only,15)
 ```
 #katelin changes 5/31 2:38 PM 
 - Added back aggregate level to sort by schools only (eliminating district/state/county designation)
@@ -183,9 +197,8 @@ schools_only = schools_only[!duplicated(schools_only), ]
 # Grace load in graduation rate
 grad_rate = read.delim("graduationrate.txt", na.strings=c("","*", "NA"))
 grad_rate <- grad_rate %>% 
-select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, DASS, ReportingCategory, CohortStudents, Regular.HS.Diploma.Graduates..Count.,Regular.HS.Diploma.Graduates..Rate.) %>% rename(Num_Students = CohortStudents, HS_Diploma_Count = Regular.HS.Diploma.Graduates..Count., HS_Diploma_Rate = Regular.HS.Diploma.Graduates..Rate.)
+select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, DASS, ReportingCategory, CohortStudents, Regular.HS.Diploma.Graduates..Count.,Regular.HS.Diploma.Graduates..Rate.) %>% rename(School=SchoolName, District=DistrictName,Num_Students = CohortStudents, HS_Diploma_Count = Regular.HS.Diploma.Graduates..Count., HS_Diploma_Rate = Regular.HS.Diploma.Graduates..Rate.)
 grad_rate <- na.omit(grad_rate)
-grad_rate
 
 #katelin edits
 
@@ -200,10 +213,90 @@ grad_rate_schools = grad_rate_schools[grad_rate_schools$CharterSchool == "All", 
 #remove unnecessary columns
 grad_rate_schools = subset(grad_rate_schools, select = -c(ReportingCategory, AggregateLevel, DASS, CharterSchool))
 grad_rate_schools = grad_rate_schools[!duplicated(grad_rate_schools), ]
+grad_rate_schools
 ```
 
 ```{r}
 # use inner join to merge all the cleaned up data files 
-# run regression using all the covariates
+#joined_data <- inner_join(credit_recovery,schools_only, by=c("School", "District"))
+# 1311 rows
+
+#joined_data <- inner_join(joined_data,d_enrollment, by=c("School", "District"))
+# 637 rows
+
+# joined_data <- inner_join(gift_talent,schools_only, by=c("School", "District"))
+# summary(joined_data)
+# 917 rows
+
+#joined_data <- inner_join(characteristics,schools_only,by=c("School", "District"))
+#summary(joined_data)
+# length 1669 
+
+#joined_data <- inner_join(expenditures,schools_only,by=c("School", "District"))
+#joined_data <- inner_join(joined_data, characteristics, by=c("School", "District"))
+
+joined_data <- inner_join(schools_only, grad_rate_schools, by=c("DistrictCode", "SchoolCode", "CountyCode", "District", "School"))
+#joined_data
+
+```
+
+```{r}
+# TODO: Run regression analysis of expenditures and high school grad / college going rates
+expenditure_regression <- inner_join(joined_data, expenditures, by=c("School", "District"))
+expenditure_regression = select(expenditure_regression, -c(State,State_Abbreviation))
+summary(expenditure_regression)
+expenditure_regression
+
+# Not sure if need to split up by test/train set, one method could be sampling a few data points from each county code?
+
+```
+
+```{r}
+# TODO: Run regression analysis of SAT_ACT participation and high school grad/college going rates
+
+SAT_ACT_regression <- inner_join(joined_data, SAT_ACT, by=c("School", "District"))
+SAT_ACT_regression = select(SAT_ACT_regression, -c(State,State_Abbreviation))
+summary(SAT_ACT_regression)
+SAT_ACT_regression
+
+```
+
+```{r}
+# TODO: Run regression analysis of characteristics and high school grad / college going rates
+char_regression <- inner_join(joined_data, characteristics, by=c("School", "District"))
+char_regression = select(char_regression, -c(State,State_Abbreviation))
+summary(char_regression)
+char_regression
+
+# Not sure if need to split up by test/train set, one method could be sampling a few data points from each county code?
+# interesting thing is that we need to treat this as binary variable?? because there's "yes" vs "no" data so maybe this is not a good regression lol
+
+```
+
+```{r}
+# biggest big boi regression here 
+# join credit recovery, dual enrollment, gifted/talented, SAT/ACT participation, expenditures
+
+#joining dual enrollment
+d_data <- inner_join(joined_data,d_enrollment, by=c("District","School"))
+d_data = select(d_data, -State_Abbreviation)
+
+#joining SAT_ACT participation
+SAT <- inner_join(d_data, SAT_ACT,  by=c("District","School"))
+SAT = select(SAT, -c(State,State_Abbreviation))
+
+#joining gifted/talented
+GT <- inner_join(SAT, gift_talent, by=c("District","School"))
+GT = select(GT, -State_Abbreviation)
+
+#joining credit recovery
+CR <- inner_join(GT, credit_recovery,  by=c("District","School"))
+CR = select(CR, -State_Abbreviation)
+
+#joining expenditures
+EXP <- inner_join(CR, expenditures, by=c("District","School"))
+EXP = select(EXP, -c(State_Abbreviation,State))
+
+total_data <- EXP
 ```
 
