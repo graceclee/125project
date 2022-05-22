@@ -56,6 +56,9 @@ gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA
 gift_talent = gift_talent[gift_talent$State_Abbreviation == "CA", ]
 
 #remove -9 or NA
+
+gift_talent[gift_talent < 0] <- NA
+
 gift_talent = drop_na(gift_talent)
 gift_talent = gift_talent[gift_talent$GTMale_Total != -9,]
 gift_talent = gift_talent[gift_talent$GTFemale_Total != -9,]
