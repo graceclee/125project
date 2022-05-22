@@ -82,16 +82,16 @@ SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME
 #drop anything that has NA or -9
 allnines = -9 * 20
 
-SAT_ACT <- SAT_ACT %>%
+SATCLEANED <- SAT_ACT %>%
   filter(rowSums(CA_DATA[,9:28])!= allnines)
 
 SATCLEANED[SATCLEANED < 0] <- NA
 
-SAT_ACT = drop_na(SAT_ACT)
+SATCLEANED = drop_na(SAT_ACT)
 #SAT_ACT = SAT_ACT[SAT_ACT$SA_Male != -9,]
 #SAT_ACT = SAT_ACT[SAT_ACT$SA_Female != -9,]
 
-summary(SAT_ACT)
+summary(SATCLEANED)
 ```
 
 Cleaned -K
