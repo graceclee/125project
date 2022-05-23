@@ -80,21 +80,21 @@ SATdata <- read.csv(SAT_PATH)
 SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
 
 #rename columns
-SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, SA_Male = TOT_SATACT_M, SA_Female = TOT_SATACT_F)
+SAT_ACT = rename(SATdata, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, SA_Male = TOT_SATACT_M, SA_Female = TOT_SATACT_F)
 
 #drop anything that has NA or -9
 allnines = -9 * 20
 
-SATCLEANED <- SAT_ACT %>%
-  filter(rowSums(CA_DATA[,9:28])!= allnines)
-
-SATCLEANED[SATCLEANED < 0] <- NA
-
-SATCLEANED = drop_na(SAT_ACT)
-#SAT_ACT = SAT_ACT[SAT_ACT$SA_Male != -9,]
-#SAT_ACT = SAT_ACT[SAT_ACT$SA_Female != -9,]
-
-summary(SATCLEANED)
+# SATCLEANED <- SAT_ACT %>%
+#   filter(rowSums(CA_DATA[,9:28]) != allnines)
+# 
+# SATCLEANED[SATCLEANED < 0] <- NA
+# 
+# SATCLEANED = drop_na(SAT_ACT)
+# #SAT_ACT = SAT_ACT[SAT_ACT$SA_Male != -9,]
+# #SAT_ACT = SAT_ACT[SAT_ACT$SA_Female != -9,]
+# 
+# summary(SATCLEANED)
 ```
 
 Cleaned -K
@@ -151,7 +151,7 @@ expenditures = drop_na(expenditures)
 summary(expenditures)
 
 head(expenditures)
-expenditure_model <- lm(SCH_FTE_AID_WOFED ~ SCH_FTE_SUP_WOFED, 
+expenditure_model <- lm(Teacher_Expenditures ~ Activity_Expenditures, 
                   data = expenditures,
                   family = binomial)
 summary(expenditure_model)
@@ -261,6 +261,35 @@ expenditure_regression = select(expenditure_regression, -c(State,State_Abbreviat
 summary(expenditure_regression)
 expenditure_regression
 
+new_model <- lm(formula = Total_College_Going_Rate ~ 1 +  All_Staff_Expenditures, data = expenditure_regression)
+summary(new_model)
+
+ggplot(expenditure_regression, aes(x=All_Staff_Expenditures, y=Total_College_Going_Rate)) +  
+    geom_point() + 
+    geom_smooth(method="lm", formula = y ~ x) +
+    geom_smooth(method="lm", formula = y ~ I(log(x)))
+
+
+ex_model <- lm(formula = HS_Diploma_Rate ~ 1 +  All_Staff_Expenditures, data = expenditure_regression)
+summary(ex_model)
+
+ggplot(expenditure_regression, aes(x=All_Staff_Expenditures, y=HS_Diploma_Rate)) +  
+    geom_point() + 
+    geom_smooth(method="lm", formula = y ~ x) +
+    geom_smooth(method="lm", formula = y ~ I(log(x)))
+
+ST_model <- lm(formula = All_Staff_Expenditures ~ 1 + Num_Students , data = expenditure_regression)
+summary(ST_model)
+
+ggplot(expenditure_regression, aes(x=Num_Students, y=All_Staff_Expenditures)) +  
+    geom_point() + 
+    geom_smooth(method="lm", formula = y ~ x) +
+    geom_smooth(method="lm", formula = y ~ I(log(x)))
+
+
+pred_253kids <- predict(ST_model, newdata = tibble(Num_Students = mean(expenditure_regression$Num_Students)))
+# avg number of students is 253
+pred_253kids  # 253 kids is about $5338394 million in staff expenditures
 # Not sure if need to split up by test/train set, one method could be sampling a few data points from each county code?
 
 ```
