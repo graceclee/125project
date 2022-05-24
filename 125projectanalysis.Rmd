@@ -64,37 +64,26 @@ gift_talent = gift_talent[gift_talent$GTMale_Total != -9,]
 gift_talent = gift_talent[gift_talent$GTFemale_Total != -9,]
 
 summary(gift_talent)
-
+gift_talent
 ```
 
 Cleaned -K
 ```{r}
 # load in SAT participation here
-SAT_PATH <- "https://raw.githubusercontent.com/graceclee/125project/main/SAT%20and%20ACT.csv"
-SATdata <- read.csv(SAT_PATH)
 
 #read in SAT/ACT data, only read in necessary columns
-#SAT_ACT = fread("SAT and ACT.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","TOT_SATACT_M","TOT_SATACT_F"))
+SAT_ACT = fread("SAT and ACT.csv", select=c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","TOT_SATACT_M","TOT_SATACT_F"))
 
 #filter out all states that aren't CA
 SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
 
 #rename columns
-SAT_ACT = rename(SATdata, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, SA_Male = TOT_SATACT_M, SA_Female = TOT_SATACT_F)
+SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, SA_Male = TOT_SATACT_M, SA_Female = TOT_SATACT_F)
 
-#drop anything that has NA or -9
-allnines = -9 * 20
-
-# SATCLEANED <- SAT_ACT %>%
-#   filter(rowSums(CA_DATA[,9:28]) != allnines)
-# 
-# SATCLEANED[SATCLEANED < 0] <- NA
-# 
-# SATCLEANED = drop_na(SAT_ACT)
-# #SAT_ACT = SAT_ACT[SAT_ACT$SA_Male != -9,]
-# #SAT_ACT = SAT_ACT[SAT_ACT$SA_Female != -9,]
-# 
-# summary(SATCLEANED)
+SAT_ACT[SAT_ACT < 0] <- NA
+SAT_ACT = drop_na(SAT_ACT)
+summary(SAT_ACT)
+SAT_ACT
 ```
 
 Cleaned -K
@@ -232,26 +221,16 @@ grad_rate_schools
 
 ```{r}
 # use inner join to merge all the cleaned up data files 
-#joined_data <- inner_join(credit_recovery,schools_only, by=c("School", "District"))
-# 1311 rows
-
-#joined_data <- inner_join(joined_data,d_enrollment, by=c("School", "District"))
-# 637 rows
-
-# joined_data <- inner_join(gift_talent,schools_only, by=c("School", "District"))
-# summary(joined_data)
-# 917 rows
-
-#joined_data <- inner_join(characteristics,schools_only,by=c("School", "District"))
-#summary(joined_data)
-# length 1669 
-
-#joined_data <- inner_join(expenditures,schools_only,by=c("School", "District"))
-#joined_data <- inner_join(joined_data, characteristics, by=c("School", "District"))
-
 joined_data <- inner_join(schools_only, grad_rate_schools, by=c("DistrictCode", "SchoolCode", "CountyCode", "District", "School"))
-#joined_data
+```
 
+```{r}
+diploma_college_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate, data = joined_data)
+summary(diploma_college_model)
+
+ggplot(diploma_college_model, aes(x=HS_Diploma_Rate, y=Total_College_Going_Rate)) +  
+    geom_point() + 
+    geom_smooth(method="lm", formula = y ~ x)
 ```
 
 ```{r}
@@ -295,12 +274,39 @@ pred_253kids  # 253 kids is about $5338394 million in staff expenditures
 ```
 
 ```{r}
-# TODO: Run regression analysis of SAT_ACT participation and high school grad/college going rates
+# TODO: Run regression analysis of SAT_ACT participation  and high school grad/college going rates
 
 SAT_ACT_regression <- inner_join(joined_data, SAT_ACT, by=c("School", "District"))
 SAT_ACT_regression = select(SAT_ACT_regression, -c(State,State_Abbreviation))
-summary(SAT_ACT_regression)
-SAT_ACT_regression
+
+SAT_model <-  lm(formula = Total_College_Going_Rate ~ 1 + SA_Male + SA_Female, data=SAT_ACT_regression)
+
+summary(SAT_model)
+
+SAT_model_d <-  lm(formula = HS_Diploma_Rate ~ 1 + SA_Male + SA_Female, data=SAT_ACT_regression)
+
+summary(SAT_model_d)
+
+
+```
+
+```{r}
+# TODO: Run regression analysis of SAT_ACT participation, GT program and high school grad/college going rates
+
+SAT_ACT_regression <- inner_join(joined_data, SAT_ACT, by=c("School", "District"))
+SAT_ACT_regression = select(SAT_ACT_regression, -c(State,State_Abbreviation))
+
+#joining gifted/talented
+gift_talent_r <- inner_join(SAT_ACT_regression, gift_talent, by=c("District","School"))
+gift_talent_r <- select(gift_talent_r, -State_Abbreviation)
+
+SAT_gift_model <-  lm(formula = Total_College_Going_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
+
+summary(SAT_gift_model)
+
+SAT_gift_model_d <-  lm(formula = HS_Diploma_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
+
+summary(SAT_gift_model_d)
 
 ```
 
@@ -341,5 +347,11 @@ EXP <- inner_join(CR, expenditures, by=c("District","School"))
 EXP = select(EXP, -c(State_Abbreviation,State))
 
 total_data <- EXP
+head(total_data,10)
+
+complete_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate + DEMale_Total + DEFemale_Total + SA_Male + SA_Female + GTMale_Total + GTFemale_Total + Total_Recovery + Teacher_Expenditures + All_Staff_Expenditures + Admin_Expenditures + Activity_Expenditures, data=total_data)
+
+summary(complete_model)
+
 ```
 
