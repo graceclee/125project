@@ -38,7 +38,8 @@ na_if(-9) %>% na_if(-3) %>% na_if(-11) %>%  na_if(-5) %>% na_if(-6) %>% na_if(-8
 #rename columns
 d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, DEMale_Total = TOT_DUAL_M, DEFemale_Total = TOT_DUAL_F)
 #drop irrelevant columns
-d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, District, School, Dual_Indicator, DEMale_Total, DEFemale_Total))
+d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, District, School, Dual_Indicator, DEMale_Total, DEFemale_Total, SCH_DUALENR_LEP_M, SCH_DUALENR_LEP_F, SCH_DUALENR_IDEA_M, SCH_DUALENR_IDEA_F))
+d_enrollment
 summary(d_enrollment)
 ```
 
@@ -191,6 +192,11 @@ schools_only = schools_only[!duplicated(schools_only), ]
 summary(schools_only)
 head(schools_only,15)
 ```
+
+```{r}
+
+```
+
 #katelin changes 5/31 2:38 PM 
 - Added back aggregate level to sort by schools only (eliminating district/state/county designation)
 - Added back reporting category to display only totals across races (no breakdown)
@@ -216,12 +222,19 @@ grad_rate_schools = grad_rate_schools[grad_rate_schools$CharterSchool == "All", 
 #remove unnecessary columns
 grad_rate_schools = subset(grad_rate_schools, select = -c(ReportingCategory, AggregateLevel, DASS, CharterSchool))
 grad_rate_schools = grad_rate_schools[!duplicated(grad_rate_schools), ]
+
+grad_rate_schools = subset(grad_rate_schools, HS_Diploma_Rate != 0)
 grad_rate_schools
+
+
+#grad_test <- grad_rate_schools %>% -filter(HS_Diploma_Rate == 0.0)
+#grad_test
 ```
 
 ```{r}
 # use inner join to merge all the cleaned up data files 
 joined_data <- inner_join(schools_only, grad_rate_schools, by=c("DistrictCode", "SchoolCode", "CountyCode", "District", "School"))
+joined_data
 ```
 
 ```{r}
@@ -300,11 +313,11 @@ SAT_ACT_regression = select(SAT_ACT_regression, -c(State,State_Abbreviation))
 gift_talent_r <- inner_join(SAT_ACT_regression, gift_talent, by=c("District","School"))
 gift_talent_r <- select(gift_talent_r, -State_Abbreviation)
 
-SAT_gift_model <-  lm(formula = Total_College_Going_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
+SAT_gift_model <- lm(formula = Total_College_Going_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
 
 summary(SAT_gift_model)
 
-SAT_gift_model_d <-  lm(formula = HS_Diploma_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
+SAT_gift_model_d <- lm(formula = HS_Diploma_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
 
 summary(SAT_gift_model_d)
 
