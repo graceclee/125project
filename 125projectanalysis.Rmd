@@ -135,16 +135,16 @@ expenditures = rename(expenditures, State_Abbreviation = LEA_STATE, State = LEA_
 
 #drop anything that has NA or -9
 expenditures = na_if(expenditures, -9)
-
+expenditures = na_if(expenditures, 0)
 
 expenditures = drop_na(expenditures)
 summary(expenditures)
 
-head(expenditures)
-expenditure_model <- lm(Teacher_Expenditures ~ Activity_Expenditures, 
-                  data = expenditures,
-                  family = binomial)
-summary(expenditure_model)
+head(expenditures,15)
+# expenditure_model <- lm(Teacher_Expenditures ~ Activity_Expenditures, 
+#                   data = expenditures,
+#                   family = binomial)
+#summary(expenditure_model)
 ```
 
 ```{r}
@@ -189,6 +189,7 @@ schools_only = subset(schools_only, select = -CompleterType)
 #remove all duplicate lines
 schools_only = schools_only[!duplicated(schools_only), ]
 
+schools_only = subset(schools_only, Total_Enrolled_College != 0)
 summary(schools_only)
 head(schools_only,15)
 ```
@@ -243,7 +244,9 @@ summary(diploma_college_model)
 
 ggplot(diploma_college_model, aes(x=HS_Diploma_Rate, y=Total_College_Going_Rate)) +  
     geom_point() + 
-    geom_smooth(method="lm", formula = y ~ x)
+    geom_smooth(method="lm", formula = y ~ x) + ggtitle("Correlation between HS Diploma Rate and College Going Rate") + xlab("High School Diploma Rate") +ylab("Total College Going Rate")
+
+ggsave("diploma_college_model.png")
 ```
 
 ```{r}
@@ -252,6 +255,8 @@ expenditure_regression <- inner_join(joined_data, expenditures, by=c("School", "
 expenditure_regression = select(expenditure_regression, -c(State,State_Abbreviation))
 summary(expenditure_regression)
 expenditure_regression
+
+ggplot(expenditure_regression, aes(x=All_Staff_Expenditures)) + geom_histogram(binwidth = 100000) 
 
 new_model <- lm(formula = Total_College_Going_Rate ~ 1 +  All_Staff_Expenditures, data = expenditure_regression)
 summary(new_model)
@@ -293,6 +298,10 @@ SAT_ACT_regression <- inner_join(joined_data, SAT_ACT, by=c("School", "District"
 SAT_ACT_regression = select(SAT_ACT_regression, -c(State,State_Abbreviation))
 
 SAT_model <-  lm(formula = Total_College_Going_Rate ~ 1 + SA_Male + SA_Female, data=SAT_ACT_regression)
+
+ggplot(SAT_ACT_regression, aes(x=SA_Male, y=Total_College_Going_Rate)) +  
+    geom_point() + 
+    geom_smooth(method="lm", formula = y ~ x) 
 
 summary(SAT_model)
 
