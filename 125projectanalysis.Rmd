@@ -323,13 +323,13 @@ summary(SAT_model_d)
 # TODO: Run regression analysis of SAT_ACT participation, GT program and high school grad/college going rates
 
 SAT_ACT_regression <- inner_join(joined_data, SAT_ACT, by=c("School", "District"))
-SAT_ACT_regression = select(SAT_ACT_regression, -c(State,State_Abbreviation))
+SAT_ACT_regression = select(SAT_ACT_regression, -c(State_Abbreviation))
 
 #joining gifted/talented
 gift_talent_r <- inner_join(SAT_ACT_regression, gift_talent, by=c("District","School"))
 gift_talent_r <- select(gift_talent_r, -State_Abbreviation)
 
-SAT_gift_model <- lm(formula = Total_College_Going_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
+SAT_gift_model <- lm(formula = Total_College_Going_Rate ~ 1 + SAMale_Total + SAFemale_Total + GTMale_Total + GTFemale_Total, data=gift_talent_r)
 
 summary(SAT_gift_model)
 
