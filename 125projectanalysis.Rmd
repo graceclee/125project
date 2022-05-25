@@ -23,11 +23,8 @@ credit_recovery <- credit_recovery %>% filter(LEA_STATE == "CA") %>%  na_if(-9) 
 credit_recovery = rename(credit_recovery, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Credit_Recovery_Indicator = SCH_CREDITRECOVERY_IND, Total_Recovery = SCH_CREDITRECOVERYENR)
 #drop irrelevant columns
 credit_recovery = subset(credit_recovery, select = -c(LEAID, SCHID, COMBOKEY, JJ, State))
-#head/summary
-head(credit_recovery,15)
-summary(credit_recovery)
-
 ```
+
 ```{r}
 #Load in dual enrollment data here
 d_enrollment <- read_csv("Dual Enrollment.csv")
@@ -36,9 +33,13 @@ d_enrollment <- read_csv("Dual Enrollment.csv")
 d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  
 na_if(-9) %>% na_if(-3) %>% na_if(-11) %>%  na_if(-5) %>% na_if(-6) %>% na_if(-8) %>% drop_na()
 #rename columns
-d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, DEMale_Total = TOT_DUAL_M, DEFemale_Total = TOT_DUAL_F)
+d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, Male_Total = TOT_DUAL_M, Female_Total = TOT_DUAL_F)
 #drop irrelevant columns
-d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, District, School, Dual_Indicator, DEMale_Total, DEFemale_Total, SCH_DUALENR_LEP_M, SCH_DUALENR_LEP_F, SCH_DUALENR_IDEA_M, SCH_DUALENR_IDEA_F))
+
+d_enrollment <- d_enrollment %>% mutate(DEMale_Total = (Male_Total - SCH_DUALENR_IDEA_M - SCH_DUALENR_LEP_M)) %>% mutate(DEFemale_Total = (Female_Total - SCH_DUALENR_LEP_F - SCH_DUALENR_IDEA_F))
+
+d_enrollment = subset(d_enrollment, select = c(State_Abbreviation, District, School, Dual_Indicator, DEMale_Total, DEFemale_Total))
+
 d_enrollment
 summary(d_enrollment)
 ```
@@ -48,24 +49,23 @@ Cleaned -K
 #load in gifted and talented participation here
 
 #read in only relevant columns
-gift_talent = fread("Gifted and Talented.csv", select = c("LEA_STATE", "LEA_NAME", "SCH_NAME", "SCH_GT_IND", "TOT_GTENR_M", "TOT_GTENR_F"))
+gift_talent = fread("Gifted and Talented.csv", select = c("LEA_STATE", "LEA_NAME", "SCH_NAME", "SCH_GT_IND", "TOT_GTENR_M", "TOT_GTENR_F", "SCH_GTENR_LEP_M", "SCH_GTENR_LEP_F", "SCH_GTENR_IDEA_M", "SCH_GTENR_IDEA_F"))
 
 #rename columns
-gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND, GTMale_Total = TOT_GTENR_M, GTFemale_Total = TOT_GTENR_F)
+gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND)
+
 
 #filter out all states that aren't CA
 gift_talent = gift_talent[gift_talent$State_Abbreviation == "CA", ]
 
+gift_talent <- gift_talent %>% mutate(GTMale_Total = (TOT_GTENR_M - SCH_GTENR_LEP_M -SCH_GTENR_IDEA_M)) %>% mutate(GTFemale_Total = (TOT_GTENR_F-SCH_GTENR_LEP_F-SCH_GTENR_IDEA_F))
+
+gift_talent <- subset(gift_talent, select=c(State_Abbreviation, District, School, G_T_Indicator, GTMale_Total, GTFemale_Total))
+
 #remove -9 or NA
-
 gift_talent[gift_talent < 0] <- NA
-
 gift_talent = drop_na(gift_talent)
-gift_talent = gift_talent[gift_talent$GTMale_Total != -9,]
-gift_talent = gift_talent[gift_talent$GTFemale_Total != -9,]
 
-summary(gift_talent)
-gift_talent
 ```
 
 Cleaned -K
@@ -73,13 +73,19 @@ Cleaned -K
 # load in SAT participation here
 
 #read in SAT/ACT data, only read in necessary columns
-SAT_ACT = fread("SAT and ACT.csv", select=c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","TOT_SATACT_M","TOT_SATACT_F"))
+SAT_ACT = fread("SAT and ACT.csv", select=c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","TOT_SATACT_M","TOT_SATACT_F", "SCH_SATACT_LEP_M", "SCH_SATACT_LEP_F", "SCH_SATACT_IDEA_M", "SCH_SATACT_IDEA_F"))
 
 #filter out all states that aren't CA
 SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
 
 #rename columns
-SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, SA_Male = TOT_SATACT_M, SA_Female = TOT_SATACT_F)
+SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME)
+
+
+SAT_ACT <- SAT_ACT %>% mutate(SAMale_Total = (TOT_SATACT_M - SCH_SATACT_LEP_M -SCH_SATACT_IDEA_M)) %>% mutate(SAFemale_Total = (TOT_SATACT_F-SCH_SATACT_LEP_F-SCH_SATACT_IDEA_F))
+
+SAT_ACT <- subset(SAT_ACT, select=c(State_Abbreviation, District, School, SAMale_Total, SAFemale_Total))
+
 
 SAT_ACT[SAT_ACT < 0] <- NA
 SAT_ACT = drop_na(SAT_ACT)
@@ -295,17 +301,18 @@ pred_253kids  # 253 kids is about $5338394 million in staff expenditures
 # TODO: Run regression analysis of SAT_ACT participation  and high school grad/college going rates
 
 SAT_ACT_regression <- inner_join(joined_data, SAT_ACT, by=c("School", "District"))
-SAT_ACT_regression = select(SAT_ACT_regression, -c(State,State_Abbreviation))
+SAT_ACT_regression = select(SAT_ACT_regression, -c(State_Abbreviation))
 
-SAT_model <-  lm(formula = Total_College_Going_Rate ~ 1 + SA_Male + SA_Female, data=SAT_ACT_regression)
+SAT_ACT_regression
+SAT_model <-  lm(formula = Total_College_Going_Rate ~ 1 + SAMale_Total + SAFemale_Total, data=SAT_ACT_regression)
 
-ggplot(SAT_ACT_regression, aes(x=SA_Male, y=Total_College_Going_Rate)) +  
-    geom_point() + 
-    geom_smooth(method="lm", formula = y ~ x) 
+ggplot(SAT_ACT_regression, aes(x=SAMale_Total, y=Total_College_Going_Rate)) +
+    geom_point() +
+    geom_smooth(method="lm", formula = y ~ x)
 
 summary(SAT_model)
 
-SAT_model_d <-  lm(formula = HS_Diploma_Rate ~ 1 + SA_Male + SA_Female, data=SAT_ACT_regression)
+SAT_model_d <-  lm(formula = HS_Diploma_Rate ~ 1 + SAMale_Total + SAFemale_Total, data=SAT_ACT_regression)
 
 summary(SAT_model_d)
 
@@ -354,7 +361,7 @@ d_data = select(d_data, -State_Abbreviation)
 
 #joining SAT_ACT participation
 SAT <- inner_join(d_data, SAT_ACT,  by=c("District","School"))
-SAT = select(SAT, -c(State,State_Abbreviation))
+SAT = select(SAT, -c(State_Abbreviation))
 
 #joining gifted/talented
 GT <- inner_join(SAT, gift_talent, by=c("District","School"))
@@ -371,7 +378,7 @@ EXP = select(EXP, -c(State_Abbreviation,State))
 total_data <- EXP
 head(total_data,10)
 
-complete_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate + DEMale_Total + DEFemale_Total + SA_Male + SA_Female + GTMale_Total + GTFemale_Total + Total_Recovery + Teacher_Expenditures + All_Staff_Expenditures + Admin_Expenditures + Activity_Expenditures, data=total_data)
+complete_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate + DEMale_Total + DEFemale_Total + SAMale_Total + SAFemale_Total + GTMale_Total + GTFemale_Total + Total_Recovery + Teacher_Expenditures + All_Staff_Expenditures + Admin_Expenditures + Activity_Expenditures, data=total_data)
 
 summary(complete_model)
 
