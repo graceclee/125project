@@ -332,7 +332,7 @@ SAT_gift_model <- lm(formula = Total_College_Going_Rate ~ 1 + SAMale_Total + SAF
 
 summary(SAT_gift_model)
 
-SAT_gift_model_d <- lm(formula = HS_Diploma_Rate ~ 1 + SA_Male + SA_Female + GTMale_Total + GTFemale_Total, data=gift_talent_r)
+SAT_gift_model_d <- lm(formula = HS_Diploma_Rate ~ 1 + SAMale_Total + SAFemale_Total + GTMale_Total + GTFemale_Total, data=gift_talent_r)
 
 summary(SAT_gift_model_d)
 
