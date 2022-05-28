@@ -29,8 +29,10 @@ credit_recovery = subset(credit_recovery, select = -c(LEAID, SCHID, COMBOKEY, JJ
 d_enrollment <- read_csv("Dual Enrollment.csv")
 #drop all other states, -9 or NA values
 #-9 | -3 | -11 | -5 | -6 | -8
-d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") %>%  
-na_if(-9) %>% na_if(-3) %>% na_if(-11) %>%  na_if(-5) %>% na_if(-6) %>% na_if(-8) %>% drop_na()
+d_enrollment <- d_enrollment %>% filter(LEA_STATE == "CA") 
+
+d_enrollment[d_enrollment < 0] <- NA
+d_enrollment = drop_na(d_enrollment)
 #rename columns
 d_enrollment = rename(d_enrollment, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Dual_Indicator = SCH_DUAL_IND, Male_Total = TOT_DUAL_M, Female_Total = TOT_DUAL_F)
 #drop irrelevant columns
@@ -50,6 +52,8 @@ Cleaned -K
 #read in only relevant columns
 gift_talent = fread("Gifted and Talented.csv", select = c("LEA_STATE", "LEA_NAME", "SCH_NAME", "SCH_GT_IND", "TOT_GTENR_M", "TOT_GTENR_F", "SCH_GTENR_LEP_M", "SCH_GTENR_LEP_F", "SCH_GTENR_IDEA_M", "SCH_GTENR_IDEA_F"))
 
+
+
 #rename columns
 gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND)
 
@@ -57,13 +61,15 @@ gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA
 #filter out all states that aren't CA
 gift_talent = gift_talent[gift_talent$State_Abbreviation == "CA", ]
 
+gift_talent[gift_talent < 0] <- NA
+gift_talent = drop_na(gift_talent)
+
 gift_talent <- gift_talent %>% mutate(GTMale_Total = (TOT_GTENR_M - SCH_GTENR_LEP_M -SCH_GTENR_IDEA_M)) %>% mutate(GTFemale_Total = (TOT_GTENR_F-SCH_GTENR_LEP_F-SCH_GTENR_IDEA_F))
 
 gift_talent <- subset(gift_talent, select=c(State_Abbreviation, District, School, G_T_Indicator, GTMale_Total, GTFemale_Total))
 
-#remove -9 or NA
-gift_talent[gift_talent < 0] <- NA
-gift_talent = drop_na(gift_talent)
+gift_talent
+
 
 ```
 
@@ -80,14 +86,13 @@ SAT_ACT = SAT_ACT[SAT_ACT$LEA_STATE == "CA", ]
 #rename columns
 SAT_ACT = rename(SAT_ACT, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME)
 
+SAT_ACT[SAT_ACT < 0] <- NA
+SAT_ACT = drop_na(SAT_ACT)
 
 SAT_ACT <- SAT_ACT %>% mutate(SAMale_Total = (TOT_SATACT_M - SCH_SATACT_LEP_M -SCH_SATACT_IDEA_M)) %>% mutate(SAFemale_Total = (TOT_SATACT_F-SCH_SATACT_LEP_F-SCH_SATACT_IDEA_F))
 
 SAT_ACT <- subset(SAT_ACT, select=c(State_Abbreviation, District, School, SAMale_Total, SAFemale_Total))
 
-
-SAT_ACT[SAT_ACT < 0] <- NA
-SAT_ACT = drop_na(SAT_ACT)
 summary(SAT_ACT)
 SAT_ACT
 ```
@@ -263,6 +268,7 @@ expenditure_regression
 
 ggplot(expenditure_regression, aes(x=All_Staff_Expenditures)) + geom_histogram(binwidth = 100000) 
 
+
 new_model <- lm(formula = Total_College_Going_Rate ~ 1 +  All_Staff_Expenditures, data = expenditure_regression)
 summary(new_model)
 
@@ -307,7 +313,7 @@ SAT_model <-  lm(formula = Total_College_Going_Rate ~ 1 + SAMale_Total + SAFemal
 
 ggplot(SAT_ACT_regression, aes(x=SAMale_Total, y=Total_College_Going_Rate)) +
     geom_point() +
-    geom_smooth(method="lm", formula = y ~ x)
+    geom_smooth(method="lm", formula = y ~ I(log(x)))
 
 summary(SAT_model)
 
@@ -377,9 +383,18 @@ EXP = select(EXP, -c(State_Abbreviation,State))
 total_data <- EXP
 head(total_data,10)
 
+total_data
+
 complete_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate + DEMale_Total + DEFemale_Total + SAMale_Total + SAFemale_Total + GTMale_Total + GTFemale_Total + Total_Recovery + Teacher_Expenditures + All_Staff_Expenditures + Admin_Expenditures + Activity_Expenditures, data=total_data)
 
+male_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate + DEMale_Total + SAMale_Total + GTMale_Total + Total_Recovery + Teacher_Expenditures + All_Staff_Expenditures + Admin_Expenditures + Activity_Expenditures, data=total_data)
+
+female_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate + DEFemale_Total +  SAFemale_Total +  GTFemale_Total + Total_Recovery + Teacher_Expenditures + All_Staff_Expenditures + Admin_Expenditures + Activity_Expenditures, data=total_data)
+
+
 summary(complete_model)
+summary(male_model)
+summary(female_model)
 
 ```
 
