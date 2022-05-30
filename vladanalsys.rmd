@@ -1,0 +1,219 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# MS&E 125 Final Project
+## Grace, Chanse, Carlene, Katelin, Vlad
+
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(stringi)
+library("data.table") 
+```
+
+
+```{r}
+#load in school characteristics
+#read in school characteristics, only read in necessary columns
+characteristics = fread("https://raw.githubusercontent.com/graceclee/125project/main/School%20Characteristics.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","SCH_GRADE_G09", "SCH_GRADE_G10", "SCH_GRADE_G11", "SCH_GRADE_G12"))
+#filter out all states that aren't CA
+characteristics = characteristics[characteristics$LEA_STATE == "CA", ]
+#rename columns
+characteristics= rename(characteristics, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Grades_Stu_Enrolled_9 = SCH_GRADE_G09, Grades_Stu_Enrolled_10 = SCH_GRADE_G10, Grades_Stu_Enrolled_11 = SCH_GRADE_G11, Grades_Stu_Enrolled_12 = SCH_GRADE_G12)
+#drop anything that has NA
+characteristics = drop_na(characteristics)
+summary(characteristics)
+characteristics 
+```
+
+```{r}
+#Load in expenditures data (including federal, state, local funding)
+expenditures = fread("https://github.com/graceclee/125project/blob/main/School%20Expenditures.csv?raw=true", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","SCH_SAL_TEACH_WFED", "SCH_SAL_ADM_WFED", "SCH_SAL_TOTPERS_WFED", "SCH_NPE_WFED"))
+#filter out all states that aren't CA
+expenditures = expenditures[expenditures$LEA_STATE == "CA", ]
+#rename columns 
+expenditures = rename(expenditures, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Teacher_Expenditures = SCH_SAL_TEACH_WFED, Admin_Expenditures = SCH_SAL_ADM_WFED, All_Staff_Expenditures = SCH_SAL_TOTPERS_WFED, Activity_Expenditures = SCH_NPE_WFED)
+#drop anything that has NA or -9
+expenditures = na_if(expenditures, -9)
+expenditures = na_if(expenditures, 0)
+expenditures = drop_na(expenditures)
+summary(expenditures)
+head(expenditures,15)
+
+# expenditure_model <- lm(Teacher_Expenditures ~ Activity_Expenditures, 
+#                   data = expenditures,
+#                   family = binomial)
+#summary(expenditure_model)
+
+```
+
+Cleaned -K
+```{r}
+# load in SAT participation here
+#read in SAT/ACT data, only read in necessary columns
+SAT_PATH <- "https://raw.githubusercontent.com/graceclee/125project/main/SAT%20and%20ACT.csv"
+SATdata <- read.csv(SAT_PATH)
+CA_DATA <- SATdata %>% 
+  filter(LEA_STATE == "CA") 
+
+allnines = -9 * 20
+
+SAT_ACT <- CA_DATA %>%
+  filter(rowSums(CA_DATA[,9:28])!= allnines) %>% 
+  select(LEA_NAME,  SCH_NAME,TOT_SATACT_M,  TOT_SATACT_F)
+
+SAT_ACT = rename(SAT_ACT, District = LEA_NAME, School = SCH_NAME,  Female_Total = TOT_SATACT_F, Male_Total = TOT_SATACT_M)
+
+
+SAT_ACT[SAT_ACT < 0] <- NA
+
+
+SAT_ACT
+```
+
+
+
+
+```{r}
+# Chanse's exploration
+# college_going_1 <- college_going %>% 
+#   mutate_at(c(13:20), as.numeric) %>%
+#    filter(!is.na(College.Going.Rate...Total..12.Months.)) %>%
+#    mutate(CharterSchool = (CharterSchool == "Yes"))
+# 
+# charter_schools <- college_going_1 %>% filter(CharterSchool == TRUE)
+# noncharter_schools <- college_going_1 %>% filter(CharterSchool == FALSE)
+# mean(charter_schools$College.Going.Rate...Total..12.Months.)
+# mean(noncharter_schools$College.Going.Rate...Total..12.Months.)
+```
+
+```{r}
+# Grace clean up college_going 
+college_going = read.delim("https://github.com/graceclee/125project/blob/main/collegegoing.txt?raw=true", na.strings=c("","*", "NA"))
+college_going <- college_going %>% select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, ReportingCategory, CompleterType, High.School.Completers, Enrolled.In.College...Total..12.Months., College.Going.Rate...Total..12.Months., Enrolled.In.State..12.Months.,Enrolled.Out.of.State..12.Months.) 
+college_going <- college_going %>% rename(School = SchoolName, District = DistrictName, Total_Enrolled_College = Enrolled.In.College...Total..12.Months., Total_College_Going_Rate = College.Going.Rate...Total..12.Months., Total_Enrolled_In_State = Enrolled.In.State..12.Months., Total_Enrolled_Out_State = Enrolled.Out.of.State..12.Months.)
+college_going <- na.omit(college_going)
+college_going <- college_going %>% distinct()
+college_going <- filter(college_going, CompleterType == 'TA')
+#KATELIN CLEANING
+#filter only by school name
+schools_only = college_going[college_going$AggregateLevel == "S", ]
+#filter only by total student count (no breakdown by race/ethnicity)
+schools_only = schools_only[schools_only$ReportingCategory == "TA", ]
+#filter only by all schools, regardless of charter status
+schools_only = schools_only[schools_only$CharterSchool == "All", ]
+#delete all columns no longer necessary (all listed above)
+schools_only = subset(schools_only, select = -AggregateLevel)
+schools_only = subset(schools_only, select = -ReportingCategory)
+schools_only = subset(schools_only, select = -CharterSchool)
+schools_only = subset(schools_only, select = -CompleterType)
+#remove all duplicate lines
+schools_only = schools_only[!duplicated(schools_only), ]
+schools_only = subset(schools_only, Total_Enrolled_College != 0)
+summary(schools_only)
+schools_only
+```
+
+
+#katelin changes 5/31 2:38 PM 
+- Added back aggregate level to sort by schools only (eliminating district/state/county designation)
+- Added back reporting category to display only totals across races (no breakdown)
+- Remove charter school designation to display all (regardless of charter status) - eliminates duplicates
+
+```{r}
+# Grace load in graduation rate
+grad_rate = read.delim("https://github.com/graceclee/125project/blob/main/graduationrate.txt?raw=true", na.strings=c("","*", "NA"))
+grad_rate
+grad_rate <- grad_rate %>% 
+select(AggregateLevel, CountyCode, DistrictCode, SchoolCode, DistrictName, SchoolName, CharterSchool, DASS, ReportingCategory, CohortStudents, Regular.HS.Diploma.Graduates..Count.,Regular.HS.Diploma.Graduates..Rate.) %>% rename(School=SchoolName, District=DistrictName,Num_Students = CohortStudents, HS_Diploma_Count = Regular.HS.Diploma.Graduates..Count., HS_Diploma_Rate = Regular.HS.Diploma.Graduates..Rate.)
+grad_rate <- na.omit(grad_rate)
+#katelin edits
+#filter only by school name
+grad_rate_schools = grad_rate[grad_rate$AggregateLevel == "S", ]
+#filter by charter school, DASS, and reporting category
+grad_rate_schools = grad_rate_schools[grad_rate_schools$ReportingCategory == "TA", ]
+grad_rate_schools = grad_rate_schools[grad_rate_schools$DASS == "All", ]
+grad_rate_schools = grad_rate_schools[grad_rate_schools$CharterSchool == "All", ]
+#remove unnecessary columns
+grad_rate_schools = subset(grad_rate_schools, select = -c(ReportingCategory, AggregateLevel, DASS, CharterSchool))
+grad_rate_schools = grad_rate_schools[!duplicated(grad_rate_schools), ]
+grad_rate_schools = subset(grad_rate_schools, HS_Diploma_Rate != 0)
+grad_rate_schools
+#grad_test <- grad_rate_schools %>% -filter(HS_Diploma_Rate == 0.0)
+#grad_test
+```
+
+```{r}
+# use inner join to merge all the cleaned up data files 
+joined_data <- inner_join(schools_only, grad_rate_schools, by=c("DistrictCode", "SchoolCode", "CountyCode", "District", "School"))
+joined_data
+# small_schools_joined <- joined_data %>% 
+#   filter(Num_Students <= 75)
+joined_data_withschoolsize <- joined_data %>%
+  mutate(size = cut_number(Num_Students, n = 3, labels = c("small", "medium","large"))) 
+joined_data_withschoolsize
+```
+
+```{r}
+diploma_college_model <- lm(formula = Total_College_Going_Rate ~ 1 + HS_Diploma_Rate, data = joined_data_withschoolsize)
+summary(diploma_college_model)
+ggplot(joined_data_withschoolsize, aes(x=HS_Diploma_Rate, y=Total_College_Going_Rate, , color = size)) +
+    geom_point() + 
+    geom_smooth(method="lm", formula = y ~ x) + ggtitle("Correlation between HS Diploma Rate and College Going Rate") + xlab("High School Diploma Rate") +ylab("Total College Going Rate")
+```
+
+```{r}
+#joining the SAT and school data 
+SAT_and_grad_rate <- inner_join(SAT_ACT, grad_rate_schools, by=c("District", "School"))  %>% 
+  select(District, School, Male_Total, Female_Total, Num_Students) %>%
+  #key assumption most likely num students not updated properly, transfers etc. 
+  mutate(test_part_rate = ifelse(Male_Total + Female_Total > Num_Students, 100, (Male_Total + Female_Total)/Num_Students * 100) ) %>% 
+  mutate(size = cut_number(Num_Students, n = 3, labels = c("small", "medium","large"))) 
+  
+
+cleaned_SAT_and_grad_rate <- inner_join(SAT_and_grad_rate, schools_only, by=c("District", "School")) %>% 
+   select(District, School, test_part_rate, Total_College_Going_Rate, size)
+
+
+cleaned_SAT_and_grad_rate
+
+```
+```{r}
+college_sat_model <- lm(formula = Total_College_Going_Rate ~ 1 + test_part_rate, data = cleaned_SAT_and_grad_rate)
+ggplot(cleaned_SAT_and_grad_rate, aes(x=test_part_rate, y=Total_College_Going_Rate, color = size)) +
+    geom_point(alpha = .6) + 
+    geom_smooth(method="lm", formula = y ~ x) + ggtitle("college participation based on school SAT part rate") + xlab("SAT part rate") +ylab("Total College Going Rate")
+```
+
+```{r}
+# expenditure data with college goiong rate 
+cleaned_expenditures <- expenditures %>% 
+  mutate(total_expenditure = All_Staff_Expenditures + Activity_Expenditures) 
+
+joined_wealth <- inner_join(cleaned_expenditures, grad_rate_schools, by=c("District", "School"))  %>% 
+  select(District, School, total_expenditure, Num_Students) %>% 
+  mutate(school_income_per_student = total_expenditure / (Num_Students * 4)) %>% 
+  mutate(school_income_per_student = cut_number(total_expenditure, n = 3, labels = c("lower", "middle","upper")))
+
+joined_wealth_final <- inner_join(joined_wealth, joined_data, by=c("District", "School"))
+
+ggplot(joined_wealth_final, aes(x=HS_Diploma_Rate, y=Total_College_Going_Rate, , color = school_income_per_student)) +
+    geom_point() + 
+    geom_smooth(method="lm", formula = y ~ x) + ggtitle("HS Diploma Rate and College Going Rate by school wealth per student") + xlab("High School Diploma Rate") +ylab("Total College Going Rate")
+```
+
+```{r}
+#sat part rate on college going rate, data broken down by wealth 
+
+cleaned_SAT_and_grad_rate_wealth <- inner_join(cleaned_SAT_and_grad_rate, joined_wealth_final, by=c("District", "School"))
+
+
+
+ggplot(cleaned_SAT_and_grad_rate_wealth, aes(x=test_part_rate, y=Total_College_Going_Rate.x, color = school_income_per_student)) +
+    geom_point(alpha = .6) + 
+    geom_smooth(method="lm", formula = y ~ x) + ggtitle("college participation based on school SAT part rate with school expenditure") + xlab("SAT part rate") +ylab("Total College Going Rate")
+```
+    
