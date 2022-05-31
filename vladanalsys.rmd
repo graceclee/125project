@@ -206,6 +206,7 @@ cleaned_SAT_and_grad_rate
 ```
 ```{r}
 college_sat_model <- lm(formula = Total_College_Going_Rate ~ 1 + test_part_rate, data = cleaned_SAT_and_grad_rate)
+summary(college_sat_model)
 ggplot(cleaned_SAT_and_grad_rate, aes(x=test_part_rate, y=Total_College_Going_Rate, color = size)) +
     geom_point(alpha = .6) + 
     geom_smooth(method="lm", formula = y ~ x) + ggtitle("college participation based on school SAT part rate") + xlab("SAT part rate") +ylab("Total College Going Rate")
@@ -228,6 +229,7 @@ ggplot(joined_wealth_final, aes(x=HS_Diploma_Rate, y=Total_College_Going_Rate, ,
     geom_point() + 
     geom_smooth(method="lm", formula = y ~ x) + ggtitle("HS Diploma Rate and College Going Rate ") + xlab("High School Diploma Rate") +ylab("Total College Going Rate")
 
+summary(joined_wealth_final)
 ggplot(joined_wealth_final, aes(x=total_expenditure, y=Total_College_Going_Rate)) +
     geom_point() + 
     geom_smooth(method="lm", formula = y ~ log(x)) + ggtitle("Total Expenditure and College Going Rate by school expenditure") + xlab("Total Expenditure") +ylab("Total College Going Rate")
@@ -264,14 +266,18 @@ last_dataset
 ```{r}
 
 idk <- inner_join(last_dataset, joined_wealth, by=c("District", "School"))
-idk2 <- inner_join(penes, SAT_and_grad_rate, by=c("District", "School"))
+idk2 <- inner_join(idk, SAT_and_grad_rate, by=c("District", "School"))
 idk2 <- idk2 %>% 
   mutate(Total_College_Going_Ratenormalized = Total_College_Going_Rate / 100)
 
 
 logistic_model <- glm(formula = Total_College_Going_Ratenormalized ~  HS_Diploma_Rate + log(total_talented) + log(total_expenditure.y) + test_part_rate , family = "binomial", data = idk2)
 
+summary(logistic_model)
+
 linear_moel <- lm(formula = Total_College_Going_Ratenormalized ~  HS_Diploma_Rate + log(total_talented) + log(total_expenditure.y) + test_part_rate, data = idk2)
+
+summary(linear_moel)
 
 
 ```
