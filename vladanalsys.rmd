@@ -14,13 +14,30 @@ library(stringi)
 library("data.table") 
 ```
 
+```{r}
+#load in gifted and talented participation here
+#read in only relevant columns
+gift_talent = fread("https://github.com/graceclee/125project/blob/main/Gifted%20and%20Talented.csv?raw=true", select = c("LEA_STATE", "LEA_NAME", "SCH_NAME", "SCH_GT_IND", "TOT_GTENR_M", "TOT_GTENR_F", "SCH_GTENR_LEP_M", "SCH_GTENR_LEP_F", "SCH_GTENR_IDEA_M", "SCH_GTENR_IDEA_F"))
+#rename columns
+gift_talent = rename(gift_talent, State_Abbreviation = LEA_STATE, District = LEA_NAME, School = SCH_NAME, G_T_Indicator = SCH_GT_IND)
+#filter out all states that aren't CA
+gift_talent = gift_talent[gift_talent$State_Abbreviation == "CA",]
+gift_talent[gift_talent < 0] <- NA
+gift_talent = drop_na(gift_talent)
+# gift_talent <- gift_talent %>% 
+#   mutate(GTMale_Total = (TOT_GTENR_M - SCH_GTENR_LEP_M -SCH_GTENR_IDEA_M)) %>%   
+#   mutate(GTFemale_Total = (TOT_GTENR_F-SCH_GTENR_LEP_F-SCH_GTENR_IDEA_F))
+gift_talent <- subset(gift_talent, select=c(State_Abbreviation, District, School, G_T_Indicator, TOT_GTENR_M, TOT_GTENR_F))
+gift_talent
+```
+
 
 ```{r}
 #load in school characteristics
 #read in school characteristics, only read in necessary columns
 characteristics = fread("https://raw.githubusercontent.com/graceclee/125project/main/School%20Characteristics.csv", select = c("LEA_STATE","LEA_STATE_NAME","LEA_NAME","SCH_NAME","SCH_GRADE_G09", "SCH_GRADE_G10", "SCH_GRADE_G11", "SCH_GRADE_G12"))
 #filter out all states that aren't CA
-characteristics = characteristics[characteristics$LEA_STATE == "CA", ]
+characteristics = characteristics[characteristics$LEA_STATE == "CA",]
 #rename columns
 characteristics= rename(characteristics, State_Abbreviation = LEA_STATE, State = LEA_STATE_NAME, District = LEA_NAME, School = SCH_NAME, Grades_Stu_Enrolled_9 = SCH_GRADE_G09, Grades_Stu_Enrolled_10 = SCH_GRADE_G10, Grades_Stu_Enrolled_11 = SCH_GRADE_G11, Grades_Stu_Enrolled_12 = SCH_GRADE_G12)
 #drop anything that has NA
@@ -210,10 +227,21 @@ ggplot(joined_wealth_final, aes(x=HS_Diploma_Rate, y=Total_College_Going_Rate, ,
 
 cleaned_SAT_and_grad_rate_wealth <- inner_join(cleaned_SAT_and_grad_rate, joined_wealth_final, by=c("District", "School"))
 
-
-
 ggplot(cleaned_SAT_and_grad_rate_wealth, aes(x=test_part_rate, y=Total_College_Going_Rate.x, color = school_income_per_student)) +
     geom_point(alpha = .6) + 
     geom_smooth(method="lm", formula = y ~ x) + ggtitle("college participation based on school SAT part rate with school expenditure") + xlab("SAT part rate") +ylab("Total College Going Rate")
 ```
-    
+
+# this is gifted and talented combined with college going rates 
+```{r}
+last_dataset <- inner_join(gift_talent, joined_wealth_final, by=c("District", "School")) %>% 
+  mutate(total_talented = (TOT_GTENR_M + TOT_GTENR_F )/ (Num_Students.y * 4 ) * 100) %>% 
+  mutate(size = cut_number(Num_Students.y, n = 3, labels = c("small", "medium","large"))) 
+
+ggplot(last_dataset, aes(x=total_talented, y=Total_College_Going_Rate, , color = size)) +
+    geom_point() +
+    geom_smooth(method="lm", formula = y ~ log(x)) + ggtitle("G and T vs College Going Rate by school size") + xlab("Percent of Gifted and Talented Students") +ylab("Total College Going Rate")
+
+last_dataset
+```
+
